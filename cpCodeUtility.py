@@ -19,15 +19,17 @@ def createCPCode(rowData,akhttp,accountSwitchKey):
         cpcode_data = json.dumps(create_cpcode)
 
         createCPCodeEndPoint = '/papi/v1/cpcodes'
-        headers = {'Content-Type': 'application/json',
-                   'PAPI-Use-Prefixes': True}
+        headers = {'Content-Type': 'application/json'}#,
+                   #'PAPI-Use-Prefixes': True}
 
-        print_log('test1')
+        #print_log(cpcode_data)
+        #print_log(headers)
+
         status,createCPCodeJson = akhttp.postResult(createCPCodeEndPoint,cpcode_data,headers,params)
-        if status == 202:
+        if status == 201:
             print_log(createCPCodeJson)
-            print_log('Successfully created the CP Code for {}'.format(rowData['Hostname']))
             cpCode = createCPCodeJson['cpcodeLink'].split('?')[0].split('/')[4].split('_')[1]
+            print_log('Successfully created the CP Code {} for {}'.format(cpCode,rowData['Hostname']))
             return cpCode
         else:
             print_log('Failed to create the CP Code for {} and status code is {}.'.format(rowData['Hostname'],status))

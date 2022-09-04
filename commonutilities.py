@@ -7,6 +7,11 @@ network = ''
 ipversion = ''
 
 def readCommonSettings(sheet):
+    global productId
+    global ehndomainsuffix
+    global network
+    global ipversion
+
     cmnsheet = sheet.worksheet('Common Settings')
     numRows = cmnsheet.row_count
     productId = cmnsheet.row_values(1)[1]
@@ -20,15 +25,19 @@ def readCommonSettings(sheet):
     print_log('IPVersion:{}'.format(ipversion))
 
 def getProductId():
+    global productId
     return productId
 
 def getehndomainSuffix():
+    global ehndomainsuffix
     return ehndomainsuffix
 
 def getNetwork():
+    global network
     return network
 
 def getIpVersion():
+    global ipversion
     return ipversion
 
 def print_log(args):

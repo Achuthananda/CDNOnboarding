@@ -28,7 +28,7 @@ else:
     import urlparse as parse
 
 logger = logging.getLogger(__name__)
-
+from commonutilities import print_log
 
 class EdgeGridHttpCaller():
     def __init__(self, session, debug, verbose, baseurl):
@@ -63,7 +63,7 @@ class EdgeGridHttpCaller():
             error_msg += "ERROR: Please ensure that the credentials you created for this script\n"
             error_msg += "ERROR: have the necessary permissions in the Luna portal.\n"
             error_msg += "ERROR: Problem details: %s\n" % details
-            print(error_msg)
+            print_log(error_msg)
 
         if status_code in [400, 401]:
             error_msg = "ERROR: Call to %s failed with a %s result\n" % (endpoint, status_code)
@@ -72,7 +72,7 @@ class EdgeGridHttpCaller():
             error_msg += "ERROR: If you still have issues, please use gen_edgerc.py to generate the credentials\n"
             error_msg += "ERROR: Problem details: %s\n" % result
             # exit(error_msg)
-            print(error_msg)
+            print_log(error_msg)
 
         if status_code in [404]:
             error_msg = "ERROR: Call to %s failed with a %s result\n" % (endpoint, status_code)
@@ -80,7 +80,7 @@ class EdgeGridHttpCaller():
             error_msg += "ERROR: Please ensure that the URL you're calling is valid and correctly formatted\n"
             error_msg += "ERROR: or look at other examples to make sure yours matches.\n"
             error_msg += "ERROR: Problem details: %s\n" % details
-            print(error_msg)
+            print_log(error_msg)
 
         error_string = None
         if "errorString" in result:
@@ -96,7 +96,7 @@ class EdgeGridHttpCaller():
             error_msg = "ERROR: Call caused a server fault.\n"
             error_msg += "ERROR: Please check the problem details for more information:\n"
             error_msg += "ERROR: Problem details: %s\n" % error_string
-            print(error_msg)
+            print_log(error_msg)
 
     def postResult(self, endpoint, body, headers=None,params=None):
         """ Executes a GET API call and returns the JSON output """
@@ -105,7 +105,7 @@ class EdgeGridHttpCaller():
         path = endpoint
         endpoint_result = self.session.post(parse.urljoin(self.baseurl, path), data=body, headers=headers, params=params)
         status = endpoint_result.status_code
-        print(status)
+        #print_log(status)
         if self.verbose:
             print("LOG: POST %s %s %s" % (path, status, endpoint_result.headers["content-type"]))
         if status == 204:

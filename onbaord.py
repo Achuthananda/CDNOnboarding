@@ -70,8 +70,14 @@ def main(sheetName,startRow,endRow,accountSwitchKey):
     for i in range(startRow,endRow+1):
         print_log(data[i])
         #addHostNametoCert(data[i],akhttp,accountSwitchKey)
-        cpCode = createCPCode(data[i],akhttp,accountSwitchKey)
-        #edgeHostName = createEdgeHostName(data[i],akhttp,accountSwitchKey,productId)
+        if data[i]['CPCode'] != '':
+            cpCode = createCPCode(data[i],akhttp,accountSwitchKey)
+            if cpCode != 0:
+                sheet_instance.update_cell(i+2, 9,cpCode) #Update the CP Code 
+        if data[i]['Edgehostname'] != '':
+            edgeHostName = createEdgeHostName(data[i],akhttp,accountSwitchKey,productId)
+            if edgeHostName != '':
+                sheet_instance.update_cell(i+2, 10,edgeHostName) #Update the CP Code 
         time.sleep(1)
         udpateprogressbar()
         print_log('*'*80)
