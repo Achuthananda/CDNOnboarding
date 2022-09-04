@@ -10,6 +10,7 @@ from tqdm import tqdm
 import sys,os
 from cpCodeUtility import createCPCode
 from ehnUtility import createEdgeHostName
+from cpsUtility import addSANtoCert
 from akamaihttp import AkamaiHTTPHandler
 from commonutilities import print_log,readCommonSettings
 
@@ -39,7 +40,7 @@ def addHostNametoCert(rowData,akhttp,accountSwitchKey):
     print_log("Now adding the Hostname to Certificate")
     
 
-def main(sheetName,startRow,endRow,accountSwitchKey):
+def main(sheetName,startRow,endRow,accountSwitchKey=None):
     startRow = int(startRow)
     endRow = int(endRow)
     if startRow <= 0 or endRow <=0 or startRow > endRow:
@@ -66,7 +67,9 @@ def main(sheetName,startRow,endRow,accountSwitchKey):
 
     for i in range(startRow,endRow+1):
         print_log(data[i])
-        #addHostNametoCert(data[i],akhttp,accountSwitchKey)
+        if data[i]['SAN Addition'] == '':
+            addSANtoCert(data[i],akhttp,accountSwitchKey)
+
         if data[i]['CPCode'] == '':
             cpCode = createCPCode(data[i],akhttp,accountSwitchKey)
             if cpCode != 0:
@@ -74,6 +77,7 @@ def main(sheetName,startRow,endRow,accountSwitchKey):
         else:
             print_log("CPCode already present in the sheet !So skipping creating the CP Code")
             print("CPCode already present in the sheet !So skipping creating the CP Code",file=sys.stderr)
+    
         if data[i]['Edgehostname'] == '':
             edgeHostName = createEdgeHostName(data[i],akhttp,accountSwitchKey)
             if edgeHostName != '':
@@ -104,7 +108,6 @@ if __name__ == "__main__":
     
     if args.logfile:
         logfilepath = dirpath + "/" + args.logfile
-
 
     sys.stdout = open(logfilepath, 'w')
     main(args.sheet,args.start,args.end,args.accountSwitchKey)

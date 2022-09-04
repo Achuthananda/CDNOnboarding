@@ -41,7 +41,7 @@ class EdgeGridHttpCaller():
     def urlJoin(self, url, path):
         return parse.urljoin(url, path)
 
-    def getResult(self, endpoint,params=None,headers=None):
+    def getResult(self, endpoint,headers=None,params=None):
         """ Executes a GET API call and returns the JSON output """
         path = endpoint
         endpoint_result = self.session.get(parse.urljoin(self.baseurl,path), headers=headers,params=params)

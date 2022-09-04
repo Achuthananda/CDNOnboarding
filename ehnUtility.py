@@ -2,7 +2,7 @@ from commonutilities import print_log,getProductId,getehndomainSuffix,getIpVersi
 import json
 import sys
 
-def createEdgeHostName(rowData,akhttp,accountSwitchKey):
+def createEdgeHostName(rowData,akhttp,accountSwitchKey=None):
     try:
         params = {}
         if accountSwitchKey:

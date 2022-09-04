@@ -2,7 +2,7 @@ from commonutilities import print_log,getProductId
 import json
 import sys
 
-def createCPCode(rowData,akhttp,accountSwitchKey):
+def createCPCode(rowData,akhttp,accountSwitchKey=None):
     try:
         params = {}
         if accountSwitchKey:
