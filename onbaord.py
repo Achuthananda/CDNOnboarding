@@ -8,15 +8,14 @@ import time
 import uuid
 from tqdm import tqdm
 import sys,os
-#from cpCodeUtility import createCPCode
+from cpCodeUtility import createCPCode
 from akamaihttp import AkamaiHTTPHandler
-from commonutilities import print_log
+from commonutilities import print_log,readCommonSettings
 
 
 edgercLocation = '~/.edgerc'
 edgercLocation = os.path.expanduser(edgercLocation)
-akhttp = AkamaiHTTPHandler(edgercLocation)
-
+akhttp = AkamaiHTTPHandler(edgercLocation,'default')
 
 jobId = str(uuid.uuid1())
 logfilepath = ''
@@ -71,7 +70,7 @@ def main(sheetName,startRow,endRow,accountSwitchKey):
     for i in range(startRow,endRow+1):
         print_log(data[i])
         #addHostNametoCert(data[i],akhttp,accountSwitchKey)
-        cpCode = createCPCode(data[i],akhttp,accountSwitchKey,productId)
+        cpCode = createCPCode(data[i],akhttp,accountSwitchKey)
         #edgeHostName = createEdgeHostName(data[i],akhttp,accountSwitchKey,productId)
         time.sleep(1)
         udpateprogressbar()
@@ -89,9 +88,14 @@ if __name__ == "__main__":
     parser.add_argument('--logfile', help='Log File Name')
 
     args = parser.parse_args()
-    logfilepath = jobId+'.txt'
+
+    curdir = os.getcwd()
+    dirpath = os.path.dirname(curdir + '/logs')
+    logfilepath = dirpath + "/"  + jobId+'.txt'
+    
     if args.logfile:
-        logfilepath = args.logfile
+        logfilepath = dirpath + "/" + args.logfile
+
 
     sys.stdout = open(logfilepath, 'w')
     main(args.sheet,args.start,args.end,args.accountSwitchKey)

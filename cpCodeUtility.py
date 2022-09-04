@@ -1,5 +1,8 @@
 from commonutilities import print_log,getProductId
-def createCPCode(rowData,akhttp,accountSwitchKey,productId):
+import json
+import sys
+
+def createCPCode(rowData,akhttp,accountSwitchKey):
     try:
         params = {}
         if accountSwitchKey:
@@ -7,7 +10,7 @@ def createCPCode(rowData,akhttp,accountSwitchKey,productId):
         params["contractId"] = rowData['ContractId']
         params["groupId"] = rowData['GroupId']
 
-        
+
         create_cpcode = {
             "productId": getProductId(),
             "cpcodeName": rowData['Hostname']
@@ -16,8 +19,10 @@ def createCPCode(rowData,akhttp,accountSwitchKey,productId):
         cpcode_data = json.dumps(create_cpcode)
 
         createCPCodeEndPoint = '/papi/v1/cpcodes'
-        headers = {'Content-Type': 'application/json'}
+        headers = {'Content-Type': 'application/json',
+                   'PAPI-Use-Prefixes': True}
 
+        print_log('test1')
         status,createCPCodeJson = akhttp.postResult(createCPCodeEndPoint,cpcode_data,headers,params)
         if status == 202:
             print_log(createCPCodeJson)
