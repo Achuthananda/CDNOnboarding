@@ -1,0 +1,57 @@
+{
+    "name": "testRule",
+    "children": [],
+    "behaviors": [
+        {
+            "name": "origin",
+            "options": {
+                "originType": "CUSTOMER",
+                "hostname": "origin-symphony-uat.research.hsbc.com",
+                "forwardHostHeader": "REQUEST_HOST_HEADER",
+                "cacheKeyHostname": "REQUEST_HOST_HEADER",
+                "compress": true,
+                "enableTrueClientIp": true,
+                "originCertificate": "",
+                "verificationMode": "CUSTOM",
+                "ports": "",
+                "httpPort": 80,
+                "httpsPort": 443,
+                "originSni": true,
+                "customValidCnValues": [
+                    "{{Origin Hostname}}",
+                    "{{Forward Host Header}}"
+                ],
+                "originCertsToHonor": "STANDARD_CERTIFICATE_AUTHORITIES",
+                "trueClientIpHeader": "KSD-CLIENT-IP",
+                "trueClientIpClientSetting": false,
+                "standardCertificateAuthorities": [
+                    "akamai-permissive"
+                ]
+            }
+        },
+        {
+            "name": "cpCode",
+            "options": {
+                "value": {
+                    "id": 1059406,
+                    "description": "CMB-EMEA-PreProd",
+                    "products": [
+                        "Site_Accel"
+                    ]
+                }
+            }
+        }
+    ],
+    "criteria": [
+        {
+            "name": "hostname",
+            "options": {
+                "matchOperator": "IS_ONE_OF",
+                "values": [
+                    "symphony-uat.research.hsbc.com"
+                ]
+            }
+        }
+    ],
+    "criteriaMustSatisfy": "all"
+}
