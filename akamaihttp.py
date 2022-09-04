@@ -137,6 +137,7 @@ class EdgeGridHttpCaller():
         path = endpoint
         endpoint_result = self.session.post(parse.urljoin(self.baseurl, path), files=file)
         status = endpoint_result.status_code
+        print_log("Put Status is:{}".format(status))
         if self.verbose:
             print("LOG: POST FILES %s %s %s" % (path, status, endpoint_result.headers["content-type"]))
         if status == 204:

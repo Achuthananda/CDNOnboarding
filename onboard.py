@@ -10,7 +10,7 @@ from tqdm import tqdm
 import sys,os
 from cpCodeUtility import createCPCode
 from ehnUtility import createEdgeHostName
-from cpsUtility import addSANtoCert
+from cpsUtility import addSANtoCert,getDVChallenges
 from akamaihttp import AkamaiHTTPHandler
 from commonutilities import print_log,readCommonSettings
 
@@ -65,10 +65,15 @@ def main(sheetName,startRow,endRow,accountSwitchKey=None):
     def udpateprogressbar():
         progress_bar.update()
 
+    certtoHostnameDict = {}
+
     for i in range(startRow,endRow+1):
         print_log(data[i])
         if data[i]['SAN Addition'] == '':
-            addSANtoCert(data[i],akhttp,accountSwitchKey)
+            if data[i]['CertEnrollmentId'] not in certtoHostnameDict:
+                certtoHostnameDict[data[i]['CertEnrollmentId']] = [data[i]['Hostname']]
+            else:
+                certtoHostnameDict[data[i]['CertEnrollmentId']].append(data[i]['Hostname'])
 
         if data[i]['CPCode'] == '':
             cpCode = createCPCode(data[i],akhttp,accountSwitchKey)
@@ -90,6 +95,18 @@ def main(sheetName,startRow,endRow,accountSwitchKey=None):
         print_log('*'*80)
 
 
+    for enrollmentID in certtoHostnameDict:
+        addStatus = addSANtoCert(enrollmentID,certtoHostnameDict[enrollmentID],akhttp,accountSwitchKey)
+        for i in range(startRow,endRow+1):
+            if data[i]['Hostname'] in certtoHostnameDict[enrollmentID]:
+                sheet_instance.update_cell(i+2, 11,addStatus) #Update the SAN Addition 
+        #getDVChallenges(enrollmentID)
+        ##UpdateZoneFile(records)
+
+    for enrollmentID in certtoHostnameDict:
+        dnsrecordsDict = getDVChallenges(akhttp,data[i]['CertEnrollmentId'],accountSwitchKey)
+
+    
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='Times CDN Onboarding Tool.')
@@ -113,58 +130,6 @@ if __name__ == "__main__":
     main(args.sheet,args.start,args.end,args.accountSwitchKey)
 
 
-
-
-
-'''row4 = sheet_instance.row_values(4) 
-print(row4)
-
-# display data
-data = sheet_instance.get_all_records()
-print(json.dumps(data,indent=2))'''
-
-'''row4 = sheet.row_values(4)
-col2 = sheet.col_values(2)
-cell = sheet.cell(5, 2).value
- 
-print("Column 2 Data : ")
-pprint(col2)
-print("\nRow 4 Data : ")
-pprint(row4)
-print("\nCell (5,2) Data : ")
-pprint(cell)
-print("\nAll Records : ")
-pprint(data)
- 
- 
- 
-# Inserting data
-insertRow = [6, "Soumodeep Naskar", "Purple"]
-sheet.insert_row(insertRow, 4)
-print("\nAll Records after inserting new row : ")
-pprint(data)
- 
- 
- 
-# Deleting data
-sheet.delete_row(7)
-print("\nAll Records after deleting row 7 : ")
-pprint(data)
- 
- 
- 
-# Update a cell
-sheet.update_cell(5, 2, "Nitin Das")
-print("\nAll Records after updating cell (5,2) : ")
-pprint(data)
- 
- 
- 
-# Display no. of rows, columns
-# and no. of rows having content
-numRows = sheet.row_count
-numCol = sheet.col_count
-print("Number of Rows : ", numRows)
-print("Number of Columns : ", numCol)
-print("Number of Rows having content : ", len(data))
+'''
+python onboard.py --sheet 'First Batch' --start 2 --end 2 --accountSwitchKey B-3-16OEUPX --logfile file.txt
 '''

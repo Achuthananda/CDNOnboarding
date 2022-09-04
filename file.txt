@@ -1,0 +1,11 @@
+2022-09-05T00:19:21.124559Z:ProductID:prd_Fresca
+2022-09-05T00:19:21.124683Z:EHNDomainSuffix:edgesuite.net
+2022-09-05T00:19:21.124711Z:Network:STANDARD_TLS
+2022-09-05T00:19:21.124729Z:IPVersion:IPV6_COMPLIANCE
+2022-09-05T00:19:25.941329Z:Succesfully Fetched the Challenges
+2022-09-05T00:19:25.941436Z:
+DNS Record:_acme-challenge.times3.iamacmp.com.
+Token:Inb7hDiFnqPcNeHc5jCm8oxEBkSwVUKlp1Y6lQ7Qw8A
+2022-09-05T00:19:25.941492Z:
+DNS Record:_acme-challenge.times2.iamacmp.com.
+Token:FazJrtX7zxSFr1Eoc5g88hTmujVf3rSVUSxjZeXkUB8
