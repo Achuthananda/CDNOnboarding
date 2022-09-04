@@ -1,7 +1,0 @@
-2022-09-04T21:55:28.185369Z:ProductID:prd_Fresca
-2022-09-04T21:55:28.185499Z:EHNDomainSuffix:edgekey.net
-2022-09-04T21:55:28.185531Z:Network:STANDARD_TLS
-2022-09-04T21:55:28.185554Z:IPVersion:IPV6_COMPLIANCE
-2022-09-04T21:55:28.834536Z:{'ContractId': 'ctr_3-16TWBVX', 'GroupId': 'grp_173720', 'Hostname': 'times1.iamacmp.com', 'CertEnrollmentId': 155858, 'Config': 'Times_Iamcmp', 'OriginHostName': 'origin.iamamcp.com', 'SampleTestURL': 'https://times1.iamacmp.com/1.txt\nhttps://times1.iamacmp.com/robots.png', 'EmailNotification': 'apadmana@akamai.com', 'CPCode': 1375327, 'Edgehostname': '', 'Staging Activation': '', 'ProductionActivation': '', 'ATCTestSuite': '', 'StagingTestResults': '', 'ProductionTestResults': ''}
-2022-09-04T21:55:28.834661Z:CPCode already present in the sheet !So skipping creating the CP Code
-2022-09-04T21:55:28.834726Z:Error Creating the Edgehostname for times1.iamacmp.com
