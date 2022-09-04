@@ -34,7 +34,7 @@ def createCPCode(rowData,akhttp,accountSwitchKey):
         else:
             print_log('Failed to create the CP Code for {} and status code is {}.'.format(rowData['Hostname'],status))
             return 0
-    except:
-        print('Error Creating the CP Code for {}'.format(rowData),file=sys.stderr)
-        print_log('Error Creating the CP Code for {}'.format(rowData['Hostname']))
+    except Exception as e:
+        print('{}:Error Creating the CP Code for {}'.format(e,rowData),file=sys.stderr)
+        print_log('{}:Error Creating the CP Code for {}'.format(e,rowData['Hostname']))
         exit(3)

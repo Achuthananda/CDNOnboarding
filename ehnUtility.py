@@ -16,8 +16,8 @@ def createEdgeHostName(rowData,akhttp,accountSwitchKey):
             "domainPrefix": rowData['Hostname'],
             "domainSuffix": getehndomainSuffix(),
             "secureNetwork": getNetwork(),
-            "ipVersionBehavior": getIpVersion()
-            "certEnrollmentId": rowData['certEnrollmentId']
+            "ipVersionBehavior": getIpVersion(),
+            "certEnrollmentId": rowData['CertEnrollmentId']
         }
 
         hostname_data = json.dumps(create_hostname)
@@ -27,7 +27,7 @@ def createEdgeHostName(rowData,akhttp,accountSwitchKey):
         #print_log(headers)
 
         createEHNEndPoint = '/papi/v1/edgehostnames'
-        status,createEHNJson = prdHttpCaller.postResult(createEHNEndPoint,hostname_data,headers,params)
+        status,createEHNJson = akhttp.postResult(createEHNEndPoint,hostname_data,headers,params)
         if status == 201:
             print_log(createEHNJson)
             print_log('Successfully created the Edgehostname {} for {}'.format(ehn,rowData['Hostname']))
@@ -35,7 +35,7 @@ def createEdgeHostName(rowData,akhttp,accountSwitchKey):
         else:
             print_log('Failed to create the Edgehostname for {} and status code is {}.'.format(rowData['Hostname'],status))
             return ''
-    except:
-        print('Error Creating the Edgehostname for {}'.format(rowData['Hostname']),file=sys.stderr)
-        print_log('Error Creating the Edgehostname for {}'.format(rowData['Hostname']))
+    except Exception as e:
+        print('{}:Error Creating the Edgehostname for {}'.format(e,rowData['Hostname']),file=sys.stderr)
+        print_log('{}:Error Creating the Edgehostname for {}'.format(e,rowData['Hostname']))
         exit(3)

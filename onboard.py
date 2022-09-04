@@ -111,10 +111,6 @@ if __name__ == "__main__":
 
 
 
-'''
-python onbaord.py --sheet 'First Batch' --start 2 --end 2 --accountSwitchKey B-3-16OEUPX --logfile file.txt
-'''
-
 
 
 '''row4 = sheet_instance.row_values(4) 
