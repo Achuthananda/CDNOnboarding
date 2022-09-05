@@ -1,11 +1,364 @@
-2022-09-05T00:19:21.124559Z:ProductID:prd_Fresca
-2022-09-05T00:19:21.124683Z:EHNDomainSuffix:edgesuite.net
-2022-09-05T00:19:21.124711Z:Network:STANDARD_TLS
-2022-09-05T00:19:21.124729Z:IPVersion:IPV6_COMPLIANCE
-2022-09-05T00:19:25.941329Z:Succesfully Fetched the Challenges
-2022-09-05T00:19:25.941436Z:
-DNS Record:_acme-challenge.times3.iamacmp.com.
-Token:Inb7hDiFnqPcNeHc5jCm8oxEBkSwVUKlp1Y6lQ7Qw8A
-2022-09-05T00:19:25.941492Z:
-DNS Record:_acme-challenge.times2.iamacmp.com.
-Token:FazJrtX7zxSFr1Eoc5g88hTmujVf3rSVUSxjZeXkUB8
+2022-09-05T16:23:04.190225Z:ProductID:prd_Fresca
+2022-09-05T16:23:04.190331Z:EHNDomainSuffix:edgesuite.net
+2022-09-05T16:23:04.190354Z:Network:STANDARD_TLS
+2022-09-05T16:23:04.190368Z:IPVersion:IPV6_COMPLIANCE
+2022-09-05T16:23:04.768044Z:{'ContractId': 'ctr_3-16TWBVX', 'GroupId': 'grp_173720', 'Hostname': 'times12.iamacmp.com', 'CertEnrollmentId': 155858, 'Config': 'Times_Iamcmp1', 'OriginHostName': 'origin.iamamcp.com', 'SampleTestURL': 'https://times1.iamacmp.com/1.txt\nhttps://times1.iamacmp.com/robots.png', 'EmailNotification': 'apadmana@akamai.com', 'CPCode': '', 'Edgehostname': '', 'SAN Addition': '', 'Staging Activation': '', 'ProductionActivation': '', 'ATCTestSuite': '', 'StagingTestResults': '', 'ProductionTestResults': ''}
+2022-09-05T16:23:11.111181Z:{'cpcodeLink': '/papi/v1/cpcodes/cpc_1375588?accountSwitchKey=B-3-16OEUPX&contractId=ctr_3-16TWBVX&groupId=grp_173720'}
+2022-09-05T16:23:11.111290Z:Successfully created the CP Code 1375588 for times12.iamacmp.com
+2022-09-05T16:23:17.280998Z:{'edgeHostnameLink': '/papi/v1/edgehostnames/ehn_5182615?accountSwitchKey=B-3-16OEUPX&contractId=ctr_3-16TWBVX&groupId=grp_173720'}
+2022-09-05T16:23:17.281076Z:Successfully created the Edgehostname times12.iamacmp.com.edgesuite.net for times12.iamacmp.com
+2022-09-05T16:23:18.949528Z:********************************************************************************
+2022-09-05T16:23:18.949585Z:Adding the SAN to the cert!
+2022-09-05T16:23:23.370970Z:Succesfully Fetched the Enrollment 155858
+2022-09-05T16:23:23.371676Z:{
+  "id": 155858,
+  "productionSlots": [
+    159324
+  ],
+  "stagingSlots": [
+    159324
+  ],
+  "assignedSlots": [
+    159324
+  ],
+  "location": "/cps/v2/enrollments/155858",
+  "ra": "lets-encrypt",
+  "validationType": "dv",
+  "certificateType": "san",
+  "certificateChainType": "default",
+  "networkConfiguration": {
+    "geography": "core",
+    "secureNetwork": "standard-tls",
+    "mustHaveCiphers": "ak-akamai-2020q1",
+    "preferredCiphers": "ak-akamai-2020q1",
+    "disallowedTlsVersions": [
+      "TLSv1",
+      "TLSv1_1"
+    ],
+    "sniOnly": true,
+    "quicEnabled": false,
+    "dnsNameSettings": {
+      "cloneDnsNames": true,
+      "dnsNames": [
+        "common.iamacmp.com",
+        "times3.iamacmp.com",
+        "times2.iamacmp.com",
+        "times1.iamacmp.com"
+      ]
+    },
+    "ocspStapling": "on",
+    "clientMutualAuthentication": null
+  },
+  "signatureAlgorithm": "SHA-256",
+  "changeManagement": false,
+  "csr": {
+    "cn": "common.iamacmp.com",
+    "c": "IN",
+    "st": "Karnataka",
+    "l": "Kolar",
+    "o": "Akamai",
+    "ou": "",
+    "sans": [
+      "common.iamacmp.com",
+      "times1.iamacmp.com",
+      "times2.iamacmp.com",
+      "times3.iamacmp.com",
+      "times12.iamacmp.com"
+    ],
+    "preferredTrustChain": "dst-root-ca-x3"
+  },
+  "org": {
+    "name": "Akamai",
+    "addressLineOne": "Achu Priya Nilaya",
+    "addressLineTwo": "8th Cross Jayanagar B Block, Tekal Road",
+    "city": "Kolar",
+    "region": "Karnataka",
+    "postalCode": "563101",
+    "country": "IN",
+    "phone": "09986014033"
+  },
+  "orgId": null,
+  "adminContact": {
+    "firstName": "Achutha",
+    "lastName": "nanda",
+    "phone": "09986014033",
+    "email": "achuthadivine@gmail.com",
+    "addressLineOne": null,
+    "addressLineTwo": null,
+    "city": null,
+    "country": null,
+    "organizationName": null,
+    "postalCode": null,
+    "region": null,
+    "title": null
+  },
+  "techContact": {
+    "firstName": "achutha",
+    "lastName": "nanda",
+    "phone": "09986014033",
+    "email": "apadmana@akamai.com",
+    "addressLineOne": null,
+    "addressLineTwo": null,
+    "city": null,
+    "country": null,
+    "organizationName": null,
+    "postalCode": null,
+    "region": null,
+    "title": null
+  },
+  "thirdParty": null,
+  "enableMultiStackedCertificates": false,
+  "autoRenewalStartTime": "2022-11-14T04:14:57Z",
+  "pendingChanges": [],
+  "maxAllowedSanNames": 100,
+  "maxAllowedWildcardSanNames": 25
+}
+2022-09-05T16:23:43.449492Z:Successfully added the SANs Cert ID 155858
+2022-09-05T16:23:45.054613Z:Waiting for the DNS Challenges to be Received..
+{
+  "results": []
+}
+2022-09-05T16:23:48.498951Z:Waiting for the DNS Challenges to be Received..
+{
+  "results": []
+}
+2022-09-05T16:23:56.055761Z:Waiting for the DNS Challenges to be Received..
+{
+  "results": []
+}
+2022-09-05T16:24:01.649157Z:Waiting for the DNS Challenges to be Received..
+{
+  "results": []
+}
+2022-09-05T16:24:05.837321Z:Waiting for the DNS Challenges to be Received..
+{
+  "results": []
+}
+2022-09-05T16:24:11.070353Z:Waiting for the DNS Challenges to be Received..
+{
+  "results": []
+}
+2022-09-05T16:24:17.736911Z:Waiting for the DNS Challenges to be Received..
+{
+  "results": []
+}
+2022-09-05T16:24:22.447592Z:Waiting for the DNS Challenges to be Received..
+{
+  "results": []
+}
+2022-09-05T16:24:27.859549Z:Waiting for the DNS Challenges to be Received..
+{
+  "results": []
+}
+2022-09-05T16:24:33.487118Z:Waiting for the DNS Challenges to be Received..
+{
+  "results": []
+}
+2022-09-05T16:24:39.228795Z:Waiting for the DNS Challenges to be Received..
+{
+  "results": []
+}
+2022-09-05T16:24:43.323822Z:Waiting for the DNS Challenges to be Received..
+{
+  "results": []
+}
+2022-09-05T16:24:46.915367Z:Waiting for the DNS Challenges to be Received..
+{
+  "results": []
+}
+2022-09-05T16:24:50.388554Z:Waiting for the DNS Challenges to be Received..
+{
+  "results": []
+}
+2022-09-05T16:24:53.564870Z:Waiting for the DNS Challenges to be Received..
+{
+  "results": []
+}
+2022-09-05T16:24:56.537468Z:Waiting for the DNS Challenges to be Received..
+{
+  "results": []
+}
+2022-09-05T16:24:59.627565Z:Waiting for the DNS Challenges to be Received..
+{
+  "results": []
+}
+2022-09-05T16:25:03.100046Z:Waiting for the DNS Challenges to be Received..
+{
+  "results": []
+}
+2022-09-05T16:25:08.037651Z:Waiting for the DNS Challenges to be Received..
+{
+  "results": [
+    {
+      "domain": "common.iamacmp.com",
+      "domainHistory": [
+        {
+          "domain": "common.iamacmp.com",
+          "responseBody": null,
+          "fullPath": null,
+          "token": null,
+          "status": "Valid",
+          "error": null,
+          "validationStatus": "VALIDATED",
+          "requestTimestamp": "2022-09-05T10:55:31Z",
+          "validatedTimestamp": null,
+          "expires": "2022-09-23T13:44:33Z",
+          "redirectFullPath": null,
+          "validationRecords": [],
+          "challenges": [
+            {
+              "type": "dns-01",
+              "status": "valid",
+              "error": null,
+              "token": "_3YzW30L2dqAjrpuYtc1RNJ_LGIEngDihqn1tX7E8gY",
+              "responseBody": "w6p8MuNGtGQAWkEnLI5Ld-b5hRUqODY2C-a9hIlHJBo",
+              "fullPath": "_acme-challenge.common.iamacmp.com.",
+              "redirectFullPath": "",
+              "validationRecords": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "domain": "times3.iamacmp.com",
+      "domainHistory": [
+        {
+          "domain": "times3.iamacmp.com",
+          "responseBody": null,
+          "fullPath": null,
+          "token": null,
+          "status": "Valid",
+          "error": null,
+          "validationStatus": "VALIDATED",
+          "requestTimestamp": "2022-09-05T10:55:31Z",
+          "validatedTimestamp": null,
+          "expires": "2022-10-05T05:10:16Z",
+          "redirectFullPath": null,
+          "validationRecords": [],
+          "challenges": [
+            {
+              "type": "dns-01",
+              "status": "valid",
+              "error": null,
+              "token": "Inb7hDiFnqPcNeHc5jCm8oxEBkSwVUKlp1Y6lQ7Qw8A",
+              "responseBody": "7-1OG8GTnY6tD8CJCOLDTxylze_94letEifvakkY3Us",
+              "fullPath": "_acme-challenge.times3.iamacmp.com.",
+              "redirectFullPath": "",
+              "validationRecords": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "domain": "times12.iamacmp.com",
+      "domainHistory": [
+        {
+          "domain": "times12.iamacmp.com",
+          "responseBody": "S2Z7bL8vE7MImWHrocxGKGQe1WDcc_nz-2Xpc01OoCk.tL4C5fu32Q5A81pbFTAgUeNiv9rorD-rUQYb7kQJvHc",
+          "fullPath": "http://times12.iamacmp.com/.well-known/acme-challenge/S2Z7bL8vE7MImWHrocxGKGQe1WDcc_nz-2Xpc01OoCk",
+          "token": "S2Z7bL8vE7MImWHrocxGKGQe1WDcc_nz-2Xpc01OoCk",
+          "status": "Awaiting user",
+          "error": "The domain times12.iamacmp.com is not ready for HTTP validation.",
+          "validationStatus": "DATA_NOT_READY",
+          "requestTimestamp": "2022-09-05T10:55:31Z",
+          "validatedTimestamp": "2022-09-05T10:55:33Z",
+          "expires": "2022-09-12T10:55:31Z",
+          "redirectFullPath": "http://dcv.akamai.com/.well-known/acme-challenge/S2Z7bL8vE7MImWHrocxGKGQe1WDcc_nz-2Xpc01OoCk",
+          "validationRecords": [],
+          "challenges": [
+            {
+              "type": "http-01",
+              "status": "pending",
+              "error": null,
+              "token": "S2Z7bL8vE7MImWHrocxGKGQe1WDcc_nz-2Xpc01OoCk",
+              "responseBody": "S2Z7bL8vE7MImWHrocxGKGQe1WDcc_nz-2Xpc01OoCk.tL4C5fu32Q5A81pbFTAgUeNiv9rorD-rUQYb7kQJvHc",
+              "fullPath": "http://times12.iamacmp.com/.well-known/acme-challenge/S2Z7bL8vE7MImWHrocxGKGQe1WDcc_nz-2Xpc01OoCk",
+              "redirectFullPath": "http://dcv.akamai.com/.well-known/acme-challenge/S2Z7bL8vE7MImWHrocxGKGQe1WDcc_nz-2Xpc01OoCk",
+              "validationRecords": []
+            },
+            {
+              "type": "dns-01",
+              "status": "pending",
+              "error": null,
+              "token": "S2Z7bL8vE7MImWHrocxGKGQe1WDcc_nz-2Xpc01OoCk",
+              "responseBody": "lNhl4N4p41W6Gvy7AKTAJAMLy4SuqPLALZZ4BbCAD1c",
+              "fullPath": "_acme-challenge.times12.iamacmp.com.",
+              "redirectFullPath": "",
+              "validationRecords": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "domain": "times2.iamacmp.com",
+      "domainHistory": [
+        {
+          "domain": "times2.iamacmp.com",
+          "responseBody": null,
+          "fullPath": null,
+          "token": null,
+          "status": "Valid",
+          "error": null,
+          "validationStatus": "VALIDATED",
+          "requestTimestamp": "2022-09-05T10:55:31Z",
+          "validatedTimestamp": null,
+          "expires": "2022-10-05T05:10:16Z",
+          "redirectFullPath": null,
+          "validationRecords": [],
+          "challenges": [
+            {
+              "type": "dns-01",
+              "status": "valid",
+              "error": null,
+              "token": "FazJrtX7zxSFr1Eoc5g88hTmujVf3rSVUSxjZeXkUB8",
+              "responseBody": "RJ8fFBM1mW_fO93EDGN74bspbvpM4qWEcKKFr_k811o",
+              "fullPath": "_acme-challenge.times2.iamacmp.com.",
+              "redirectFullPath": "",
+              "validationRecords": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "domain": "times1.iamacmp.com",
+      "domainHistory": [
+        {
+          "domain": "times1.iamacmp.com",
+          "responseBody": null,
+          "fullPath": null,
+          "token": null,
+          "status": "Valid",
+          "error": null,
+          "validationStatus": "VALIDATED",
+          "requestTimestamp": "2022-09-05T10:55:31Z",
+          "validatedTimestamp": null,
+          "expires": "2022-10-04T18:13:24Z",
+          "redirectFullPath": null,
+          "validationRecords": [],
+          "challenges": [
+            {
+              "type": "dns-01",
+              "status": "valid",
+              "error": null,
+              "token": "jeASMv8YYKgvaukAxtjW--DtZou8YSXQ6QTTBUBpUhI",
+              "responseBody": "iIpgfgsaeSobGCNV8SYzl5Vw8rzzqF3v12nWUrJwdcc",
+              "fullPath": "_acme-challenge.times1.iamacmp.com.",
+              "redirectFullPath": "",
+              "validationRecords": []
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
+2022-09-05T16:25:37.655854Z:DNS Challenges Received for _acme-challenge.times12.iamacmp.com.
+2022-09-05T16:25:37.655923Z:
+DNS Record:_acme-challenge.times12.iamacmp.com.
+Token:lNhl4N4p41W6Gvy7AKTAJAMLy4SuqPLALZZ4BbCAD1c
+2022-09-05T16:25:38.701746Z:Created a TXT record for  Succesfully for _acme-challenge.times12.iamacmp.com.
+2022-09-05T16:25:38.701793Z:The status of adding record _acme-challenge.times12.iamacmp.com. to DNSZone is True

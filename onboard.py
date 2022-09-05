@@ -10,7 +10,7 @@ from tqdm import tqdm
 import sys,os
 from cpCodeUtility import createCPCode
 from ehnUtility import createEdgeHostName
-from cpsUtility import addSANtoCert,getDVChallenges
+from cpsUtility import addSANtoCert,getDVChallenges,updateGodaddyDomain
 from akamaihttp import AkamaiHTTPHandler
 from commonutilities import print_log,readCommonSettings
 
@@ -104,7 +104,13 @@ def main(sheetName,startRow,endRow,accountSwitchKey=None):
         ##UpdateZoneFile(records)
 
     for enrollmentID in certtoHostnameDict:
-        dnsrecordsDict = getDVChallenges(akhttp,data[i]['CertEnrollmentId'],accountSwitchKey)
+        dnsrecordsDict = getDVChallenges(akhttp,enrollmentID,accountSwitchKey)
+        print(json.dumps(dnsrecordsDict,indent=2),file=sys.stderr)
+        for record in dnsrecordsDict:
+            udpaterecordstatus = updateGodaddyDomain(record,dnsrecordsDict[record])
+            print_log("The status of adding record {} to DNSZone is {}".format(record,udpaterecordstatus))
+            print("The status of adding record {} to DNSZone is {}".format(record,udpaterecordstatus),file=sys.stderr)
+
 
     
 
@@ -131,5 +137,5 @@ if __name__ == "__main__":
 
 
 '''
-python onboard.py --sheet 'First Batch' --start 2 --end 2 --accountSwitchKey B-3-16OEUPX --logfile file.txt
+python onboard.py --sheet 'First Batch' --start 5 --end 5 --accountSwitchKey B-3-16OEUPX --logfile file.txt
 '''
