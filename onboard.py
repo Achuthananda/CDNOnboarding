@@ -37,10 +37,40 @@ client = gspread.authorize(creds)
 sheet = client.open("Times Onboarding")
 
 
+def addHostNametoConfig(akConfig,newVersion,hostname,edgeHostName,config,udpateStatus):
+    addhostnameStatus = akConfig.addHostname(newVersion,hostname,edgeHostName)
+    print_log("Status of adding the hostname {} to config {} is {}".format(hostname,config,addhostnameStatus))
+    udpateStatus = udpateStatus and addhostnameStatus
+    return udpateStatus
+
+def addOriginCPCodetoConfig(akConfig,newVersion,hostname,contentProviderCode,originHostName,config,udpateStatus):
+    origin_data = ''
+    with open('origin.json') as json_file:
+        origin_data = json.load(json_file)
     
-def addHostNametoCert(rowData,akhttp,accountSwitchKey):
-    print_log("Now adding the Hostname to Certificate")
+    new_origin_data = {}
+    new_origin_data = origin_data.copy()
+    new_origin_data['name'] = hostname
+    new_origin_data['behaviors'][0]['options']['hostname'] = originHostName
+    new_origin_data['behaviors'][1]['options']["value"]['id'] = contentProviderCode
+    new_origin_data['behaviors'][1]['options']["value"]['description'] = hostname
+    new_origin_data['behaviors'][1]['options']["value"]['name'] = hostname
+
+    new_origin_data['criteria'][0]['options']['values'][0] = hostname
+
+    ruleTree = akConfig.getRuleTree(newVersion)
+    for children in ruleTree['rules']['children']:
+        if children['name'] == 'Static Origins':
+            children['children'].insert(len(children['children']),new_origin_data) 
+
+    propruleInfo_json = json.dumps(ruleTree,indent=2)
+    print_log(propruleInfo_json)
     
+    addOriginstatus = akConfig.updateRuleTree(newVersion,propruleInfo_json)
+    print_log("Status of adding the Origin {} to hostname {} is {}".format(originHostName,hostname,addOriginstatus))
+    udpateStatus = udpateStatus and addOriginstatus
+    return udpateStatus
+
 
 def main(sheetName,startRow,endRow,accountSwitchKey=None):
     startRow = int(startRow)
@@ -68,38 +98,34 @@ def main(sheetName,startRow,endRow,accountSwitchKey=None):
 
     certtoHostnameDict = {}
     hostnametoPropertyDict = {}
-    hostnametoEHNDict = {}
-    hostnametoCPCodeDict = {}
+    hostnametoRowId = {}
     missedconfigs = []
+
+    for i in range(startRow,endRow+1):
+        hostnametoRowId[data[i]['Hostname']] = i
 
     progress_bar = tqdm(total=endRow-startRow+1)
     for i in range(startRow,endRow+1):
         if data[i]['Edgehostname'] == '':
             edgeHostName = createEdgeHostName(data[i],akhttp,accountSwitchKey)
             if edgeHostName != '':
-                sheet_instance.update_cell(i+2, 10,edgeHostName) #Update the CP Code 
-                hostnametoEHNDict[data[i]['Hostname']] = edgeHostName
+                sheet_instance.update_cell(i+2, 9,edgeHostName) #Update the CP Code 
         else:
             print_log("EHN already present in the sheet !So skipping creating the EHN")
             print("EHN already present in the sheet !So skipping creating the EHN",file=sys.stderr)
-            hostnametoEHNDict[data[i]['Hostname']] = data[i]['Edgehostname']
         udpateprogressbar()
         print_log('*'*80)
-
-    print_log(hostnametoEHNDict)
 
     progress_bar = tqdm(total=endRow-startRow+1)
     for i in range(startRow,endRow+1):
         if data[i]['CPCode'] == '':
             cpCode = createCPCode(data[i],akhttp,accountSwitchKey)
             if cpCode != 0:
-                sheet_instance.update_cell(i+2, 9,cpCode) #Update the CP Code 
+                sheet_instance.update_cell(i+2, 8,cpCode) #Update the CP Code 
         else:
             print_log("CPCode already present in the sheet !So skipping creating the CP Code")
             print("CPCode already present in the sheet !So skipping creating the CP Code",file=sys.stderr)
 
-        if data[i]['Hostname'] not in hostnametoCPCodeDict:
-            hostnametoCPCodeDict[data[i]['Hostname']] = data[i]['CPCode']
         udpateprogressbar()
         print_log('*'*80)
 
@@ -121,11 +147,11 @@ def main(sheetName,startRow,endRow,accountSwitchKey=None):
     print_log(hostnametoPropertyDict)
     print_log(certtoHostnameDict)
 
-    for enrollmentID in certtoHostnameDict:
+    '''for enrollmentID in certtoHostnameDict:
         addStatus = addSANtoCert(enrollmentID,certtoHostnameDict[enrollmentID],akhttp,accountSwitchKey)
         for i in range(startRow,endRow+1):
             if data[i]['Hostname'] in certtoHostnameDict[enrollmentID]:
-                sheet_instance.update_cell(i+2, 11,addStatus) #Update the SAN Addition 
+                sheet_instance.update_cell(i+2, 10,addStatus) #Update the SAN Addition 
 
     for enrollmentID in certtoHostnameDict:
         dnsrecordsDict = getDVChallenges(akhttp,enrollmentID,accountSwitchKey)
@@ -133,7 +159,7 @@ def main(sheetName,startRow,endRow,accountSwitchKey=None):
         for record in dnsrecordsDict:
             udpaterecordstatus = updateGodaddyDomain(record,dnsrecordsDict[record])
             print_log("The status of adding record {} to DNSZone is {}".format(record,udpaterecordstatus))
-            print("The status of adding record {} to DNSZone is {}".format(record,udpaterecordstatus),file=sys.stderr)
+            print("The status of adding record {} to DNSZone is {}".format(record,udpaterecordstatus),file=sys.stderr)'''
 
     #Add the Hostnames to the Config:
     for config in hostnametoPropertyDict.keys():
@@ -141,13 +167,20 @@ def main(sheetName,startRow,endRow,accountSwitchKey=None):
         newVersion = akConfig.createVersion(akConfig.getVersionofConfig())
         print_log(newVersion)
 
+        #Addition of HostName
         udpateStatus = True
         for hostname in hostnametoPropertyDict[config]:
+            contentProviderCode = data[hostnametoRowId[hostname]]['Edgehostname']
+            edgeHostName = data[hostnametoRowId[hostname]]['CPCode']
+            originHostName = data[hostnametoRowId[hostname]]['OriginHostName']
+
             print_log(hostname)
-            print_log(hostnametoEHNDict[hostname])
-            addhostnameStatus = akConfig.addHostname(newVersion,hostname,hostnametoEHNDict[hostname])
-            print_log("Status of adding the hostname {} to config {} is {}".format(hostname,config,addhostnameStatus))
-            udpateStatus = udpateStatus and addhostnameStatus
+            print_log(contentProviderCode)
+            print_log(originServer)
+
+            udpateStatus = addHostNametoConfig(akConfig,newVersion,hostname,edgeHostName,config,udpateStatus)
+            udpateStatus = addOriginCPCodetoConfig(akConfig,newVersion,hostname,contentProviderCode,originHostName,config,udpateStatus)
+
 
         versionStatus = akConfig.addVersionNotes(newVersion,"Times 10: Add the Hostnames")
         if udpateStatus == False:
@@ -159,6 +192,7 @@ def main(sheetName,startRow,endRow,accountSwitchKey=None):
         print_log("Version Status:{}".format(versionStatus))
         print_log("Activation Status:{}".format(activationStatus))
         print_log('*'*80)
+
 
 
 if __name__ == "__main__":

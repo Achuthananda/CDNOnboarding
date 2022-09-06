@@ -1,14 +1,14 @@
 {
-    "name": "testRule",
+    "name": "example.edgesuite.net",
     "children": [],
     "behaviors": [
         {
             "name": "origin",
             "options": {
                 "originType": "CUSTOMER",
-                "hostname": "origin-symphony-uat.research.hsbc.com",
+                "hostname": "www.google.com",
                 "forwardHostHeader": "REQUEST_HOST_HEADER",
-                "cacheKeyHostname": "REQUEST_HOST_HEADER",
+                "cacheKeyHostname": "ORIGIN_HOSTNAME",
                 "compress": true,
                 "enableTrueClientIp": true,
                 "originCertificate": "",
@@ -16,14 +16,14 @@
                 "ports": "",
                 "httpPort": 80,
                 "httpsPort": 443,
+                "trueClientIpHeader": "True-Client-IP",
+                "trueClientIpClientSetting": false,
                 "originSni": true,
                 "customValidCnValues": [
                     "{{Origin Hostname}}",
                     "{{Forward Host Header}}"
                 ],
                 "originCertsToHonor": "STANDARD_CERTIFICATE_AUTHORITIES",
-                "trueClientIpHeader": "KSD-CLIENT-IP",
-                "trueClientIpClientSetting": false,
                 "standardCertificateAuthorities": [
                     "akamai-permissive"
                 ]
@@ -36,8 +36,9 @@
                     "id": 1059406,
                     "description": "CMB-EMEA-PreProd",
                     "products": [
-                        "Site_Accel"
-                    ]
+                        "Fresca"
+                    ],
+                    "name": "example.edgesuite.net"
                 }
             }
         }
@@ -48,10 +49,10 @@
             "options": {
                 "matchOperator": "IS_ONE_OF",
                 "values": [
-                    "symphony-uat.research.hsbc.com"
+                    "example.edgesuite.net"
                 ]
             }
         }
     ],
     "criteriaMustSatisfy": "all"
-}
+} 
