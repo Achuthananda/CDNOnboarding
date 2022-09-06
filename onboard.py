@@ -13,11 +13,13 @@ from ehnUtility import createEdgeHostName
 from cpsUtility import addSANtoCert,getDVChallenges,updateGodaddyDomain
 from akamaihttp import AkamaiHTTPHandler
 from commonutilities import print_log,readCommonSettings
+from akamaiproperty import AkamaiProperty
 
 
 edgercLocation = '~/.edgerc'
 edgercLocation = os.path.expanduser(edgercLocation)
 akhttp = AkamaiHTTPHandler(edgercLocation,'default')
+
 
 jobId = str(uuid.uuid1())
 logfilepath = ''
@@ -61,20 +63,33 @@ def main(sheetName,startRow,endRow,accountSwitchKey=None):
     data = sheet_instance.get_all_records()
     #print(json.dumps(data,indent=2))
     
-    progress_bar = tqdm(total=endRow-startRow+1)
     def udpateprogressbar():
         progress_bar.update()
 
     certtoHostnameDict = {}
+    hostnametoPropertyDict = {}
+    hostnametoEHNDict = {}
+    hostnametoCPCodeDict = {}
+    missedconfigs = []
 
+    progress_bar = tqdm(total=endRow-startRow+1)
     for i in range(startRow,endRow+1):
-        print_log(data[i])
-        if data[i]['SAN Addition'] == '':
-            if data[i]['CertEnrollmentId'] not in certtoHostnameDict:
-                certtoHostnameDict[data[i]['CertEnrollmentId']] = [data[i]['Hostname']]
-            else:
-                certtoHostnameDict[data[i]['CertEnrollmentId']].append(data[i]['Hostname'])
+        if data[i]['Edgehostname'] == '':
+            edgeHostName = createEdgeHostName(data[i],akhttp,accountSwitchKey)
+            if edgeHostName != '':
+                sheet_instance.update_cell(i+2, 10,edgeHostName) #Update the CP Code 
+                hostnametoEHNDict[data[i]['Hostname']] = edgeHostName
+        else:
+            print_log("EHN already present in the sheet !So skipping creating the EHN")
+            print("EHN already present in the sheet !So skipping creating the EHN",file=sys.stderr)
+            hostnametoEHNDict[data[i]['Hostname']] = data[i]['Edgehostname']
+        udpateprogressbar()
+        print_log('*'*80)
 
+    print_log(hostnametoEHNDict)
+
+    progress_bar = tqdm(total=endRow-startRow+1)
+    for i in range(startRow,endRow+1):
         if data[i]['CPCode'] == '':
             cpCode = createCPCode(data[i],akhttp,accountSwitchKey)
             if cpCode != 0:
@@ -82,26 +97,35 @@ def main(sheetName,startRow,endRow,accountSwitchKey=None):
         else:
             print_log("CPCode already present in the sheet !So skipping creating the CP Code")
             print("CPCode already present in the sheet !So skipping creating the CP Code",file=sys.stderr)
-    
-        if data[i]['Edgehostname'] == '':
-            edgeHostName = createEdgeHostName(data[i],akhttp,accountSwitchKey)
-            if edgeHostName != '':
-                sheet_instance.update_cell(i+2, 10,edgeHostName) #Update the CP Code 
-        else:
-            print_log("EHN already present in the sheet !So skipping creating the EHN")
-            print("EHN already present in the sheet !So skipping creating the EHN",file=sys.stderr)
-        time.sleep(1)
+
+        if data[i]['Hostname'] not in hostnametoCPCodeDict:
+            hostnametoCPCodeDict[data[i]['Hostname']] = data[i]['CPCode']
         udpateprogressbar()
         print_log('*'*80)
 
+    for i in range(startRow,endRow+1):
+        print_log(data[i])
+        #Populating the SAN Addition Dict
+        if data[i]['SAN Addition'] == '':
+            if data[i]['CertEnrollmentId'] not in certtoHostnameDict:
+                certtoHostnameDict[data[i]['CertEnrollmentId']] = [data[i]['Hostname']]
+            else:
+                certtoHostnameDict[data[i]['CertEnrollmentId']].append(data[i]['Hostname'])
+
+        #Populating the ConfigtoHostnameDict
+        if data[i]['Config'] not in hostnametoPropertyDict:
+            hostnametoPropertyDict[data[i]['Config']] = [data[i]['Hostname']]
+        else:
+            hostnametoPropertyDict[data[i]['Config']].append(data[i]['Hostname'])
+    
+    print_log(hostnametoPropertyDict)
+    print_log(certtoHostnameDict)
 
     for enrollmentID in certtoHostnameDict:
         addStatus = addSANtoCert(enrollmentID,certtoHostnameDict[enrollmentID],akhttp,accountSwitchKey)
         for i in range(startRow,endRow+1):
             if data[i]['Hostname'] in certtoHostnameDict[enrollmentID]:
                 sheet_instance.update_cell(i+2, 11,addStatus) #Update the SAN Addition 
-        #getDVChallenges(enrollmentID)
-        ##UpdateZoneFile(records)
 
     for enrollmentID in certtoHostnameDict:
         dnsrecordsDict = getDVChallenges(akhttp,enrollmentID,accountSwitchKey)
@@ -111,8 +135,31 @@ def main(sheetName,startRow,endRow,accountSwitchKey=None):
             print_log("The status of adding record {} to DNSZone is {}".format(record,udpaterecordstatus))
             print("The status of adding record {} to DNSZone is {}".format(record,udpaterecordstatus),file=sys.stderr)
 
+    #Add the Hostnames to the Config:
+    for config in hostnametoPropertyDict.keys():
+        akConfig = AkamaiProperty(edgercLocation,config,accountSwitchKey)
+        newVersion = akConfig.createVersion(akConfig.getVersionofConfig())
+        print_log(newVersion)
 
-    
+        udpateStatus = True
+        for hostname in hostnametoPropertyDict[config]:
+            print_log(hostname)
+            print_log(hostnametoEHNDict[hostname])
+            addhostnameStatus = akConfig.addHostname(newVersion,hostname,hostnametoEHNDict[hostname])
+            print_log("Status of adding the hostname {} to config {} is {}".format(hostname,config,addhostnameStatus))
+            udpateStatus = udpateStatus and addhostnameStatus
+
+        versionStatus = akConfig.addVersionNotes(newVersion,"Times 10: Add the Hostnames")
+        if udpateStatus == False:
+            missedconfigs.append(config)
+        activationStatus = False
+        if udpateStatus and versionStatus:
+            activationStatus = akConfig.activateStaging(newVersion,"Times 10:Add the Hostnames",["apadmana@akamai.com"])
+        print_log("Update Status :{}".format(udpateStatus))
+        print_log("Version Status:{}".format(versionStatus))
+        print_log("Activation Status:{}".format(activationStatus))
+        print_log('*'*80)
+
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='Times CDN Onboarding Tool.')
@@ -137,5 +184,5 @@ if __name__ == "__main__":
 
 
 '''
-python onboard.py --sheet 'First Batch' --start 5 --end 5 --accountSwitchKey B-3-16OEUPX --logfile file.txt
+python onboard.py --sheet 'First Batch' --start 2 --end 2 --accountSwitchKey B-3-16OEUPX --logfile file.txt
 '''

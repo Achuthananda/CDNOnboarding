@@ -1,16 +1,27 @@
-2022-09-05T16:23:04.190225Z:ProductID:prd_Fresca
-2022-09-05T16:23:04.190331Z:EHNDomainSuffix:edgesuite.net
-2022-09-05T16:23:04.190354Z:Network:STANDARD_TLS
-2022-09-05T16:23:04.190368Z:IPVersion:IPV6_COMPLIANCE
-2022-09-05T16:23:04.768044Z:{'ContractId': 'ctr_3-16TWBVX', 'GroupId': 'grp_173720', 'Hostname': 'times12.iamacmp.com', 'CertEnrollmentId': 155858, 'Config': 'Times_Iamcmp1', 'OriginHostName': 'origin.iamamcp.com', 'SampleTestURL': 'https://times1.iamacmp.com/1.txt\nhttps://times1.iamacmp.com/robots.png', 'EmailNotification': 'apadmana@akamai.com', 'CPCode': '', 'Edgehostname': '', 'SAN Addition': '', 'Staging Activation': '', 'ProductionActivation': '', 'ATCTestSuite': '', 'StagingTestResults': '', 'ProductionTestResults': ''}
-2022-09-05T16:23:11.111181Z:{'cpcodeLink': '/papi/v1/cpcodes/cpc_1375588?accountSwitchKey=B-3-16OEUPX&contractId=ctr_3-16TWBVX&groupId=grp_173720'}
-2022-09-05T16:23:11.111290Z:Successfully created the CP Code 1375588 for times12.iamacmp.com
-2022-09-05T16:23:17.280998Z:{'edgeHostnameLink': '/papi/v1/edgehostnames/ehn_5182615?accountSwitchKey=B-3-16OEUPX&contractId=ctr_3-16TWBVX&groupId=grp_173720'}
-2022-09-05T16:23:17.281076Z:Successfully created the Edgehostname times12.iamacmp.com.edgesuite.net for times12.iamacmp.com
-2022-09-05T16:23:18.949528Z:********************************************************************************
-2022-09-05T16:23:18.949585Z:Adding the SAN to the cert!
-2022-09-05T16:23:23.370970Z:Succesfully Fetched the Enrollment 155858
-2022-09-05T16:23:23.371676Z:{
+2022-09-06T01:12:06.484904Z:ProductID:prd_Fresca
+2022-09-06T01:12:06.485029Z:EHNDomainSuffix:edgesuite.net
+2022-09-06T01:12:06.485057Z:Network:STANDARD_TLS
+2022-09-06T01:12:06.485077Z:IPVersion:IPV6_COMPLIANCE
+2022-09-06T01:12:12.322077Z:{'edgeHostnameLink': '/papi/v1/edgehostnames/ehn_5182793?accountSwitchKey=B-3-16OEUPX&contractId=ctr_3-16TWBVX&groupId=grp_173720'}
+2022-09-06T01:12:12.322162Z:Successfully created the Edgehostname mobiletimes22.iamacmp.com.edgesuite.net for mobiletimes22.iamacmp.com
+2022-09-06T01:12:12.979222Z:********************************************************************************
+2022-09-06T01:12:16.496606Z:{'edgeHostnameLink': '/papi/v1/edgehostnames/ehn_5182794?accountSwitchKey=B-3-16OEUPX&contractId=ctr_3-16TWBVX&groupId=grp_173720'}
+2022-09-06T01:12:16.496690Z:Successfully created the Edgehostname mobiletimes23.iamacmp.com.edgesuite.net for mobiletimes23.iamacmp.com
+2022-09-06T01:12:17.134935Z:********************************************************************************
+2022-09-06T01:12:17.134988Z:{'mobiletimes22.iamacmp.com': 'mobiletimes22.iamacmp.com.edgesuite.net', 'mobiletimes23.iamacmp.com': 'mobiletimes23.iamacmp.com.edgesuite.net'}
+2022-09-06T01:12:19.797153Z:{'cpcodeLink': '/papi/v1/cpcodes/cpc_1375717?accountSwitchKey=B-3-16OEUPX&contractId=ctr_3-16TWBVX&groupId=grp_173720'}
+2022-09-06T01:12:19.797239Z:Successfully created the CP Code 1375717 for mobiletimes22.iamacmp.com
+2022-09-06T01:12:20.413512Z:********************************************************************************
+2022-09-06T01:12:23.240462Z:{'cpcodeLink': '/papi/v1/cpcodes/cpc_1375718?accountSwitchKey=B-3-16OEUPX&contractId=ctr_3-16TWBVX&groupId=grp_173720'}
+2022-09-06T01:12:23.240563Z:Successfully created the CP Code 1375718 for mobiletimes23.iamacmp.com
+2022-09-06T01:12:23.994524Z:********************************************************************************
+2022-09-06T01:12:23.994598Z:{'ContractId': 'ctr_3-16TWBVX', 'GroupId': 'grp_173720', 'Hostname': 'mobiletimes22.iamacmp.com', 'CertEnrollmentId': 155858, 'Config': 'linode-ds-uat', 'OriginHostName': 'origin.iamamcp.com', 'SampleTestURL': 'https://times1.iamacmp.com/1.txt\nhttps://times1.iamacmp.com/robots.png', 'EmailNotification': 'apadmana@akamai.com', 'CPCode': '', 'Edgehostname': '', 'SAN Addition': '', 'Staging Activation': '', 'ProductionActivation': '', 'ATCTestSuite': '', 'StagingTestResults': '', 'ProductionTestResults': ''}
+2022-09-06T01:12:23.994650Z:{'ContractId': 'ctr_3-16TWBVX', 'GroupId': 'grp_173720', 'Hostname': 'mobiletimes23.iamacmp.com', 'CertEnrollmentId': 155858, 'Config': 'linode-ds-uat', 'OriginHostName': 'origin.iamamcp.com', 'SampleTestURL': 'https://times1.iamacmp.com/1.txt\nhttps://times1.iamacmp.com/robots.png', 'EmailNotification': 'apadmana@akamai.com', 'CPCode': '', 'Edgehostname': '', 'SAN Addition': '', 'Staging Activation': '', 'ProductionActivation': '', 'ATCTestSuite': '', 'StagingTestResults': '', 'ProductionTestResults': ''}
+2022-09-06T01:12:23.994690Z:{'linode-ds-uat': ['mobiletimes22.iamacmp.com', 'mobiletimes23.iamacmp.com']}
+2022-09-06T01:12:23.994716Z:{155858: ['mobiletimes22.iamacmp.com', 'mobiletimes23.iamacmp.com']}
+2022-09-06T01:12:23.994750Z:Adding the SAN to the cert!
+2022-09-06T01:12:25.815622Z:Succesfully Fetched the Enrollment 155858
+2022-09-06T01:12:25.815879Z:{
   "id": 155858,
   "productionSlots": [
     159324
@@ -41,6 +52,8 @@
       "cloneDnsNames": true,
       "dnsNames": [
         "common.iamacmp.com",
+        "mobiletimes19.iamacmp.com",
+        "times12.iamacmp.com",
         "times3.iamacmp.com",
         "times2.iamacmp.com",
         "times1.iamacmp.com"
@@ -63,7 +76,10 @@
       "times1.iamacmp.com",
       "times2.iamacmp.com",
       "times3.iamacmp.com",
-      "times12.iamacmp.com"
+      "times12.iamacmp.com",
+      "mobiletimes19.iamacmp.com",
+      "mobiletimes22.iamacmp.com",
+      "mobiletimes23.iamacmp.com"
     ],
     "preferredTrustChain": "dst-root-ca-x3"
   },
@@ -108,87 +124,139 @@
   },
   "thirdParty": null,
   "enableMultiStackedCertificates": false,
-  "autoRenewalStartTime": "2022-11-14T04:14:57Z",
+  "autoRenewalStartTime": "2022-11-14T18:28:27Z",
   "pendingChanges": [],
   "maxAllowedSanNames": 100,
   "maxAllowedWildcardSanNames": 25
 }
-2022-09-05T16:23:43.449492Z:Successfully added the SANs Cert ID 155858
-2022-09-05T16:23:45.054613Z:Waiting for the DNS Challenges to be Received..
+2022-09-06T01:12:30.263929Z:Successfully added the SANs Cert ID 155858
+2022-09-06T01:12:32.347402Z:Waiting for the DNS Challenges to be Received..
 {
   "results": []
 }
-2022-09-05T16:23:48.498951Z:Waiting for the DNS Challenges to be Received..
+2022-09-06T01:12:34.622393Z:Waiting for the DNS Challenges to be Received..
 {
   "results": []
 }
-2022-09-05T16:23:56.055761Z:Waiting for the DNS Challenges to be Received..
+2022-09-06T01:12:36.777665Z:Waiting for the DNS Challenges to be Received..
 {
   "results": []
 }
-2022-09-05T16:24:01.649157Z:Waiting for the DNS Challenges to be Received..
+2022-09-06T01:12:39.127435Z:Waiting for the DNS Challenges to be Received..
 {
   "results": []
 }
-2022-09-05T16:24:05.837321Z:Waiting for the DNS Challenges to be Received..
+2022-09-06T01:12:41.384223Z:Waiting for the DNS Challenges to be Received..
 {
   "results": []
 }
-2022-09-05T16:24:11.070353Z:Waiting for the DNS Challenges to be Received..
+2022-09-06T01:12:43.519532Z:Waiting for the DNS Challenges to be Received..
 {
   "results": []
 }
-2022-09-05T16:24:17.736911Z:Waiting for the DNS Challenges to be Received..
+2022-09-06T01:12:45.528669Z:Waiting for the DNS Challenges to be Received..
 {
   "results": []
 }
-2022-09-05T16:24:22.447592Z:Waiting for the DNS Challenges to be Received..
+2022-09-06T01:12:47.942444Z:Waiting for the DNS Challenges to be Received..
 {
   "results": []
 }
-2022-09-05T16:24:27.859549Z:Waiting for the DNS Challenges to be Received..
+2022-09-06T01:12:50.089212Z:Waiting for the DNS Challenges to be Received..
 {
   "results": []
 }
-2022-09-05T16:24:33.487118Z:Waiting for the DNS Challenges to be Received..
+2022-09-06T01:12:52.081115Z:Waiting for the DNS Challenges to be Received..
 {
   "results": []
 }
-2022-09-05T16:24:39.228795Z:Waiting for the DNS Challenges to be Received..
+2022-09-06T01:12:54.286121Z:Waiting for the DNS Challenges to be Received..
 {
   "results": []
 }
-2022-09-05T16:24:43.323822Z:Waiting for the DNS Challenges to be Received..
+2022-09-06T01:12:56.434289Z:Waiting for the DNS Challenges to be Received..
 {
   "results": []
 }
-2022-09-05T16:24:46.915367Z:Waiting for the DNS Challenges to be Received..
+2022-09-06T01:12:58.372076Z:Waiting for the DNS Challenges to be Received..
 {
   "results": []
 }
-2022-09-05T16:24:50.388554Z:Waiting for the DNS Challenges to be Received..
-{
-  "results": []
-}
-2022-09-05T16:24:53.564870Z:Waiting for the DNS Challenges to be Received..
-{
-  "results": []
-}
-2022-09-05T16:24:56.537468Z:Waiting for the DNS Challenges to be Received..
-{
-  "results": []
-}
-2022-09-05T16:24:59.627565Z:Waiting for the DNS Challenges to be Received..
-{
-  "results": []
-}
-2022-09-05T16:25:03.100046Z:Waiting for the DNS Challenges to be Received..
-{
-  "results": []
-}
-2022-09-05T16:25:08.037651Z:Waiting for the DNS Challenges to be Received..
+2022-09-06T01:13:00.671482Z:Waiting for the DNS Challenges to be Received..
 {
   "results": [
+    {
+      "domain": "mobiletimes19.iamacmp.com",
+      "domainHistory": [
+        {
+          "domain": "mobiletimes19.iamacmp.com",
+          "responseBody": null,
+          "fullPath": null,
+          "token": null,
+          "status": "Valid",
+          "error": null,
+          "validationStatus": "VALIDATED",
+          "requestTimestamp": "2022-09-05T19:43:01Z",
+          "validatedTimestamp": null,
+          "expires": "2022-10-05T19:27:42Z",
+          "redirectFullPath": null,
+          "validationRecords": [],
+          "challenges": [
+            {
+              "type": "dns-01",
+              "status": "valid",
+              "error": null,
+              "token": "zFQuznzsTA_QQtDy7U_HDKVwG4MZhkimeOGjyiKh0AI",
+              "responseBody": "WG3V4Dyzk0fEVu0QxmfLcim-by-erlSH3jKb-DgZLFw",
+              "fullPath": "_acme-challenge.mobiletimes19.iamacmp.com.",
+              "redirectFullPath": "",
+              "validationRecords": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "domain": "mobiletimes23.iamacmp.com",
+      "domainHistory": [
+        {
+          "domain": "mobiletimes23.iamacmp.com",
+          "responseBody": "xnXODucyjmO6Z1w1yPVF1yIPfx2q4o7UQ__T15QQ3ek.tL4C5fu32Q5A81pbFTAgUeNiv9rorD-rUQYb7kQJvHc",
+          "fullPath": "http://mobiletimes23.iamacmp.com/.well-known/acme-challenge/xnXODucyjmO6Z1w1yPVF1yIPfx2q4o7UQ__T15QQ3ek",
+          "token": "xnXODucyjmO6Z1w1yPVF1yIPfx2q4o7UQ__T15QQ3ek",
+          "status": "Awaiting user",
+          "error": null,
+          "validationStatus": "DATA_NOT_READY",
+          "requestTimestamp": "2022-09-05T19:43:01Z",
+          "validatedTimestamp": null,
+          "expires": "2022-09-12T19:43:00Z",
+          "redirectFullPath": "http://dcv.akamai.com/.well-known/acme-challenge/xnXODucyjmO6Z1w1yPVF1yIPfx2q4o7UQ__T15QQ3ek",
+          "validationRecords": [],
+          "challenges": [
+            {
+              "type": "http-01",
+              "status": "pending",
+              "error": null,
+              "token": "xnXODucyjmO6Z1w1yPVF1yIPfx2q4o7UQ__T15QQ3ek",
+              "responseBody": "xnXODucyjmO6Z1w1yPVF1yIPfx2q4o7UQ__T15QQ3ek.tL4C5fu32Q5A81pbFTAgUeNiv9rorD-rUQYb7kQJvHc",
+              "fullPath": "http://mobiletimes23.iamacmp.com/.well-known/acme-challenge/xnXODucyjmO6Z1w1yPVF1yIPfx2q4o7UQ__T15QQ3ek",
+              "redirectFullPath": "http://dcv.akamai.com/.well-known/acme-challenge/xnXODucyjmO6Z1w1yPVF1yIPfx2q4o7UQ__T15QQ3ek",
+              "validationRecords": []
+            },
+            {
+              "type": "dns-01",
+              "status": "pending",
+              "error": null,
+              "token": "xnXODucyjmO6Z1w1yPVF1yIPfx2q4o7UQ__T15QQ3ek",
+              "responseBody": "hxjha7SfYtjQ340KMOlhXRyWelkOZ85SA2HMWvOa-3Q",
+              "fullPath": "_acme-challenge.mobiletimes23.iamacmp.com.",
+              "redirectFullPath": "",
+              "validationRecords": []
+            }
+          ]
+        }
+      ]
+    },
     {
       "domain": "common.iamacmp.com",
       "domainHistory": [
@@ -200,7 +268,7 @@
           "status": "Valid",
           "error": null,
           "validationStatus": "VALIDATED",
-          "requestTimestamp": "2022-09-05T10:55:31Z",
+          "requestTimestamp": "2022-09-05T19:43:01Z",
           "validatedTimestamp": null,
           "expires": "2022-09-23T13:44:33Z",
           "redirectFullPath": null,
@@ -231,7 +299,7 @@
           "status": "Valid",
           "error": null,
           "validationStatus": "VALIDATED",
-          "requestTimestamp": "2022-09-05T10:55:31Z",
+          "requestTimestamp": "2022-09-05T19:43:01Z",
           "validatedTimestamp": null,
           "expires": "2022-10-05T05:10:16Z",
           "redirectFullPath": null,
@@ -252,35 +320,66 @@
       ]
     },
     {
-      "domain": "times12.iamacmp.com",
+      "domain": "mobiletimes22.iamacmp.com",
       "domainHistory": [
         {
-          "domain": "times12.iamacmp.com",
-          "responseBody": "S2Z7bL8vE7MImWHrocxGKGQe1WDcc_nz-2Xpc01OoCk.tL4C5fu32Q5A81pbFTAgUeNiv9rorD-rUQYb7kQJvHc",
-          "fullPath": "http://times12.iamacmp.com/.well-known/acme-challenge/S2Z7bL8vE7MImWHrocxGKGQe1WDcc_nz-2Xpc01OoCk",
-          "token": "S2Z7bL8vE7MImWHrocxGKGQe1WDcc_nz-2Xpc01OoCk",
+          "domain": "mobiletimes22.iamacmp.com",
+          "responseBody": "dWVSGtVwVA1tlfOER4QkZ2BIvgUKHu5FDavH8pyPrKQ.tL4C5fu32Q5A81pbFTAgUeNiv9rorD-rUQYb7kQJvHc",
+          "fullPath": "http://mobiletimes22.iamacmp.com/.well-known/acme-challenge/dWVSGtVwVA1tlfOER4QkZ2BIvgUKHu5FDavH8pyPrKQ",
+          "token": "dWVSGtVwVA1tlfOER4QkZ2BIvgUKHu5FDavH8pyPrKQ",
           "status": "Awaiting user",
-          "error": "The domain times12.iamacmp.com is not ready for HTTP validation.",
+          "error": null,
           "validationStatus": "DATA_NOT_READY",
-          "requestTimestamp": "2022-09-05T10:55:31Z",
-          "validatedTimestamp": "2022-09-05T10:55:33Z",
-          "expires": "2022-09-12T10:55:31Z",
-          "redirectFullPath": "http://dcv.akamai.com/.well-known/acme-challenge/S2Z7bL8vE7MImWHrocxGKGQe1WDcc_nz-2Xpc01OoCk",
+          "requestTimestamp": "2022-09-05T19:43:01Z",
+          "validatedTimestamp": null,
+          "expires": "2022-09-12T19:43:00Z",
+          "redirectFullPath": "http://dcv.akamai.com/.well-known/acme-challenge/dWVSGtVwVA1tlfOER4QkZ2BIvgUKHu5FDavH8pyPrKQ",
           "validationRecords": [],
           "challenges": [
             {
               "type": "http-01",
               "status": "pending",
               "error": null,
-              "token": "S2Z7bL8vE7MImWHrocxGKGQe1WDcc_nz-2Xpc01OoCk",
-              "responseBody": "S2Z7bL8vE7MImWHrocxGKGQe1WDcc_nz-2Xpc01OoCk.tL4C5fu32Q5A81pbFTAgUeNiv9rorD-rUQYb7kQJvHc",
-              "fullPath": "http://times12.iamacmp.com/.well-known/acme-challenge/S2Z7bL8vE7MImWHrocxGKGQe1WDcc_nz-2Xpc01OoCk",
-              "redirectFullPath": "http://dcv.akamai.com/.well-known/acme-challenge/S2Z7bL8vE7MImWHrocxGKGQe1WDcc_nz-2Xpc01OoCk",
+              "token": "dWVSGtVwVA1tlfOER4QkZ2BIvgUKHu5FDavH8pyPrKQ",
+              "responseBody": "dWVSGtVwVA1tlfOER4QkZ2BIvgUKHu5FDavH8pyPrKQ.tL4C5fu32Q5A81pbFTAgUeNiv9rorD-rUQYb7kQJvHc",
+              "fullPath": "http://mobiletimes22.iamacmp.com/.well-known/acme-challenge/dWVSGtVwVA1tlfOER4QkZ2BIvgUKHu5FDavH8pyPrKQ",
+              "redirectFullPath": "http://dcv.akamai.com/.well-known/acme-challenge/dWVSGtVwVA1tlfOER4QkZ2BIvgUKHu5FDavH8pyPrKQ",
               "validationRecords": []
             },
             {
               "type": "dns-01",
               "status": "pending",
+              "error": null,
+              "token": "dWVSGtVwVA1tlfOER4QkZ2BIvgUKHu5FDavH8pyPrKQ",
+              "responseBody": "f3A84eZ9PXpEmEMbx0tM48L9fPw0Mb_UGxUZoGwqNTg",
+              "fullPath": "_acme-challenge.mobiletimes22.iamacmp.com.",
+              "redirectFullPath": "",
+              "validationRecords": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "domain": "times12.iamacmp.com",
+      "domainHistory": [
+        {
+          "domain": "times12.iamacmp.com",
+          "responseBody": null,
+          "fullPath": null,
+          "token": null,
+          "status": "Valid",
+          "error": null,
+          "validationStatus": "VALIDATED",
+          "requestTimestamp": "2022-09-05T19:43:01Z",
+          "validatedTimestamp": null,
+          "expires": "2022-10-05T11:30:55Z",
+          "redirectFullPath": null,
+          "validationRecords": [],
+          "challenges": [
+            {
+              "type": "dns-01",
+              "status": "valid",
               "error": null,
               "token": "S2Z7bL8vE7MImWHrocxGKGQe1WDcc_nz-2Xpc01OoCk",
               "responseBody": "lNhl4N4p41W6Gvy7AKTAJAMLy4SuqPLALZZ4BbCAD1c",
@@ -303,7 +402,7 @@
           "status": "Valid",
           "error": null,
           "validationStatus": "VALIDATED",
-          "requestTimestamp": "2022-09-05T10:55:31Z",
+          "requestTimestamp": "2022-09-05T19:43:01Z",
           "validatedTimestamp": null,
           "expires": "2022-10-05T05:10:16Z",
           "redirectFullPath": null,
@@ -334,7 +433,7 @@
           "status": "Valid",
           "error": null,
           "validationStatus": "VALIDATED",
-          "requestTimestamp": "2022-09-05T10:55:31Z",
+          "requestTimestamp": "2022-09-05T19:43:01Z",
           "validatedTimestamp": null,
           "expires": "2022-10-04T18:13:24Z",
           "redirectFullPath": null,
@@ -356,9 +455,30 @@
     }
   ]
 }
-2022-09-05T16:25:37.655854Z:DNS Challenges Received for _acme-challenge.times12.iamacmp.com.
-2022-09-05T16:25:37.655923Z:
-DNS Record:_acme-challenge.times12.iamacmp.com.
-Token:lNhl4N4p41W6Gvy7AKTAJAMLy4SuqPLALZZ4BbCAD1c
-2022-09-05T16:25:38.701746Z:Created a TXT record for  Succesfully for _acme-challenge.times12.iamacmp.com.
-2022-09-05T16:25:38.701793Z:The status of adding record _acme-challenge.times12.iamacmp.com. to DNSZone is True
+2022-09-06T01:13:01.886185Z:DNS Challenges Received for _acme-challenge.mobiletimes23.iamacmp.com.
+2022-09-06T01:13:01.886227Z:
+DNS Record:_acme-challenge.mobiletimes23.iamacmp.com.
+Token:hxjha7SfYtjQ340KMOlhXRyWelkOZ85SA2HMWvOa-3Q
+2022-09-06T01:13:01.886276Z:DNS Challenges Received for _acme-challenge.mobiletimes22.iamacmp.com.
+2022-09-06T01:13:01.886296Z:
+DNS Record:_acme-challenge.mobiletimes22.iamacmp.com.
+Token:f3A84eZ9PXpEmEMbx0tM48L9fPw0Mb_UGxUZoGwqNTg
+2022-09-06T01:13:02.863501Z:Created a TXT record for  Succesfully for _acme-challenge.mobiletimes23.iamacmp.com.
+2022-09-06T01:13:02.863587Z:The status of adding record _acme-challenge.mobiletimes23.iamacmp.com. to DNSZone is True
+2022-09-06T01:13:03.394366Z:Created a TXT record for  Succesfully for _acme-challenge.mobiletimes22.iamacmp.com.
+2022-09-06T01:13:03.394449Z:The status of adding record _acme-challenge.mobiletimes22.iamacmp.com. to DNSZone is True
+2022-09-06T01:13:10.793895Z:28
+2022-09-06T01:13:10.793977Z:mobiletimes22.iamacmp.com
+2022-09-06T01:13:10.794002Z:mobiletimes22.iamacmp.com.edgesuite.net
+2022-09-06T01:13:16.221471Z:Retrying...
+2022-09-06T01:13:26.871949Z:{'accountId': 'act_B-3-16OEUPX', 'contractId': 'ctr_3-16TWBVX', 'groupId': 'grp_173720', 'propertyId': 'prp_827793', 'propertyName': 'linode-ds-uat', 'propertyVersion': 28, 'etag': 'e7c070024db607e9d721e377772dbaf3b03480d8', 'hostnames': {'items': [{'cnameType': 'EDGE_HOSTNAME', 'edgeHostnameId': 'ehn_5174992', 'cnameFrom': 'linodeds-uat-failover.edgesuite.net', 'cnameTo': 'linodeds-uat-failover.edgesuite.net', 'certProvisioningType': 'CPS_MANAGED'}, {'cnameType': 'EDGE_HOSTNAME', 'edgeHostnameId': 'ehn_5174991', 'cnameFrom': 'linodeds-uat.edgesuite.net', 'cnameTo': 'linodeds-uat.edgesuite.net', 'certProvisioningType': 'CPS_MANAGED'}, {'cnameType': 'EDGE_HOSTNAME', 'edgeHostnameId': 'ehn_5182793', 'cnameFrom': 'mobiletimes22.iamacmp.com', 'cnameTo': 'mobiletimes22.iamacmp.com.edgesuite.net', 'certProvisioningType': 'CPS_MANAGED'}]}}
+2022-09-06T01:13:26.872079Z:Status of adding the hostname mobiletimes22.iamacmp.com to config linode-ds-uat is True
+2022-09-06T01:13:26.872114Z:mobiletimes23.iamacmp.com
+2022-09-06T01:13:26.872139Z:mobiletimes23.iamacmp.com.edgesuite.net
+2022-09-06T01:13:31.141475Z:Retrying...
+2022-09-06T01:13:38.936115Z:{'accountId': 'act_B-3-16OEUPX', 'contractId': 'ctr_3-16TWBVX', 'groupId': 'grp_173720', 'propertyId': 'prp_827793', 'propertyName': 'linode-ds-uat', 'propertyVersion': 28, 'etag': 'd1d712040f88347afc5ee43cae71c76f9a639407', 'hostnames': {'items': [{'cnameType': 'EDGE_HOSTNAME', 'edgeHostnameId': 'ehn_5174992', 'cnameFrom': 'linodeds-uat-failover.edgesuite.net', 'cnameTo': 'linodeds-uat-failover.edgesuite.net', 'certProvisioningType': 'CPS_MANAGED'}, {'cnameType': 'EDGE_HOSTNAME', 'edgeHostnameId': 'ehn_5174991', 'cnameFrom': 'linodeds-uat.edgesuite.net', 'cnameTo': 'linodeds-uat.edgesuite.net', 'certProvisioningType': 'CPS_MANAGED'}, {'cnameType': 'EDGE_HOSTNAME', 'edgeHostnameId': 'ehn_5182793', 'cnameFrom': 'mobiletimes22.iamacmp.com', 'cnameTo': 'mobiletimes22.iamacmp.com.edgesuite.net', 'certProvisioningType': 'CPS_MANAGED'}, {'cnameType': 'EDGE_HOSTNAME', 'edgeHostnameId': 'ehn_5182794', 'cnameFrom': 'mobiletimes23.iamacmp.com', 'cnameTo': 'mobiletimes23.iamacmp.com.edgesuite.net', 'certProvisioningType': 'CPS_MANAGED'}]}}
+2022-09-06T01:13:38.936267Z:Status of adding the hostname mobiletimes23.iamacmp.com to config linode-ds-uat is True
+2022-09-06T01:14:30.156345Z:Update Status :True
+2022-09-06T01:14:30.156437Z:Version Status:True
+2022-09-06T01:14:30.156469Z:Activation Status:True
+2022-09-06T01:14:30.156493Z:********************************************************************************
