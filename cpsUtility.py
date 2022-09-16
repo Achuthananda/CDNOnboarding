@@ -5,6 +5,7 @@ from godaddypy import Client, Account
 import time
 
 
+
 def updateGodaddyDomain(record,value):
     acct = Account(api_key='fYg34SGLy3kW_SJ27b4RYXKbAWRPA5ht4na',api_secret='RfKhXguQjptQd6fzkWVXpW')
     godaddyclient = Client(acct)

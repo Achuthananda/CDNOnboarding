@@ -1,0 +1,79 @@
+{
+    "org": {
+        "name": "Times Internet Ltd",
+        "addressLineOne": "72 Dean Street",
+        "addressLineTwo": null,
+        "city": "Noida",
+        "region": "Uttar Pradesh",
+        "postalCode": "201301",
+        "country": "in",
+        "phone": "000-000-0000"
+      },
+    "adminContact": {
+        "firstName": "Mukesh",
+        "lastName": "Tyagi",
+        "phone": "+919871698948",
+        "email": "corp.domains@timesinternet.in",
+        "addressLineOne": null,
+        "addressLineTwo": null,
+        "city": null,
+        "country": null,
+        "organizationName": null,
+        "postalCode": null,
+        "region": null,
+        "title": null
+      },
+    "techContact": {
+        "firstName": "Achuthananda",
+        "lastName": "M P",
+        "phone": "(857) 500-5147",
+        "email": "apadmana@akamai.com",
+        "addressLineOne": null,
+        "addressLineTwo": null,
+        "city": null,
+        "country": null,
+        "organizationName": null,
+        "postalCode": null,
+        "region": null,
+        "title": null
+    },
+    "autoRenewalStartTime": null,
+    "certificateChainType": "default",
+    "changeManagement": true,
+    "csr": {
+        "c": "US",
+        "cn": "www.iamacmp.com",
+        "l": "Cambridge",
+        "o": "Akamai",
+        "ou": "WebEx",
+        "sans": [
+            "mobile.iamacmp.com"
+        ],
+        "st": "MA"
+    },
+    "enableMultiStackedCertificates": false,
+    "location": null,
+    "maxAllowedSanNames": 100,
+    "maxAllowedWildcardSanNames": 100,
+    "networkConfiguration": {
+        "geography": "core",
+        "secureNetwork": "standard-tls",
+        "mustHaveCiphers": "ak-akamai-default",
+        "preferredCiphers": "ak-akamai-default",
+        "sniOnly": true,
+        "quicEnabled": false,
+        "dnsNameSettings": {
+          "cloneDnsNames": true,
+          "dnsNames": [
+            "mobile.iamacmp.com"
+          ]
+        },
+        "ocspStapling": "on",
+        "clientMutualAuthentication": null
+    },
+    "pendingChanges": null,
+    "ra":"lets-encrypt",
+    "signatureAlgorithm": "SHA-256",
+    "validationType": "dv",
+    "certificateType": "san"
+}

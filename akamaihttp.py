@@ -104,13 +104,14 @@ class EdgeGridHttpCaller():
             headers = {'content-type': 'application/json'}
         path = endpoint
         fulpath = parse.urljoin(self.baseurl, path)
-        print(fulpath)
+        '''print(fulpath)
         print(params)
         print(headers)
-        print(body)
+        print(body)'''
         endpoint_result = self.session.post(fulpath, data=body, headers=headers, params=params)
+        #print(endpoint_result.content)
         status = endpoint_result.status_code
-        print("Post Status is:{}".format(status))
+        #print("Post Status is:{}".format(status))
         if self.verbose:
             print("LOG: POST %s %s %s" % (path, status, endpoint_result.headers["content-type"]))
         if status == 204:
