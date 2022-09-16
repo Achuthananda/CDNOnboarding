@@ -1,8 +1,0 @@
-[
-    {
-        "cnameFrom": "test.akau.devops.akademo.it",
-        "cnameTo": "test.akau.devops.akademo.it.edgesuite.net",
-        "cnameType": "EDGE_HOSTNAME",
-        "edgeHostnameId": null
-    }
-]
