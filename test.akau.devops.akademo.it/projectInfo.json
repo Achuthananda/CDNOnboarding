@@ -1,0 +1,11 @@
+{
+    "productId": "prd_Fresca",
+    "contractId": "ctr_3-16TWBVX",
+    "groupId": "173720",
+    "version": "0.7.8-RELEASE",
+    "isSecure": false,
+    "edgeGridConfig": {
+        "section": "papi"
+    },
+    "name": "test.akau.devops.akademo.it"
+}

@@ -469,8 +469,15 @@ class AkamaiProperty():
 
         getHostnameJson = self._prdHttpCaller.getResult(getHostNameEndPoint,params)
         property_hostnames = getHostnameJson["hostnames"]["items"]
+        print_log(property_hostnames)
+
         for item in property_hostnames:
-            del item['edgeHostnameId']
+            if item['cnameFrom'] == 'example.edgesuite.net':
+                property_hostnames.remove(item)
+
+        for item in property_hostnames:
+            if 'edgeHostnameId' in item:
+                del item['edgeHostnameId']
 
         item = {}
         item["cnameType"] = "EDGE_HOSTNAME"
@@ -480,6 +487,7 @@ class AkamaiProperty():
         property_hostnames.append(item)
 
         property_hostname_data = json.dumps(property_hostnames)
+        print_log(property_hostname_data)
         addHostNamesEndPoint = '/papi/v1/properties/{property_id}/versions/{newversion}/hostnames'.format(property_id=self.propertyId,newversion=version)
 
         retrycount = 0

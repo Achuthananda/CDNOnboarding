@@ -1,484 +1,3321 @@
-2022-09-06T01:12:06.484904Z:ProductID:prd_Fresca
-2022-09-06T01:12:06.485029Z:EHNDomainSuffix:edgesuite.net
-2022-09-06T01:12:06.485057Z:Network:STANDARD_TLS
-2022-09-06T01:12:06.485077Z:IPVersion:IPV6_COMPLIANCE
-2022-09-06T01:12:12.322077Z:{'edgeHostnameLink': '/papi/v1/edgehostnames/ehn_5182793?accountSwitchKey=B-3-16OEUPX&contractId=ctr_3-16TWBVX&groupId=grp_173720'}
-2022-09-06T01:12:12.322162Z:Successfully created the Edgehostname mobiletimes22.iamacmp.com.edgesuite.net for mobiletimes22.iamacmp.com
-2022-09-06T01:12:12.979222Z:********************************************************************************
-2022-09-06T01:12:16.496606Z:{'edgeHostnameLink': '/papi/v1/edgehostnames/ehn_5182794?accountSwitchKey=B-3-16OEUPX&contractId=ctr_3-16TWBVX&groupId=grp_173720'}
-2022-09-06T01:12:16.496690Z:Successfully created the Edgehostname mobiletimes23.iamacmp.com.edgesuite.net for mobiletimes23.iamacmp.com
-2022-09-06T01:12:17.134935Z:********************************************************************************
-2022-09-06T01:12:17.134988Z:{'mobiletimes22.iamacmp.com': 'mobiletimes22.iamacmp.com.edgesuite.net', 'mobiletimes23.iamacmp.com': 'mobiletimes23.iamacmp.com.edgesuite.net'}
-2022-09-06T01:12:19.797153Z:{'cpcodeLink': '/papi/v1/cpcodes/cpc_1375717?accountSwitchKey=B-3-16OEUPX&contractId=ctr_3-16TWBVX&groupId=grp_173720'}
-2022-09-06T01:12:19.797239Z:Successfully created the CP Code 1375717 for mobiletimes22.iamacmp.com
-2022-09-06T01:12:20.413512Z:********************************************************************************
-2022-09-06T01:12:23.240462Z:{'cpcodeLink': '/papi/v1/cpcodes/cpc_1375718?accountSwitchKey=B-3-16OEUPX&contractId=ctr_3-16TWBVX&groupId=grp_173720'}
-2022-09-06T01:12:23.240563Z:Successfully created the CP Code 1375718 for mobiletimes23.iamacmp.com
-2022-09-06T01:12:23.994524Z:********************************************************************************
-2022-09-06T01:12:23.994598Z:{'ContractId': 'ctr_3-16TWBVX', 'GroupId': 'grp_173720', 'Hostname': 'mobiletimes22.iamacmp.com', 'CertEnrollmentId': 155858, 'Config': 'linode-ds-uat', 'OriginHostName': 'origin.iamamcp.com', 'SampleTestURL': 'https://times1.iamacmp.com/1.txt\nhttps://times1.iamacmp.com/robots.png', 'EmailNotification': 'apadmana@akamai.com', 'CPCode': '', 'Edgehostname': '', 'SAN Addition': '', 'Staging Activation': '', 'ProductionActivation': '', 'ATCTestSuite': '', 'StagingTestResults': '', 'ProductionTestResults': ''}
-2022-09-06T01:12:23.994650Z:{'ContractId': 'ctr_3-16TWBVX', 'GroupId': 'grp_173720', 'Hostname': 'mobiletimes23.iamacmp.com', 'CertEnrollmentId': 155858, 'Config': 'linode-ds-uat', 'OriginHostName': 'origin.iamamcp.com', 'SampleTestURL': 'https://times1.iamacmp.com/1.txt\nhttps://times1.iamacmp.com/robots.png', 'EmailNotification': 'apadmana@akamai.com', 'CPCode': '', 'Edgehostname': '', 'SAN Addition': '', 'Staging Activation': '', 'ProductionActivation': '', 'ATCTestSuite': '', 'StagingTestResults': '', 'ProductionTestResults': ''}
-2022-09-06T01:12:23.994690Z:{'linode-ds-uat': ['mobiletimes22.iamacmp.com', 'mobiletimes23.iamacmp.com']}
-2022-09-06T01:12:23.994716Z:{155858: ['mobiletimes22.iamacmp.com', 'mobiletimes23.iamacmp.com']}
-2022-09-06T01:12:23.994750Z:Adding the SAN to the cert!
-2022-09-06T01:12:25.815622Z:Succesfully Fetched the Enrollment 155858
-2022-09-06T01:12:25.815879Z:{
-  "id": 155858,
-  "productionSlots": [
-    159324
-  ],
-  "stagingSlots": [
-    159324
-  ],
-  "assignedSlots": [
-    159324
-  ],
-  "location": "/cps/v2/enrollments/155858",
-  "ra": "lets-encrypt",
-  "validationType": "dv",
-  "certificateType": "san",
-  "certificateChainType": "default",
-  "networkConfiguration": {
-    "geography": "core",
-    "secureNetwork": "standard-tls",
-    "mustHaveCiphers": "ak-akamai-2020q1",
-    "preferredCiphers": "ak-akamai-2020q1",
-    "disallowedTlsVersions": [
-      "TLSv1",
-      "TLSv1_1"
+2022-09-07T12:37:11.772455Z:ProductID:prd_Fresca
+2022-09-07T12:37:11.772552Z:EHNDomainSuffix:edgesuite.net
+2022-09-07T12:37:11.772572Z:Network:STANDARD_TLS
+2022-09-07T12:37:11.772585Z:IPVersion:IPV6_COMPLIANCE
+2022-09-07T12:37:11.772597Z:['apadmana@akamai.com,achuthananda@gmail.com']
+2022-09-07T12:37:21.720498Z:{'edgeHostnameLink': '/papi/v1/edgehostnames/ehn_5183616?accountSwitchKey=B-3-16OEUPX&contractId=ctr_3-16TWBVX&groupId=grp_173720'}
+2022-09-07T12:37:21.720574Z:Successfully created the Edgehostname economictimes5.iamacmp.com.edgesuite.net for economictimes5.iamacmp.com
+2022-09-07T12:37:22.286905Z:********************************************************************************
+2022-09-07T12:37:24.549550Z:{'edgeHostnameLink': '/papi/v1/edgehostnames/ehn_5183617?accountSwitchKey=B-3-16OEUPX&contractId=ctr_3-16TWBVX&groupId=grp_173720'}
+2022-09-07T12:37:24.549628Z:Successfully created the Edgehostname economictimes6.iamacmp.com.edgesuite.net for economictimes6.iamacmp.com
+2022-09-07T12:37:25.106541Z:********************************************************************************
+2022-09-07T12:37:27.433601Z:{'cpcodeLink': '/papi/v1/cpcodes/cpc_1376615?accountSwitchKey=B-3-16OEUPX&contractId=ctr_3-16TWBVX&groupId=grp_173720'}
+2022-09-07T12:37:27.433721Z:Successfully created the CP Code 1376615 for economictimes5.iamacmp.com
+2022-09-07T12:37:27.991308Z:********************************************************************************
+2022-09-07T12:37:29.604209Z:{'cpcodeLink': '/papi/v1/cpcodes/cpc_1376616?accountSwitchKey=B-3-16OEUPX&contractId=ctr_3-16TWBVX&groupId=grp_173720'}
+2022-09-07T12:37:29.604283Z:Successfully created the CP Code 1376616 for economictimes6.iamacmp.com
+2022-09-07T12:37:30.171711Z:********************************************************************************
+2022-09-07T12:37:30.759347Z:{'ContractId': 'ctr_3-16TWBVX', 'GroupId': 'grp_173720', 'Hostname': 'economictimes5.iamacmp.com', 'CertEnrollmentId': 155858, 'Config': 'TimesTemplate', 'OriginHostName': 'www.google.com', 'SampleTestURL': 'https://times1.iamacmp.com/1.txt\nhttps://times1.iamacmp.com/robots.png', 'CPCode': 1376615, 'Edgehostname': 'economictimes5.iamacmp.com.edgesuite.net', 'SAN Addition': 'TRUE', 'Staging Activation': '', 'ProductionActivation': '', 'ATCTestSuite': '', 'StagingTestResults': '', 'ProductionTestResults': ''}
+2022-09-07T12:37:30.759421Z:{'ContractId': 'ctr_3-16TWBVX', 'GroupId': 'grp_173720', 'Hostname': 'economictimes6.iamacmp.com', 'CertEnrollmentId': 155858, 'Config': 'TimesTemplate', 'OriginHostName': 'www.ndtv.com', 'SampleTestURL': 'https://times1.iamacmp.com/1.txt\nhttps://times1.iamacmp.com/robots.png', 'CPCode': 1376616, 'Edgehostname': 'economictimes6.iamacmp.com.edgesuite.net', 'SAN Addition': 'TRUE', 'Staging Activation': '', 'ProductionActivation': '', 'ATCTestSuite': '', 'StagingTestResults': '', 'ProductionTestResults': ''}
+2022-09-07T12:37:30.759451Z:{'TimesTemplate': ['economictimes5.iamacmp.com', 'economictimes6.iamacmp.com']}
+2022-09-07T12:37:30.759471Z:{}
+2022-09-07T12:37:36.176872Z:13
+
+2022-09-07T12:37:36.177015Z:economictimes5.iamacmp.com
+2022-09-07T12:37:36.177053Z:economictimes5.iamacmp.com.edgesuite.net
+2022-09-07T12:37:36.177082Z:1376615
+2022-09-07T12:37:36.177109Z:www.google.com
+2022-09-07T12:37:47.498555Z:Status of adding the hostname economictimes5.iamacmp.com to config TimesTemplate is True
+2022-09-07T12:37:51.437881Z:{
+  "accountId": "act_B-3-16OEUPX",
+  "contractId": "ctr_3-16TWBVX",
+  "groupId": "grp_173720",
+  "propertyId": "prp_828733",
+  "propertyName": "TimesTemplate",
+  "propertyVersion": 13,
+  "etag": "b1520fdf3a64fc1ef641940388aaa09a998b1bab",
+  "rules": {
+    "name": "default",
+    "children": [
+      {
+        "name": "Augment insights",
+        "children": [
+          {
+            "name": "Traffic reporting",
+            "children": [],
+            "behaviors": [
+              {
+                "name": "cpCode",
+                "options": {
+                  "value": {
+                    "id": 1369885,
+                    "description": "TimesTemplate",
+                    "products": [
+                      "Fresca"
+                    ],
+                    "createdDate": 1661349394000.0,
+                    "cpCodeLimits": {
+                      "limit": 616,
+                      "currentCapacity": -168,
+                      "limitType": "account"
+                    },
+                    "name": "TimesTemplate"
+                  }
+                }
+              }
+            ],
+            "criteria": [],
+            "criteriaMustSatisfy": "all",
+            "comments": "Identify your main traffic segments so you can granularly zoom in your traffic statistics like hits, bandwidth, offload, response codes, and errors."
+          },
+          {
+            "name": "mPulse RUM",
+            "children": [],
+            "behaviors": [
+              {
+                "name": "mPulse",
+                "options": {
+                  "apiKey": "",
+                  "bufferSize": "",
+                  "configOverride": "",
+                  "enabled": true,
+                  "loaderVersion": "V12",
+                  "requirePci": false,
+                  "titleOptional": ""
+                }
+              }
+            ],
+            "criteria": [],
+            "criteriaMustSatisfy": "all",
+            "comments": "Collect and analyze real-user data to monitor the performance of your website."
+          },
+          {
+            "name": "Geolocation",
+            "children": [],
+            "behaviors": [
+              {
+                "name": "edgeScape",
+                "options": {
+                  "enabled": false
+                }
+              }
+            ],
+            "criteria": [
+              {
+                "name": "requestType",
+                "options": {
+                  "matchOperator": "IS",
+                  "value": "CLIENT_REQ"
+                }
+              }
+            ],
+            "criteriaMustSatisfy": "all",
+            "comments": "Receive data about a user's geolocation and connection speed in a request header. If you change cached content based on the values of the X-Akamai-Edgescape request header, contact your account representative."
+          },
+          {
+            "name": "Log delivery",
+            "children": [],
+            "behaviors": [
+              {
+                "name": "report",
+                "options": {
+                  "logAcceptLanguage": false,
+                  "logCookies": "OFF",
+                  "logCustomLogField": false,
+                  "logEdgeIP": false,
+                  "logHost": false,
+                  "logReferer": false,
+                  "logUserAgent": false,
+                  "logXForwardedFor": false
+                }
+              }
+            ],
+            "criteria": [],
+            "criteriaMustSatisfy": "all",
+            "comments": "Specify the level of detail you want to be logged in your Log Delivery Service reports. Log User-Agent Header to obtain detailed information in the Traffic by Browser and OS report."
+          }
+        ],
+        "behaviors": [],
+        "criteria": [],
+        "criteriaMustSatisfy": "all",
+        "comments": "Control the settings related to monitoring and reporting. This gives you additional visibility into your traffic and audiences."
+      },
+      {
+        "name": "Accelerate delivery",
+        "children": [
+          {
+            "name": "Origin connectivity",
+            "children": [],
+            "behaviors": [
+              {
+                "name": "dnsAsyncRefresh",
+                "options": {
+                  "enabled": true,
+                  "timeout": "1h"
+                }
+              },
+              {
+                "name": "timeout",
+                "options": {
+                  "value": "5s"
+                }
+              },
+              {
+                "name": "readTimeout",
+                "options": {
+                  "value": "120s"
+                }
+              }
+            ],
+            "criteria": [],
+            "criteriaMustSatisfy": "all",
+            "comments": "Optimize the connection between edge and origin."
+          },
+          {
+            "name": "Protocol optimizations",
+            "children": [],
+            "behaviors": [
+              {
+                "name": "enhancedAkamaiProtocol",
+                "options": {
+                  "display": ""
+                }
+              },
+              {
+                "name": "http2",
+                "options": {
+                  "enabled": ""
+                }
+              },
+              {
+                "name": "allowTransferEncoding",
+                "options": {
+                  "enabled": true
+                }
+              },
+              {
+                "name": "sureRoute",
+                "options": {
+                  "enableCustomKey": false,
+                  "enabled": true,
+                  "forceSslForward": false,
+                  "raceStatTtl": "30m",
+                  "srDownloadLinkTitle": "",
+                  "testObjectUrl": "/akamai/sureroute-test-object.html",
+                  "toHostStatus": "INCOMING_HH",
+                  "type": "PERFORMANCE"
+                }
+              }
+            ],
+            "criteria": [],
+            "criteriaMustSatisfy": "all",
+            "comments": "Serve your website using modern and fast protocols."
+          },
+          {
+            "name": "Prefetching",
+            "children": [
+              {
+                "name": "Prefetching objects",
+                "children": [
+                  {
+                    "name": "Bots",
+                    "children": [],
+                    "behaviors": [
+                      {
+                        "name": "prefetch",
+                        "options": {
+                          "enabled": false
+                        }
+                      }
+                    ],
+                    "criteria": [
+                      {
+                        "name": "userAgent",
+                        "options": {
+                          "matchCaseSensitive": false,
+                          "matchOperator": "IS_ONE_OF",
+                          "matchWildcard": true,
+                          "values": [
+                            "*bot*",
+                            "*crawl*",
+                            "*spider*"
+                          ]
+                        }
+                      }
+                    ],
+                    "criteriaMustSatisfy": "all",
+                    "comments": "Disable prefetching for specific clients identifying themselves as bots and crawlers. This avoids requesting unnecessary resources from the origin."
+                  }
+                ],
+                "behaviors": [
+                  {
+                    "name": "prefetch",
+                    "options": {
+                      "enabled": true
+                    }
+                  }
+                ],
+                "criteria": [],
+                "criteriaMustSatisfy": "all",
+                "comments": "Define for which HTML pages prefetching should be enabled."
+              },
+              {
+                "name": "Prefetchable objects",
+                "children": [],
+                "behaviors": [
+                  {
+                    "name": "prefetchable",
+                    "options": {
+                      "enabled": true
+                    }
+                  }
+                ],
+                "criteria": [
+                  {
+                    "name": "fileExtension",
+                    "options": {
+                      "matchCaseSensitive": false,
+                      "matchOperator": "IS_ONE_OF",
+                      "values": [
+                        "css",
+                        "js",
+                        "jpg",
+                        "jpeg",
+                        "jp2",
+                        "png",
+                        "gif",
+                        "svg",
+                        "svgz",
+                        "webp",
+                        "eot",
+                        "woff",
+                        "woff2",
+                        "otf",
+                        "ttf"
+                      ]
+                    }
+                  }
+                ],
+                "criteriaMustSatisfy": "all",
+                "comments": "Define which resources should be prefetched."
+              }
+            ],
+            "behaviors": [],
+            "criteria": [],
+            "criteriaMustSatisfy": "all",
+            "comments": "Instruct edge servers to retrieve embedded resources before the browser requests them."
+          },
+          {
+            "name": "Adaptive acceleration",
+            "children": [],
+            "behaviors": [
+              {
+                "name": "adaptiveAcceleration",
+                "options": {
+                  "enableBrotliCompression": false,
+                  "enablePreconnect": true,
+                  "enablePush": true,
+                  "enableRo": false,
+                  "preloadEnable": true,
+                  "source": "mPulse",
+                  "titleHttp2ServerPush": "",
+                  "titlePreconnect": "",
+                  "titlePreload": "",
+                  "titleRo": ""
+                }
+              }
+            ],
+            "criteria": [],
+            "criteriaMustSatisfy": "all",
+            "comments": "Automatically and continuously apply performance optimizations to your website using machine learning."
+          }
+        ],
+        "behaviors": [],
+        "criteria": [],
+        "criteriaMustSatisfy": "all",
+        "comments": "Control the settings related to improving the performance of delivering objects to your users."
+      },
+      {
+        "name": "Offload origin",
+        "children": [
+          {
+            "name": "CSS and JavaScript",
+            "children": [],
+            "behaviors": [
+              {
+                "name": "caching",
+                "options": {
+                  "behavior": "MAX_AGE",
+                  "mustRevalidate": false,
+                  "ttl": "7d"
+                }
+              }
+            ],
+            "criteria": [
+              {
+                "name": "fileExtension",
+                "options": {
+                  "matchCaseSensitive": false,
+                  "matchOperator": "IS_ONE_OF",
+                  "values": [
+                    "css",
+                    "js"
+                  ]
+                }
+              }
+            ],
+            "criteriaMustSatisfy": "any",
+            "comments": "Override the default caching behavior for CSS and JavaScript"
+          },
+          {
+            "name": "Fonts",
+            "children": [],
+            "behaviors": [
+              {
+                "name": "caching",
+                "options": {
+                  "behavior": "MAX_AGE",
+                  "mustRevalidate": false,
+                  "ttl": "30d"
+                }
+              }
+            ],
+            "criteria": [
+              {
+                "name": "fileExtension",
+                "options": {
+                  "matchCaseSensitive": false,
+                  "matchOperator": "IS_ONE_OF",
+                  "values": [
+                    "eot",
+                    "woff",
+                    "woff2",
+                    "otf",
+                    "ttf"
+                  ]
+                }
+              }
+            ],
+            "criteriaMustSatisfy": "any",
+            "comments": "Override the default caching behavior for fonts."
+          },
+          {
+            "name": "Images",
+            "children": [],
+            "behaviors": [
+              {
+                "name": "caching",
+                "options": {
+                  "behavior": "MAX_AGE",
+                  "mustRevalidate": false,
+                  "ttl": "30d"
+                }
+              }
+            ],
+            "criteria": [
+              {
+                "name": "fileExtension",
+                "options": {
+                  "matchCaseSensitive": false,
+                  "matchOperator": "IS_ONE_OF",
+                  "values": [
+                    "jpg",
+                    "jpeg",
+                    "png",
+                    "gif",
+                    "webp",
+                    "jp2",
+                    "ico",
+                    "svg",
+                    "svgz"
+                  ]
+                }
+              }
+            ],
+            "criteriaMustSatisfy": "any",
+            "comments": "Override the default caching behavior for images."
+          },
+          {
+            "name": "Files",
+            "children": [],
+            "behaviors": [
+              {
+                "name": "caching",
+                "options": {
+                  "behavior": "MAX_AGE",
+                  "mustRevalidate": false,
+                  "ttl": "7d"
+                }
+              }
+            ],
+            "criteria": [
+              {
+                "name": "fileExtension",
+                "options": {
+                  "matchCaseSensitive": false,
+                  "matchOperator": "IS_ONE_OF",
+                  "values": [
+                    "pdf",
+                    "doc",
+                    "docx",
+                    "odt"
+                  ]
+                }
+              }
+            ],
+            "criteriaMustSatisfy": "any",
+            "comments": "Override the default caching behavior for files. Files containing Personal Identified Information (PII) should require Edge authentication or not be cached at all."
+          },
+          {
+            "name": "Other static objects",
+            "children": [],
+            "behaviors": [
+              {
+                "name": "caching",
+                "options": {
+                  "behavior": "MAX_AGE",
+                  "mustRevalidate": false,
+                  "ttl": "7d"
+                }
+              }
+            ],
+            "criteria": [
+              {
+                "name": "fileExtension",
+                "options": {
+                  "matchCaseSensitive": false,
+                  "matchOperator": "IS_ONE_OF",
+                  "values": [
+                    "aif",
+                    "aiff",
+                    "au",
+                    "avi",
+                    "bin",
+                    "bmp",
+                    "cab",
+                    "carb",
+                    "cct",
+                    "cdf",
+                    "class",
+                    "dcr",
+                    "dtd",
+                    "exe",
+                    "flv",
+                    "gcf",
+                    "gff",
+                    "grv",
+                    "hdml",
+                    "hqx",
+                    "ini",
+                    "mov",
+                    "mp3",
+                    "nc",
+                    "pct",
+                    "ppc",
+                    "pws",
+                    "swa",
+                    "swf",
+                    "txt",
+                    "vbs",
+                    "w32",
+                    "wav",
+                    "midi",
+                    "wbmp",
+                    "wml",
+                    "wmlc",
+                    "wmls",
+                    "wmlsc",
+                    "xsd",
+                    "zip",
+                    "pict",
+                    "tif",
+                    "tiff",
+                    "mid",
+                    "jxr",
+                    "jar"
+                  ]
+                }
+              }
+            ],
+            "criteriaMustSatisfy": "any",
+            "comments": "Override the default caching behavior for other static objects."
+          },
+          {
+            "name": "HTML pages",
+            "children": [],
+            "behaviors": [
+              {
+                "name": "caching",
+                "options": {
+                  "behavior": "NO_STORE"
+                }
+              },
+              {
+                "name": "cacheKeyQueryParams",
+                "options": {
+                  "behavior": "IGNORE",
+                  "exactMatch": true,
+                  "parameters": [
+                    "gclid",
+                    "fbclid",
+                    "utm_source",
+                    "utm_campaign",
+                    "utm_medium",
+                    "utm_content"
+                  ]
+                }
+              }
+            ],
+            "criteria": [
+              {
+                "name": "fileExtension",
+                "options": {
+                  "matchCaseSensitive": false,
+                  "matchOperator": "IS_ONE_OF",
+                  "values": [
+                    "html",
+                    "htm",
+                    "php",
+                    "jsp",
+                    "aspx",
+                    "EMPTY_STRING"
+                  ]
+                }
+              }
+            ],
+            "criteriaMustSatisfy": "all",
+            "comments": "Override the default caching behavior for HTML pages cached on edge servers."
+          },
+          {
+            "name": "Redirects",
+            "children": [],
+            "behaviors": [
+              {
+                "name": "cacheRedirect",
+                "options": {
+                  "enabled": "false"
+                }
+              },
+              {
+                "name": "chaseRedirects",
+                "options": {
+                  "enabled": false
+                }
+              }
+            ],
+            "criteria": [],
+            "criteriaMustSatisfy": "all",
+            "comments": "Configure caching for HTTP redirects. The redirect is cached for the same TTL as a 200 HTTP response when this feature is enabled."
+          },
+          {
+            "name": "POST responses",
+            "children": [],
+            "behaviors": [
+              {
+                "name": "cachePost",
+                "options": {
+                  "enabled": false
+                }
+              }
+            ],
+            "criteria": [],
+            "criteriaMustSatisfy": "all",
+            "comments": "Define when HTTP POST requests should be cached. You should enable it under a criteria match."
+          },
+          {
+            "name": "GraphQL",
+            "children": [],
+            "behaviors": [
+              {
+                "name": "graphqlCaching",
+                "options": {
+                  "enabled": false
+                }
+              }
+            ],
+            "criteria": [
+              {
+                "name": "path",
+                "options": {
+                  "matchCaseSensitive": false,
+                  "matchOperator": "MATCHES_ONE_OF",
+                  "normalize": false,
+                  "values": [
+                    "/graphql"
+                  ]
+                }
+              }
+            ],
+            "criteriaMustSatisfy": "all",
+            "comments": "Define when your GraphQL queries should be cached."
+          },
+          {
+            "name": "Uncacheable objects",
+            "children": [],
+            "behaviors": [
+              {
+                "name": "downstreamCache",
+                "options": {
+                  "behavior": "BUST"
+                }
+              }
+            ],
+            "criteria": [
+              {
+                "name": "cacheability",
+                "options": {
+                  "matchOperator": "IS_NOT",
+                  "value": "CACHEABLE"
+                }
+              }
+            ],
+            "criteriaMustSatisfy": "all",
+            "comments": "Configure the default client caching behavior for uncacheable content at the edge."
+          }
+        ],
+        "behaviors": [
+          {
+            "name": "caching",
+            "options": {
+              "behavior": "NO_STORE"
+            }
+          },
+          {
+            "name": "tieredDistribution",
+            "options": {
+              "enabled": true,
+              "tieredDistributionMap": "CH2"
+            }
+          },
+          {
+            "name": "validateEntityTag",
+            "options": {
+              "enabled": false
+            }
+          },
+          {
+            "name": "removeVary",
+            "options": {
+              "enabled": false
+            }
+          },
+          {
+            "name": "cacheError",
+            "options": {
+              "enabled": true,
+              "preserveStale": true,
+              "ttl": "10s"
+            }
+          },
+          {
+            "name": "cacheKeyQueryParams",
+            "options": {
+              "behavior": "INCLUDE_ALL_ALPHABETIZE_ORDER"
+            }
+          },
+          {
+            "name": "prefreshCache",
+            "options": {
+              "enabled": true,
+              "prefreshval": 90
+            }
+          },
+          {
+            "name": "downstreamCache",
+            "options": {
+              "allowBehavior": "LESSER",
+              "behavior": "ALLOW",
+              "sendHeaders": "CACHE_CONTROL",
+              "sendPrivate": false
+            }
+          }
+        ],
+        "criteria": [],
+        "criteriaMustSatisfy": "all",
+        "comments": "Control the settings related to caching content at the edge and in the browser. As a result, fewer requests go to your origin, fewer bytes leave your data centers, and your assets are closer to your users."
+      },
+      {
+        "name": "Strengthen security",
+        "children": [
+          {
+            "name": "Allowed methods",
+            "children": [
+              {
+                "name": "POST",
+                "children": [],
+                "behaviors": [
+                  {
+                    "name": "allowPost",
+                    "options": {
+                      "allowWithoutContentLength": false,
+                      "enabled": true
+                    }
+                  }
+                ],
+                "criteria": [],
+                "criteriaMustSatisfy": "all",
+                "comments": "Allow use of the POST HTTP request method."
+              },
+              {
+                "name": "OPTIONS",
+                "children": [],
+                "behaviors": [
+                  {
+                    "name": "allowOptions",
+                    "options": {
+                      "enabled": true
+                    }
+                  }
+                ],
+                "criteria": [],
+                "criteriaMustSatisfy": "all",
+                "comments": "Allow use of the OPTIONS HTTP request method."
+              },
+              {
+                "name": "PUT",
+                "children": [],
+                "behaviors": [
+                  {
+                    "name": "allowPut",
+                    "options": {
+                      "enabled": false
+                    }
+                  }
+                ],
+                "criteria": [],
+                "criteriaMustSatisfy": "all",
+                "comments": "Allow use of the PUT HTTP request method."
+              },
+              {
+                "name": "DELETE",
+                "children": [],
+                "behaviors": [
+                  {
+                    "name": "allowDelete",
+                    "options": {
+                      "enabled": false
+                    }
+                  }
+                ],
+                "criteria": [],
+                "criteriaMustSatisfy": "all",
+                "comments": "Allow use of the DELETE HTTP request method."
+              },
+              {
+                "name": "PATCH",
+                "children": [],
+                "behaviors": [
+                  {
+                    "name": "allowPatch",
+                    "options": {
+                      "enabled": false
+                    }
+                  }
+                ],
+                "criteria": [],
+                "criteriaMustSatisfy": "all",
+                "comments": "Allow use of the PATCH HTTP request method."
+              }
+            ],
+            "behaviors": [
+              {
+                "name": "allHttpInCacheHierarchy",
+                "options": {
+                  "enabled": true
+                }
+              }
+            ],
+            "criteria": [],
+            "criteriaMustSatisfy": "all",
+            "comments": "Allow the use of HTTP methods. Consider enabling additional methods under a path match for increased origin security."
+          },
+          {
+            "name": "Obfuscate debug info",
+            "children": [],
+            "behaviors": [
+              {
+                "name": "cacheTagVisible",
+                "options": {
+                  "behavior": "PRAGMA_HEADER"
+                }
+              }
+            ],
+            "criteria": [],
+            "criteriaMustSatisfy": "all",
+            "comments": "Do not expose back-end information unless the request contains the Pragma debug header."
+          },
+          {
+            "name": "Obfuscate backend info",
+            "children": [],
+            "behaviors": [
+              {
+                "name": "modifyOutgoingResponseHeader",
+                "options": {
+                  "action": "DELETE",
+                  "customHeaderName": "X-Powered-By",
+                  "standardDeleteHeaderName": "OTHER"
+                }
+              },
+              {
+                "name": "modifyOutgoingResponseHeader",
+                "options": {
+                  "action": "DELETE",
+                  "customHeaderName": "Server",
+                  "standardDeleteHeaderName": "OTHER"
+                }
+              }
+            ],
+            "criteria": [
+              {
+                "name": "requestHeader",
+                "options": {
+                  "headerName": "X-Akamai-Debug",
+                  "matchCaseSensitiveValue": true,
+                  "matchOperator": "IS_NOT_ONE_OF",
+                  "matchWildcardName": false,
+                  "matchWildcardValue": false,
+                  "values": [
+                    "true"
+                  ]
+                }
+              }
+            ],
+            "criteriaMustSatisfy": "all",
+            "comments": "Do not expose back-end information unless the request contains an additional secret header. Regularly change the criteria to use a specific unique value for the secret header."
+          },
+          {
+            "name": "HSTS",
+            "children": [],
+            "behaviors": [
+              {
+                "name": "httpStrictTransportSecurity",
+                "options": {
+                  "enable": false
+                }
+              }
+            ],
+            "criteria": [],
+            "criteriaMustSatisfy": "all",
+            "comments": "Require all browsers to connect to your site using HTTPS."
+          }
+        ],
+        "behaviors": [],
+        "criteria": [],
+        "criteriaMustSatisfy": "all",
+        "comments": "Control the settings that minimize the information your website shares with clients and malicious entities to reduce your exposure to threats."
+      },
+      {
+        "name": "Increase availability",
+        "children": [
+          {
+            "name": "Simulate failover",
+            "children": [],
+            "behaviors": [
+              {
+                "name": "breakConnection",
+                "options": {
+                  "enabled": true
+                }
+              }
+            ],
+            "criteria": [
+              {
+                "name": "contentDeliveryNetwork",
+                "options": {
+                  "matchOperator": "IS",
+                  "network": "STAGING"
+                }
+              },
+              {
+                "name": "requestHeader",
+                "options": {
+                  "headerName": "breakconnection",
+                  "matchCaseSensitiveValue": true,
+                  "matchOperator": "IS_ONE_OF",
+                  "matchWildcardName": false,
+                  "matchWildcardValue": false,
+                  "values": [
+                    "Your-Secret-Here"
+                  ]
+                }
+              }
+            ],
+            "criteriaMustSatisfy": "all",
+            "comments": "Simulate an origin connection problem and test the site failover configuration on the CDN staging network."
+          },
+          {
+            "name": "Site failover",
+            "children": [],
+            "behaviors": [
+              {
+                "name": "failAction",
+                "options": {
+                  "enabled": false
+                }
+              }
+            ],
+            "criteria": [
+              {
+                "name": "originTimeout",
+                "options": {
+                  "matchOperator": "ORIGIN_TIMED_OUT"
+                }
+              }
+            ],
+            "criteriaMustSatisfy": "any",
+            "comments": "Specify how edge servers respond when the origin is not available."
+          },
+          {
+            "name": "Origin health",
+            "children": [],
+            "behaviors": [
+              {
+                "name": "healthDetection",
+                "options": {
+                  "maximumReconnects": 3,
+                  "retryCount": 3,
+                  "retryInterval": "10s"
+                }
+              }
+            ],
+            "criteria": [],
+            "criteriaMustSatisfy": "all",
+            "comments": "Monitor the health of your origin by tracking unsuccessful IP connection attempts."
+          },
+          {
+            "name": "Script management",
+            "children": [],
+            "behaviors": [
+              {
+                "name": "scriptManagement",
+                "options": {
+                  "enabled": false
+                }
+              }
+            ],
+            "criteria": [],
+            "criteriaMustSatisfy": "all",
+            "comments": "Enable Script Management to minimize performance and availability impacts from third-party JavaScripts."
+          }
+        ],
+        "behaviors": [],
+        "criteria": [],
+        "criteriaMustSatisfy": "all",
+        "comments": "Control how to respond when your origin or third parties are slow or even down to minimize the negative impact on user experience."
+      },
+      {
+        "name": "Minimize payload",
+        "children": [
+          {
+            "name": "Compressible objects",
+            "children": [],
+            "behaviors": [
+              {
+                "name": "gzipResponse",
+                "options": {
+                  "behavior": "ALWAYS"
+                }
+              }
+            ],
+            "criteria": [
+              {
+                "name": "contentType",
+                "options": {
+                  "matchCaseSensitive": false,
+                  "matchOperator": "IS_ONE_OF",
+                  "matchWildcard": true,
+                  "values": [
+                    "application/*javascript*",
+                    "application/*json*",
+                    "application/*xml*",
+                    "application/text*",
+                    "application/vnd-ms-fontobject",
+                    "application/vnd.microsoft.icon",
+                    "application/x-font-opentype",
+                    "application/x-font-truetype",
+                    "application/x-font-ttf",
+                    "application/xmlfont/eot",
+                    "font/eot",
+                    "font/opentype",
+                    "font/otf",
+                    "image/svg+xml",
+                    "image/vnd.microsoft.icon",
+                    "image/x-icon",
+                    "text/*",
+                    "application/octet-stream*",
+                    "application/x-font-eot*",
+                    "font/ttf",
+                    "application/font-ttf",
+                    "application/font-sfnt",
+                    "application/x-tgif"
+                  ]
+                }
+              }
+            ],
+            "criteriaMustSatisfy": "all",
+            "comments": "Serve gzip compressed content for text-based formats."
+          }
+        ],
+        "behaviors": [],
+        "criteria": [],
+        "criteriaMustSatisfy": "all",
+        "comments": "Control the settings that reduce the size of the delivered content and decrease the number of bytes sent by your properties. This allows you to cut down the network overhead of your website or API."
+      },
+      {
+        "name": "Static Origins",
+        "children": [
+          {
+            "name": "mobiletimes24.iamacmp.com",
+            "children": [],
+            "behaviors": [
+              {
+                "name": "origin",
+                "options": {
+                  "originType": "CUSTOMER",
+                  "hostname": "www.google.com",
+                  "forwardHostHeader": "REQUEST_HOST_HEADER",
+                  "cacheKeyHostname": "ORIGIN_HOSTNAME",
+                  "compress": true,
+                  "enableTrueClientIp": true,
+                  "originCertificate": "",
+                  "verificationMode": "CUSTOM",
+                  "ports": "",
+                  "httpPort": 80,
+                  "httpsPort": 443,
+                  "trueClientIpHeader": "True-Client-IP",
+                  "trueClientIpClientSetting": false,
+                  "originSni": true,
+                  "customValidCnValues": [
+                    "{{Origin Hostname}}",
+                    "{{Forward Host Header}}"
+                  ],
+                  "originCertsToHonor": "STANDARD_CERTIFICATE_AUTHORITIES",
+                  "standardCertificateAuthorities": [
+                    "akamai-permissive"
+                  ]
+                }
+              },
+              {
+                "name": "cpCode",
+                "options": {
+                  "value": {
+                    "id": 1375741,
+                    "description": "mobiletimes24.iamacmp.com",
+                    "products": [
+                      "Fresca"
+                    ],
+                    "name": "mobiletimes24.iamacmp.com"
+                  }
+                }
+              }
+            ],
+            "criteria": [
+              {
+                "name": "hostname",
+                "options": {
+                  "matchOperator": "IS_ONE_OF",
+                  "values": [
+                    "mobiletimes24.iamacmp.com"
+                  ]
+                }
+              }
+            ],
+            "criteriaMustSatisfy": "all"
+          },
+          {
+            "name": "mobiletimes32.iamacmp.com",
+            "children": [],
+            "behaviors": [
+              {
+                "name": "origin",
+                "options": {
+                  "originType": "CUSTOMER",
+                  "hostname": "www.google.com",
+                  "forwardHostHeader": "REQUEST_HOST_HEADER",
+                  "cacheKeyHostname": "ORIGIN_HOSTNAME",
+                  "compress": true,
+                  "enableTrueClientIp": true,
+                  "originCertificate": "",
+                  "verificationMode": "CUSTOM",
+                  "ports": "",
+                  "httpPort": 80,
+                  "httpsPort": 443,
+                  "trueClientIpHeader": "True-Client-IP",
+                  "trueClientIpClientSetting": false,
+                  "originSni": true,
+                  "customValidCnValues": [
+                    "{{Origin Hostname}}",
+                    "{{Forward Host Header}}"
+                  ],
+                  "originCertsToHonor": "STANDARD_CERTIFICATE_AUTHORITIES",
+                  "standardCertificateAuthorities": [
+                    "akamai-permissive"
+                  ]
+                }
+              },
+              {
+                "name": "cpCode",
+                "options": {
+                  "value": {
+                    "id": 1375759,
+                    "description": "mobiletimes32.iamacmp.com",
+                    "products": [
+                      "Fresca"
+                    ],
+                    "name": "mobiletimes32.iamacmp.com"
+                  }
+                }
+              }
+            ],
+            "criteria": [
+              {
+                "name": "hostname",
+                "options": {
+                  "matchOperator": "IS_ONE_OF",
+                  "values": [
+                    "mobiletimes32.iamacmp.com"
+                  ]
+                }
+              }
+            ],
+            "criteriaMustSatisfy": "all"
+          },
+          {
+            "name": "mobiletimes33.iamacmp.com",
+            "children": [],
+            "behaviors": [
+              {
+                "name": "origin",
+                "options": {
+                  "originType": "CUSTOMER",
+                  "hostname": "www.gmail.com",
+                  "forwardHostHeader": "REQUEST_HOST_HEADER",
+                  "cacheKeyHostname": "ORIGIN_HOSTNAME",
+                  "compress": true,
+                  "enableTrueClientIp": true,
+                  "originCertificate": "",
+                  "verificationMode": "CUSTOM",
+                  "ports": "",
+                  "httpPort": 80,
+                  "httpsPort": 443,
+                  "trueClientIpHeader": "True-Client-IP",
+                  "trueClientIpClientSetting": false,
+                  "originSni": true,
+                  "customValidCnValues": [
+                    "{{Origin Hostname}}",
+                    "{{Forward Host Header}}"
+                  ],
+                  "originCertsToHonor": "STANDARD_CERTIFICATE_AUTHORITIES",
+                  "standardCertificateAuthorities": [
+                    "akamai-permissive"
+                  ]
+                }
+              },
+              {
+                "name": "cpCode",
+                "options": {
+                  "value": {
+                    "id": 1375760,
+                    "description": "mobiletimes33.iamacmp.com",
+                    "products": [
+                      "Fresca"
+                    ],
+                    "name": "mobiletimes33.iamacmp.com"
+                  }
+                }
+              }
+            ],
+            "criteria": [
+              {
+                "name": "hostname",
+                "options": {
+                  "matchOperator": "IS_ONE_OF",
+                  "values": [
+                    "mobiletimes33.iamacmp.com"
+                  ]
+                }
+              }
+            ],
+            "criteriaMustSatisfy": "all"
+          },
+          {
+            "name": "mobiletimes34.iamacmp.com",
+            "children": [],
+            "behaviors": [
+              {
+                "name": "origin",
+                "options": {
+                  "originType": "CUSTOMER",
+                  "hostname": "www.google.com",
+                  "forwardHostHeader": "REQUEST_HOST_HEADER",
+                  "cacheKeyHostname": "ORIGIN_HOSTNAME",
+                  "compress": true,
+                  "enableTrueClientIp": true,
+                  "originCertificate": "",
+                  "verificationMode": "CUSTOM",
+                  "ports": "",
+                  "httpPort": 80,
+                  "httpsPort": 443,
+                  "trueClientIpHeader": "True-Client-IP",
+                  "trueClientIpClientSetting": false,
+                  "originSni": true,
+                  "customValidCnValues": [
+                    "{{Origin Hostname}}",
+                    "{{Forward Host Header}}"
+                  ],
+                  "originCertsToHonor": "STANDARD_CERTIFICATE_AUTHORITIES",
+                  "standardCertificateAuthorities": [
+                    "akamai-permissive"
+                  ]
+                }
+              },
+              {
+                "name": "cpCode",
+                "options": {
+                  "value": {
+                    "id": 1375764,
+                    "description": "mobiletimes34.iamacmp.com",
+                    "products": [
+                      "Fresca"
+                    ],
+                    "name": "mobiletimes34.iamacmp.com"
+                  }
+                }
+              }
+            ],
+            "criteria": [
+              {
+                "name": "hostname",
+                "options": {
+                  "matchOperator": "IS_ONE_OF",
+                  "values": [
+                    "mobiletimes34.iamacmp.com"
+                  ]
+                }
+              }
+            ],
+            "criteriaMustSatisfy": "all"
+          },
+          {
+            "name": "mobiletimes35.iamacmp.com",
+            "children": [],
+            "behaviors": [
+              {
+                "name": "origin",
+                "options": {
+                  "originType": "CUSTOMER",
+                  "hostname": "www.gmail.com",
+                  "forwardHostHeader": "REQUEST_HOST_HEADER",
+                  "cacheKeyHostname": "ORIGIN_HOSTNAME",
+                  "compress": true,
+                  "enableTrueClientIp": true,
+                  "originCertificate": "",
+                  "verificationMode": "CUSTOM",
+                  "ports": "",
+                  "httpPort": 80,
+                  "httpsPort": 443,
+                  "trueClientIpHeader": "True-Client-IP",
+                  "trueClientIpClientSetting": false,
+                  "originSni": true,
+                  "customValidCnValues": [
+                    "{{Origin Hostname}}",
+                    "{{Forward Host Header}}"
+                  ],
+                  "originCertsToHonor": "STANDARD_CERTIFICATE_AUTHORITIES",
+                  "standardCertificateAuthorities": [
+                    "akamai-permissive"
+                  ]
+                }
+              },
+              {
+                "name": "cpCode",
+                "options": {
+                  "value": {
+                    "id": 1375765,
+                    "description": "mobiletimes35.iamacmp.com",
+                    "products": [
+                      "Fresca"
+                    ],
+                    "name": "mobiletimes35.iamacmp.com"
+                  }
+                }
+              }
+            ],
+            "criteria": [
+              {
+                "name": "hostname",
+                "options": {
+                  "matchOperator": "IS_ONE_OF",
+                  "values": [
+                    "mobiletimes35.iamacmp.com"
+                  ]
+                }
+              }
+            ],
+            "criteriaMustSatisfy": "all"
+          },
+          {
+            "name": "economictimes1.iamacmp.com",
+            "children": [],
+            "behaviors": [
+              {
+                "name": "origin",
+                "options": {
+                  "originType": "CUSTOMER",
+                  "hostname": "www.gmail.com",
+                  "forwardHostHeader": "REQUEST_HOST_HEADER",
+                  "cacheKeyHostname": "ORIGIN_HOSTNAME",
+                  "compress": true,
+                  "enableTrueClientIp": true,
+                  "originCertificate": "",
+                  "verificationMode": "CUSTOM",
+                  "ports": "",
+                  "httpPort": 80,
+                  "httpsPort": 443,
+                  "trueClientIpHeader": "True-Client-IP",
+                  "trueClientIpClientSetting": false,
+                  "originSni": true,
+                  "customValidCnValues": [
+                    "{{Origin Hostname}}",
+                    "{{Forward Host Header}}"
+                  ],
+                  "originCertsToHonor": "STANDARD_CERTIFICATE_AUTHORITIES",
+                  "standardCertificateAuthorities": [
+                    "akamai-permissive"
+                  ]
+                }
+              },
+              {
+                "name": "cpCode",
+                "options": {
+                  "value": {
+                    "id": 1375912,
+                    "description": "economictimes1.iamacmp.com",
+                    "products": [
+                      "Fresca"
+                    ],
+                    "name": "economictimes1.iamacmp.com"
+                  }
+                }
+              }
+            ],
+            "criteria": [
+              {
+                "name": "hostname",
+                "options": {
+                  "matchOperator": "IS_ONE_OF",
+                  "values": [
+                    "economictimes1.iamacmp.com"
+                  ]
+                }
+              }
+            ],
+            "criteriaMustSatisfy": "all"
+          },
+          {
+            "name": "economictimes2.iamacmp.com",
+            "children": [],
+            "behaviors": [
+              {
+                "name": "origin",
+                "options": {
+                  "originType": "CUSTOMER",
+                  "hostname": "www.google.com",
+                  "forwardHostHeader": "REQUEST_HOST_HEADER",
+                  "cacheKeyHostname": "ORIGIN_HOSTNAME",
+                  "compress": true,
+                  "enableTrueClientIp": true,
+                  "originCertificate": "",
+                  "verificationMode": "CUSTOM",
+                  "ports": "",
+                  "httpPort": 80,
+                  "httpsPort": 443,
+                  "trueClientIpHeader": "True-Client-IP",
+                  "trueClientIpClientSetting": false,
+                  "originSni": true,
+                  "customValidCnValues": [
+                    "{{Origin Hostname}}",
+                    "{{Forward Host Header}}"
+                  ],
+                  "originCertsToHonor": "STANDARD_CERTIFICATE_AUTHORITIES",
+                  "standardCertificateAuthorities": [
+                    "akamai-permissive"
+                  ]
+                }
+              },
+              {
+                "name": "cpCode",
+                "options": {
+                  "value": {
+                    "id": 1375913,
+                    "description": "economictimes2.iamacmp.com",
+                    "products": [
+                      "Fresca"
+                    ],
+                    "name": "economictimes2.iamacmp.com"
+                  }
+                }
+              }
+            ],
+            "criteria": [
+              {
+                "name": "hostname",
+                "options": {
+                  "matchOperator": "IS_ONE_OF",
+                  "values": [
+                    "economictimes2.iamacmp.com"
+                  ]
+                }
+              }
+            ],
+            "criteriaMustSatisfy": "all"
+          },
+          {
+            "name": "economictimes3.iamacmp.com",
+            "children": [],
+            "behaviors": [
+              {
+                "name": "origin",
+                "options": {
+                  "originType": "CUSTOMER",
+                  "hostname": "www.suntv.com",
+                  "forwardHostHeader": "REQUEST_HOST_HEADER",
+                  "cacheKeyHostname": "ORIGIN_HOSTNAME",
+                  "compress": true,
+                  "enableTrueClientIp": true,
+                  "originCertificate": "",
+                  "verificationMode": "CUSTOM",
+                  "ports": "",
+                  "httpPort": 80,
+                  "httpsPort": 443,
+                  "trueClientIpHeader": "True-Client-IP",
+                  "trueClientIpClientSetting": false,
+                  "originSni": true,
+                  "customValidCnValues": [
+                    "{{Origin Hostname}}",
+                    "{{Forward Host Header}}"
+                  ],
+                  "originCertsToHonor": "STANDARD_CERTIFICATE_AUTHORITIES",
+                  "standardCertificateAuthorities": [
+                    "akamai-permissive"
+                  ]
+                }
+              },
+              {
+                "name": "cpCode",
+                "options": {
+                  "value": {
+                    "id": 1375914,
+                    "description": "economictimes3.iamacmp.com",
+                    "products": [
+                      "Fresca"
+                    ],
+                    "name": "economictimes3.iamacmp.com"
+                  }
+                }
+              }
+            ],
+            "criteria": [
+              {
+                "name": "hostname",
+                "options": {
+                  "matchOperator": "IS_ONE_OF",
+                  "values": [
+                    "economictimes3.iamacmp.com"
+                  ]
+                }
+              }
+            ],
+            "criteriaMustSatisfy": "all"
+          },
+          {
+            "name": "economictimes5.iamacmp.com",
+            "children": [],
+            "behaviors": [
+              {
+                "name": "origin",
+                "options": {
+                  "originType": "CUSTOMER",
+                  "hostname": "www.google.com",
+                  "forwardHostHeader": "REQUEST_HOST_HEADER",
+                  "cacheKeyHostname": "ORIGIN_HOSTNAME",
+                  "compress": true,
+                  "enableTrueClientIp": true,
+                  "originCertificate": "",
+                  "verificationMode": "CUSTOM",
+                  "ports": "",
+                  "httpPort": 80,
+                  "httpsPort": 443,
+                  "trueClientIpHeader": "True-Client-IP",
+                  "trueClientIpClientSetting": false,
+                  "originSni": true,
+                  "customValidCnValues": [
+                    "{{Origin Hostname}}",
+                    "{{Forward Host Header}}"
+                  ],
+                  "originCertsToHonor": "STANDARD_CERTIFICATE_AUTHORITIES",
+                  "standardCertificateAuthorities": [
+                    "akamai-permissive"
+                  ]
+                }
+              },
+              {
+                "name": "cpCode",
+                "options": {
+                  "value": {
+                    "id": 1376615,
+                    "description": "economictimes5.iamacmp.com",
+                    "products": [
+                      "Fresca"
+                    ],
+                    "name": "economictimes5.iamacmp.com"
+                  }
+                }
+              }
+            ],
+            "criteria": [
+              {
+                "name": "hostname",
+                "options": {
+                  "matchOperator": "IS_ONE_OF",
+                  "values": [
+                    "economictimes5.iamacmp.com"
+                  ]
+                }
+              }
+            ],
+            "criteriaMustSatisfy": "all"
+          }
+        ],
+        "behaviors": [],
+        "criteria": [],
+        "criteriaMustSatisfy": "all"
+      }
     ],
-    "sniOnly": true,
-    "quicEnabled": false,
-    "dnsNameSettings": {
-      "cloneDnsNames": true,
-      "dnsNames": [
-        "common.iamacmp.com",
-        "mobiletimes19.iamacmp.com",
-        "times12.iamacmp.com",
-        "times3.iamacmp.com",
-        "times2.iamacmp.com",
-        "times1.iamacmp.com"
-      ]
-    },
-    "ocspStapling": "on",
-    "clientMutualAuthentication": null
-  },
-  "signatureAlgorithm": "SHA-256",
-  "changeManagement": false,
-  "csr": {
-    "cn": "common.iamacmp.com",
-    "c": "IN",
-    "st": "Karnataka",
-    "l": "Kolar",
-    "o": "Akamai",
-    "ou": "",
-    "sans": [
-      "common.iamacmp.com",
-      "times1.iamacmp.com",
-      "times2.iamacmp.com",
-      "times3.iamacmp.com",
-      "times12.iamacmp.com",
-      "mobiletimes19.iamacmp.com",
-      "mobiletimes22.iamacmp.com",
-      "mobiletimes23.iamacmp.com"
+    "behaviors": [
+      {
+        "name": "origin",
+        "options": {
+          "cacheKeyHostname": "REQUEST_HOST_HEADER",
+          "compress": true,
+          "enableTrueClientIp": true,
+          "forwardHostHeader": "REQUEST_HOST_HEADER",
+          "httpPort": 80,
+          "httpsPort": 443,
+          "originCertificate": "",
+          "originSni": true,
+          "originType": "CUSTOMER",
+          "ports": "",
+          "trueClientIpClientSetting": false,
+          "trueClientIpHeader": "True-Client-IP",
+          "verificationMode": "CUSTOM",
+          "hostname": "{{user.PMUSER_ORIGIN}}",
+          "customValidCnValues": [
+            "{{Origin Hostname}}",
+            "{{Forward Host Header}}"
+          ],
+          "originCertsToHonor": "STANDARD_CERTIFICATE_AUTHORITIES",
+          "standardCertificateAuthorities": [
+            "akamai-permissive"
+          ]
+        }
+      }
     ],
-    "preferredTrustChain": "dst-root-ca-x3"
+    "options": {
+      "is_secure": false
+    },
+    "variables": [
+      {
+        "name": "PMUSER_ORIGIN",
+        "value": "",
+        "description": "",
+        "hidden": false,
+        "sensitive": false
+      }
+    ],
+    "comments": "The Default Rule template contains all the necessary and recommended behaviors. Rules are evaluated from top to bottom and the last matching rule wins."
   },
-  "org": {
-    "name": "Akamai",
-    "addressLineOne": "Achu Priya Nilaya",
-    "addressLineTwo": "8th Cross Jayanagar B Block, Tekal Road",
-    "city": "Kolar",
-    "region": "Karnataka",
-    "postalCode": "563101",
-    "country": "IN",
-    "phone": "09986014033"
+  "ruleFormat": "latest"
+}
+2022-09-07T12:38:01.855822Z:Status of adding the Origin www.google.com to hostname economictimes5.iamacmp.com is True
+
+2022-09-07T12:38:01.855920Z:economictimes6.iamacmp.com
+2022-09-07T12:38:01.855943Z:economictimes6.iamacmp.com.edgesuite.net
+2022-09-07T12:38:01.855962Z:1376616
+2022-09-07T12:38:01.855975Z:www.ndtv.com
+2022-09-07T12:38:16.480118Z:Status of adding the hostname economictimes6.iamacmp.com to config TimesTemplate is True
+2022-09-07T12:38:25.654007Z:{
+  "accountId": "act_B-3-16OEUPX",
+  "contractId": "ctr_3-16TWBVX",
+  "groupId": "grp_173720",
+  "propertyId": "prp_828733",
+  "propertyName": "TimesTemplate",
+  "propertyVersion": 13,
+  "etag": "ad21654fb2a4cfdb0918f6fefc13c0bc6564f07f",
+  "rules": {
+    "name": "default",
+    "children": [
+      {
+        "name": "Augment insights",
+        "children": [
+          {
+            "name": "Traffic reporting",
+            "children": [],
+            "behaviors": [
+              {
+                "name": "cpCode",
+                "options": {
+                  "value": {
+                    "id": 1369885,
+                    "description": "TimesTemplate",
+                    "products": [
+                      "Fresca"
+                    ],
+                    "createdDate": 1661349394000.0,
+                    "cpCodeLimits": {
+                      "limit": 616,
+                      "currentCapacity": -168,
+                      "limitType": "account"
+                    },
+                    "name": "TimesTemplate"
+                  }
+                }
+              }
+            ],
+            "criteria": [],
+            "criteriaMustSatisfy": "all",
+            "comments": "Identify your main traffic segments so you can granularly zoom in your traffic statistics like hits, bandwidth, offload, response codes, and errors."
+          },
+          {
+            "name": "mPulse RUM",
+            "children": [],
+            "behaviors": [
+              {
+                "name": "mPulse",
+                "options": {
+                  "apiKey": "",
+                  "bufferSize": "",
+                  "configOverride": "",
+                  "enabled": true,
+                  "loaderVersion": "V12",
+                  "requirePci": false,
+                  "titleOptional": ""
+                }
+              }
+            ],
+            "criteria": [],
+            "criteriaMustSatisfy": "all",
+            "comments": "Collect and analyze real-user data to monitor the performance of your website."
+          },
+          {
+            "name": "Geolocation",
+            "children": [],
+            "behaviors": [
+              {
+                "name": "edgeScape",
+                "options": {
+                  "enabled": false
+                }
+              }
+            ],
+            "criteria": [
+              {
+                "name": "requestType",
+                "options": {
+                  "matchOperator": "IS",
+                  "value": "CLIENT_REQ"
+                }
+              }
+            ],
+            "criteriaMustSatisfy": "all",
+            "comments": "Receive data about a user's geolocation and connection speed in a request header. If you change cached content based on the values of the X-Akamai-Edgescape request header, contact your account representative."
+          },
+          {
+            "name": "Log delivery",
+            "children": [],
+            "behaviors": [
+              {
+                "name": "report",
+                "options": {
+                  "logAcceptLanguage": false,
+                  "logCookies": "OFF",
+                  "logCustomLogField": false,
+                  "logEdgeIP": false,
+                  "logHost": false,
+                  "logReferer": false,
+                  "logUserAgent": false,
+                  "logXForwardedFor": false
+                }
+              }
+            ],
+            "criteria": [],
+            "criteriaMustSatisfy": "all",
+            "comments": "Specify the level of detail you want to be logged in your Log Delivery Service reports. Log User-Agent Header to obtain detailed information in the Traffic by Browser and OS report."
+          }
+        ],
+        "behaviors": [],
+        "criteria": [],
+        "criteriaMustSatisfy": "all",
+        "comments": "Control the settings related to monitoring and reporting. This gives you additional visibility into your traffic and audiences."
+      },
+      {
+        "name": "Accelerate delivery",
+        "children": [
+          {
+            "name": "Origin connectivity",
+            "children": [],
+            "behaviors": [
+              {
+                "name": "dnsAsyncRefresh",
+                "options": {
+                  "enabled": true,
+                  "timeout": "1h"
+                }
+              },
+              {
+                "name": "timeout",
+                "options": {
+                  "value": "5s"
+                }
+              },
+              {
+                "name": "readTimeout",
+                "options": {
+                  "value": "120s"
+                }
+              }
+            ],
+            "criteria": [],
+            "criteriaMustSatisfy": "all",
+            "comments": "Optimize the connection between edge and origin."
+          },
+          {
+            "name": "Protocol optimizations",
+            "children": [],
+            "behaviors": [
+              {
+                "name": "enhancedAkamaiProtocol",
+                "options": {
+                  "display": ""
+                }
+              },
+              {
+                "name": "http2",
+                "options": {
+                  "enabled": ""
+                }
+              },
+              {
+                "name": "allowTransferEncoding",
+                "options": {
+                  "enabled": true
+                }
+              },
+              {
+                "name": "sureRoute",
+                "options": {
+                  "enableCustomKey": false,
+                  "enabled": true,
+                  "forceSslForward": false,
+                  "raceStatTtl": "30m",
+                  "srDownloadLinkTitle": "",
+                  "testObjectUrl": "/akamai/sureroute-test-object.html",
+                  "toHostStatus": "INCOMING_HH",
+                  "type": "PERFORMANCE"
+                }
+              }
+            ],
+            "criteria": [],
+            "criteriaMustSatisfy": "all",
+            "comments": "Serve your website using modern and fast protocols."
+          },
+          {
+            "name": "Prefetching",
+            "children": [
+              {
+                "name": "Prefetching objects",
+                "children": [
+                  {
+                    "name": "Bots",
+                    "children": [],
+                    "behaviors": [
+                      {
+                        "name": "prefetch",
+                        "options": {
+                          "enabled": false
+                        }
+                      }
+                    ],
+                    "criteria": [
+                      {
+                        "name": "userAgent",
+                        "options": {
+                          "matchCaseSensitive": false,
+                          "matchOperator": "IS_ONE_OF",
+                          "matchWildcard": true,
+                          "values": [
+                            "*bot*",
+                            "*crawl*",
+                            "*spider*"
+                          ]
+                        }
+                      }
+                    ],
+                    "criteriaMustSatisfy": "all",
+                    "comments": "Disable prefetching for specific clients identifying themselves as bots and crawlers. This avoids requesting unnecessary resources from the origin."
+                  }
+                ],
+                "behaviors": [
+                  {
+                    "name": "prefetch",
+                    "options": {
+                      "enabled": true
+                    }
+                  }
+                ],
+                "criteria": [],
+                "criteriaMustSatisfy": "all",
+                "comments": "Define for which HTML pages prefetching should be enabled."
+              },
+              {
+                "name": "Prefetchable objects",
+                "children": [],
+                "behaviors": [
+                  {
+                    "name": "prefetchable",
+                    "options": {
+                      "enabled": true
+                    }
+                  }
+                ],
+                "criteria": [
+                  {
+                    "name": "fileExtension",
+                    "options": {
+                      "matchCaseSensitive": false,
+                      "matchOperator": "IS_ONE_OF",
+                      "values": [
+                        "css",
+                        "js",
+                        "jpg",
+                        "jpeg",
+                        "jp2",
+                        "png",
+                        "gif",
+                        "svg",
+                        "svgz",
+                        "webp",
+                        "eot",
+                        "woff",
+                        "woff2",
+                        "otf",
+                        "ttf"
+                      ]
+                    }
+                  }
+                ],
+                "criteriaMustSatisfy": "all",
+                "comments": "Define which resources should be prefetched."
+              }
+            ],
+            "behaviors": [],
+            "criteria": [],
+            "criteriaMustSatisfy": "all",
+            "comments": "Instruct edge servers to retrieve embedded resources before the browser requests them."
+          },
+          {
+            "name": "Adaptive acceleration",
+            "children": [],
+            "behaviors": [
+              {
+                "name": "adaptiveAcceleration",
+                "options": {
+                  "enableBrotliCompression": false,
+                  "enablePreconnect": true,
+                  "enablePush": true,
+                  "enableRo": false,
+                  "preloadEnable": true,
+                  "source": "mPulse",
+                  "titleHttp2ServerPush": "",
+                  "titlePreconnect": "",
+                  "titlePreload": "",
+                  "titleRo": ""
+                }
+              }
+            ],
+            "criteria": [],
+            "criteriaMustSatisfy": "all",
+            "comments": "Automatically and continuously apply performance optimizations to your website using machine learning."
+          }
+        ],
+        "behaviors": [],
+        "criteria": [],
+        "criteriaMustSatisfy": "all",
+        "comments": "Control the settings related to improving the performance of delivering objects to your users."
+      },
+      {
+        "name": "Offload origin",
+        "children": [
+          {
+            "name": "CSS and JavaScript",
+            "children": [],
+            "behaviors": [
+              {
+                "name": "caching",
+                "options": {
+                  "behavior": "MAX_AGE",
+                  "mustRevalidate": false,
+                  "ttl": "7d"
+                }
+              }
+            ],
+            "criteria": [
+              {
+                "name": "fileExtension",
+                "options": {
+                  "matchCaseSensitive": false,
+                  "matchOperator": "IS_ONE_OF",
+                  "values": [
+                    "css",
+                    "js"
+                  ]
+                }
+              }
+            ],
+            "criteriaMustSatisfy": "any",
+            "comments": "Override the default caching behavior for CSS and JavaScript"
+          },
+          {
+            "name": "Fonts",
+            "children": [],
+            "behaviors": [
+              {
+                "name": "caching",
+                "options": {
+                  "behavior": "MAX_AGE",
+                  "mustRevalidate": false,
+                  "ttl": "30d"
+                }
+              }
+            ],
+            "criteria": [
+              {
+                "name": "fileExtension",
+                "options": {
+                  "matchCaseSensitive": false,
+                  "matchOperator": "IS_ONE_OF",
+                  "values": [
+                    "eot",
+                    "woff",
+                    "woff2",
+                    "otf",
+                    "ttf"
+                  ]
+                }
+              }
+            ],
+            "criteriaMustSatisfy": "any",
+            "comments": "Override the default caching behavior for fonts."
+          },
+          {
+            "name": "Images",
+            "children": [],
+            "behaviors": [
+              {
+                "name": "caching",
+                "options": {
+                  "behavior": "MAX_AGE",
+                  "mustRevalidate": false,
+                  "ttl": "30d"
+                }
+              }
+            ],
+            "criteria": [
+              {
+                "name": "fileExtension",
+                "options": {
+                  "matchCaseSensitive": false,
+                  "matchOperator": "IS_ONE_OF",
+                  "values": [
+                    "jpg",
+                    "jpeg",
+                    "png",
+                    "gif",
+                    "webp",
+                    "jp2",
+                    "ico",
+                    "svg",
+                    "svgz"
+                  ]
+                }
+              }
+            ],
+            "criteriaMustSatisfy": "any",
+            "comments": "Override the default caching behavior for images."
+          },
+          {
+            "name": "Files",
+            "children": [],
+            "behaviors": [
+              {
+                "name": "caching",
+                "options": {
+                  "behavior": "MAX_AGE",
+                  "mustRevalidate": false,
+                  "ttl": "7d"
+                }
+              }
+            ],
+            "criteria": [
+              {
+                "name": "fileExtension",
+                "options": {
+                  "matchCaseSensitive": false,
+                  "matchOperator": "IS_ONE_OF",
+                  "values": [
+                    "pdf",
+                    "doc",
+                    "docx",
+                    "odt"
+                  ]
+                }
+              }
+            ],
+            "criteriaMustSatisfy": "any",
+            "comments": "Override the default caching behavior for files. Files containing Personal Identified Information (PII) should require Edge authentication or not be cached at all."
+          },
+          {
+            "name": "Other static objects",
+            "children": [],
+            "behaviors": [
+              {
+                "name": "caching",
+                "options": {
+                  "behavior": "MAX_AGE",
+                  "mustRevalidate": false,
+                  "ttl": "7d"
+                }
+              }
+            ],
+            "criteria": [
+              {
+                "name": "fileExtension",
+                "options": {
+                  "matchCaseSensitive": false,
+                  "matchOperator": "IS_ONE_OF",
+                  "values": [
+                    "aif",
+                    "aiff",
+                    "au",
+                    "avi",
+                    "bin",
+                    "bmp",
+                    "cab",
+                    "carb",
+                    "cct",
+                    "cdf",
+                    "class",
+                    "dcr",
+                    "dtd",
+                    "exe",
+                    "flv",
+                    "gcf",
+                    "gff",
+                    "grv",
+                    "hdml",
+                    "hqx",
+                    "ini",
+                    "mov",
+                    "mp3",
+                    "nc",
+                    "pct",
+                    "ppc",
+                    "pws",
+                    "swa",
+                    "swf",
+                    "txt",
+                    "vbs",
+                    "w32",
+                    "wav",
+                    "midi",
+                    "wbmp",
+                    "wml",
+                    "wmlc",
+                    "wmls",
+                    "wmlsc",
+                    "xsd",
+                    "zip",
+                    "pict",
+                    "tif",
+                    "tiff",
+                    "mid",
+                    "jxr",
+                    "jar"
+                  ]
+                }
+              }
+            ],
+            "criteriaMustSatisfy": "any",
+            "comments": "Override the default caching behavior for other static objects."
+          },
+          {
+            "name": "HTML pages",
+            "children": [],
+            "behaviors": [
+              {
+                "name": "caching",
+                "options": {
+                  "behavior": "NO_STORE"
+                }
+              },
+              {
+                "name": "cacheKeyQueryParams",
+                "options": {
+                  "behavior": "IGNORE",
+                  "exactMatch": true,
+                  "parameters": [
+                    "gclid",
+                    "fbclid",
+                    "utm_source",
+                    "utm_campaign",
+                    "utm_medium",
+                    "utm_content"
+                  ]
+                }
+              }
+            ],
+            "criteria": [
+              {
+                "name": "fileExtension",
+                "options": {
+                  "matchCaseSensitive": false,
+                  "matchOperator": "IS_ONE_OF",
+                  "values": [
+                    "html",
+                    "htm",
+                    "php",
+                    "jsp",
+                    "aspx",
+                    "EMPTY_STRING"
+                  ]
+                }
+              }
+            ],
+            "criteriaMustSatisfy": "all",
+            "comments": "Override the default caching behavior for HTML pages cached on edge servers."
+          },
+          {
+            "name": "Redirects",
+            "children": [],
+            "behaviors": [
+              {
+                "name": "cacheRedirect",
+                "options": {
+                  "enabled": "false"
+                }
+              },
+              {
+                "name": "chaseRedirects",
+                "options": {
+                  "enabled": false
+                }
+              }
+            ],
+            "criteria": [],
+            "criteriaMustSatisfy": "all",
+            "comments": "Configure caching for HTTP redirects. The redirect is cached for the same TTL as a 200 HTTP response when this feature is enabled."
+          },
+          {
+            "name": "POST responses",
+            "children": [],
+            "behaviors": [
+              {
+                "name": "cachePost",
+                "options": {
+                  "enabled": false
+                }
+              }
+            ],
+            "criteria": [],
+            "criteriaMustSatisfy": "all",
+            "comments": "Define when HTTP POST requests should be cached. You should enable it under a criteria match."
+          },
+          {
+            "name": "GraphQL",
+            "children": [],
+            "behaviors": [
+              {
+                "name": "graphqlCaching",
+                "options": {
+                  "enabled": false
+                }
+              }
+            ],
+            "criteria": [
+              {
+                "name": "path",
+                "options": {
+                  "matchCaseSensitive": false,
+                  "matchOperator": "MATCHES_ONE_OF",
+                  "normalize": false,
+                  "values": [
+                    "/graphql"
+                  ]
+                }
+              }
+            ],
+            "criteriaMustSatisfy": "all",
+            "comments": "Define when your GraphQL queries should be cached."
+          },
+          {
+            "name": "Uncacheable objects",
+            "children": [],
+            "behaviors": [
+              {
+                "name": "downstreamCache",
+                "options": {
+                  "behavior": "BUST"
+                }
+              }
+            ],
+            "criteria": [
+              {
+                "name": "cacheability",
+                "options": {
+                  "matchOperator": "IS_NOT",
+                  "value": "CACHEABLE"
+                }
+              }
+            ],
+            "criteriaMustSatisfy": "all",
+            "comments": "Configure the default client caching behavior for uncacheable content at the edge."
+          }
+        ],
+        "behaviors": [
+          {
+            "name": "caching",
+            "options": {
+              "behavior": "NO_STORE"
+            }
+          },
+          {
+            "name": "tieredDistribution",
+            "options": {
+              "enabled": true,
+              "tieredDistributionMap": "CH2"
+            }
+          },
+          {
+            "name": "validateEntityTag",
+            "options": {
+              "enabled": false
+            }
+          },
+          {
+            "name": "removeVary",
+            "options": {
+              "enabled": false
+            }
+          },
+          {
+            "name": "cacheError",
+            "options": {
+              "enabled": true,
+              "preserveStale": true,
+              "ttl": "10s"
+            }
+          },
+          {
+            "name": "cacheKeyQueryParams",
+            "options": {
+              "behavior": "INCLUDE_ALL_ALPHABETIZE_ORDER"
+            }
+          },
+          {
+            "name": "prefreshCache",
+            "options": {
+              "enabled": true,
+              "prefreshval": 90
+            }
+          },
+          {
+            "name": "downstreamCache",
+            "options": {
+              "allowBehavior": "LESSER",
+              "behavior": "ALLOW",
+              "sendHeaders": "CACHE_CONTROL",
+              "sendPrivate": false
+            }
+          }
+        ],
+        "criteria": [],
+        "criteriaMustSatisfy": "all",
+        "comments": "Control the settings related to caching content at the edge and in the browser. As a result, fewer requests go to your origin, fewer bytes leave your data centers, and your assets are closer to your users."
+      },
+      {
+        "name": "Strengthen security",
+        "children": [
+          {
+            "name": "Allowed methods",
+            "children": [
+              {
+                "name": "POST",
+                "children": [],
+                "behaviors": [
+                  {
+                    "name": "allowPost",
+                    "options": {
+                      "allowWithoutContentLength": false,
+                      "enabled": true
+                    }
+                  }
+                ],
+                "criteria": [],
+                "criteriaMustSatisfy": "all",
+                "comments": "Allow use of the POST HTTP request method."
+              },
+              {
+                "name": "OPTIONS",
+                "children": [],
+                "behaviors": [
+                  {
+                    "name": "allowOptions",
+                    "options": {
+                      "enabled": true
+                    }
+                  }
+                ],
+                "criteria": [],
+                "criteriaMustSatisfy": "all",
+                "comments": "Allow use of the OPTIONS HTTP request method."
+              },
+              {
+                "name": "PUT",
+                "children": [],
+                "behaviors": [
+                  {
+                    "name": "allowPut",
+                    "options": {
+                      "enabled": false
+                    }
+                  }
+                ],
+                "criteria": [],
+                "criteriaMustSatisfy": "all",
+                "comments": "Allow use of the PUT HTTP request method."
+              },
+              {
+                "name": "DELETE",
+                "children": [],
+                "behaviors": [
+                  {
+                    "name": "allowDelete",
+                    "options": {
+                      "enabled": false
+                    }
+                  }
+                ],
+                "criteria": [],
+                "criteriaMustSatisfy": "all",
+                "comments": "Allow use of the DELETE HTTP request method."
+              },
+              {
+                "name": "PATCH",
+                "children": [],
+                "behaviors": [
+                  {
+                    "name": "allowPatch",
+                    "options": {
+                      "enabled": false
+                    }
+                  }
+                ],
+                "criteria": [],
+                "criteriaMustSatisfy": "all",
+                "comments": "Allow use of the PATCH HTTP request method."
+              }
+            ],
+            "behaviors": [
+              {
+                "name": "allHttpInCacheHierarchy",
+                "options": {
+                  "enabled": true
+                }
+              }
+            ],
+            "criteria": [],
+            "criteriaMustSatisfy": "all",
+            "comments": "Allow the use of HTTP methods. Consider enabling additional methods under a path match for increased origin security."
+          },
+          {
+            "name": "Obfuscate debug info",
+            "children": [],
+            "behaviors": [
+              {
+                "name": "cacheTagVisible",
+                "options": {
+                  "behavior": "PRAGMA_HEADER"
+                }
+              }
+            ],
+            "criteria": [],
+            "criteriaMustSatisfy": "all",
+            "comments": "Do not expose back-end information unless the request contains the Pragma debug header."
+          },
+          {
+            "name": "Obfuscate backend info",
+            "children": [],
+            "behaviors": [
+              {
+                "name": "modifyOutgoingResponseHeader",
+                "options": {
+                  "action": "DELETE",
+                  "customHeaderName": "X-Powered-By",
+                  "standardDeleteHeaderName": "OTHER"
+                }
+              },
+              {
+                "name": "modifyOutgoingResponseHeader",
+                "options": {
+                  "action": "DELETE",
+                  "customHeaderName": "Server",
+                  "standardDeleteHeaderName": "OTHER"
+                }
+              }
+            ],
+            "criteria": [
+              {
+                "name": "requestHeader",
+                "options": {
+                  "headerName": "X-Akamai-Debug",
+                  "matchCaseSensitiveValue": true,
+                  "matchOperator": "IS_NOT_ONE_OF",
+                  "matchWildcardName": false,
+                  "matchWildcardValue": false,
+                  "values": [
+                    "true"
+                  ]
+                }
+              }
+            ],
+            "criteriaMustSatisfy": "all",
+            "comments": "Do not expose back-end information unless the request contains an additional secret header. Regularly change the criteria to use a specific unique value for the secret header."
+          },
+          {
+            "name": "HSTS",
+            "children": [],
+            "behaviors": [
+              {
+                "name": "httpStrictTransportSecurity",
+                "options": {
+                  "enable": false
+                }
+              }
+            ],
+            "criteria": [],
+            "criteriaMustSatisfy": "all",
+            "comments": "Require all browsers to connect to your site using HTTPS."
+          }
+        ],
+        "behaviors": [],
+        "criteria": [],
+        "criteriaMustSatisfy": "all",
+        "comments": "Control the settings that minimize the information your website shares with clients and malicious entities to reduce your exposure to threats."
+      },
+      {
+        "name": "Increase availability",
+        "children": [
+          {
+            "name": "Simulate failover",
+            "children": [],
+            "behaviors": [
+              {
+                "name": "breakConnection",
+                "options": {
+                  "enabled": true
+                }
+              }
+            ],
+            "criteria": [
+              {
+                "name": "contentDeliveryNetwork",
+                "options": {
+                  "matchOperator": "IS",
+                  "network": "STAGING"
+                }
+              },
+              {
+                "name": "requestHeader",
+                "options": {
+                  "headerName": "breakconnection",
+                  "matchCaseSensitiveValue": true,
+                  "matchOperator": "IS_ONE_OF",
+                  "matchWildcardName": false,
+                  "matchWildcardValue": false,
+                  "values": [
+                    "Your-Secret-Here"
+                  ]
+                }
+              }
+            ],
+            "criteriaMustSatisfy": "all",
+            "comments": "Simulate an origin connection problem and test the site failover configuration on the CDN staging network."
+          },
+          {
+            "name": "Site failover",
+            "children": [],
+            "behaviors": [
+              {
+                "name": "failAction",
+                "options": {
+                  "enabled": false
+                }
+              }
+            ],
+            "criteria": [
+              {
+                "name": "originTimeout",
+                "options": {
+                  "matchOperator": "ORIGIN_TIMED_OUT"
+                }
+              }
+            ],
+            "criteriaMustSatisfy": "any",
+            "comments": "Specify how edge servers respond when the origin is not available."
+          },
+          {
+            "name": "Origin health",
+            "children": [],
+            "behaviors": [
+              {
+                "name": "healthDetection",
+                "options": {
+                  "maximumReconnects": 3,
+                  "retryCount": 3,
+                  "retryInterval": "10s"
+                }
+              }
+            ],
+            "criteria": [],
+            "criteriaMustSatisfy": "all",
+            "comments": "Monitor the health of your origin by tracking unsuccessful IP connection attempts."
+          },
+          {
+            "name": "Script management",
+            "children": [],
+            "behaviors": [
+              {
+                "name": "scriptManagement",
+                "options": {
+                  "enabled": false
+                }
+              }
+            ],
+            "criteria": [],
+            "criteriaMustSatisfy": "all",
+            "comments": "Enable Script Management to minimize performance and availability impacts from third-party JavaScripts."
+          }
+        ],
+        "behaviors": [],
+        "criteria": [],
+        "criteriaMustSatisfy": "all",
+        "comments": "Control how to respond when your origin or third parties are slow or even down to minimize the negative impact on user experience."
+      },
+      {
+        "name": "Minimize payload",
+        "children": [
+          {
+            "name": "Compressible objects",
+            "children": [],
+            "behaviors": [
+              {
+                "name": "gzipResponse",
+                "options": {
+                  "behavior": "ALWAYS"
+                }
+              }
+            ],
+            "criteria": [
+              {
+                "name": "contentType",
+                "options": {
+                  "matchCaseSensitive": false,
+                  "matchOperator": "IS_ONE_OF",
+                  "matchWildcard": true,
+                  "values": [
+                    "application/*javascript*",
+                    "application/*json*",
+                    "application/*xml*",
+                    "application/text*",
+                    "application/vnd-ms-fontobject",
+                    "application/vnd.microsoft.icon",
+                    "application/x-font-opentype",
+                    "application/x-font-truetype",
+                    "application/x-font-ttf",
+                    "application/xmlfont/eot",
+                    "font/eot",
+                    "font/opentype",
+                    "font/otf",
+                    "image/svg+xml",
+                    "image/vnd.microsoft.icon",
+                    "image/x-icon",
+                    "text/*",
+                    "application/octet-stream*",
+                    "application/x-font-eot*",
+                    "font/ttf",
+                    "application/font-ttf",
+                    "application/font-sfnt",
+                    "application/x-tgif"
+                  ]
+                }
+              }
+            ],
+            "criteriaMustSatisfy": "all",
+            "comments": "Serve gzip compressed content for text-based formats."
+          }
+        ],
+        "behaviors": [],
+        "criteria": [],
+        "criteriaMustSatisfy": "all",
+        "comments": "Control the settings that reduce the size of the delivered content and decrease the number of bytes sent by your properties. This allows you to cut down the network overhead of your website or API."
+      },
+      {
+        "name": "Static Origins",
+        "children": [
+          {
+            "name": "mobiletimes24.iamacmp.com",
+            "children": [],
+            "behaviors": [
+              {
+                "name": "origin",
+                "options": {
+                  "originType": "CUSTOMER",
+                  "hostname": "www.google.com",
+                  "forwardHostHeader": "REQUEST_HOST_HEADER",
+                  "cacheKeyHostname": "ORIGIN_HOSTNAME",
+                  "compress": true,
+                  "enableTrueClientIp": true,
+                  "originCertificate": "",
+                  "verificationMode": "CUSTOM",
+                  "ports": "",
+                  "httpPort": 80,
+                  "httpsPort": 443,
+                  "trueClientIpHeader": "True-Client-IP",
+                  "trueClientIpClientSetting": false,
+                  "originSni": true,
+                  "customValidCnValues": [
+                    "{{Origin Hostname}}",
+                    "{{Forward Host Header}}"
+                  ],
+                  "originCertsToHonor": "STANDARD_CERTIFICATE_AUTHORITIES",
+                  "standardCertificateAuthorities": [
+                    "akamai-permissive"
+                  ]
+                }
+              },
+              {
+                "name": "cpCode",
+                "options": {
+                  "value": {
+                    "id": 1375741,
+                    "description": "mobiletimes24.iamacmp.com",
+                    "products": [
+                      "Fresca"
+                    ],
+                    "name": "mobiletimes24.iamacmp.com"
+                  }
+                }
+              }
+            ],
+            "criteria": [
+              {
+                "name": "hostname",
+                "options": {
+                  "matchOperator": "IS_ONE_OF",
+                  "values": [
+                    "mobiletimes24.iamacmp.com"
+                  ]
+                }
+              }
+            ],
+            "criteriaMustSatisfy": "all"
+          },
+          {
+            "name": "mobiletimes32.iamacmp.com",
+            "children": [],
+            "behaviors": [
+              {
+                "name": "origin",
+                "options": {
+                  "originType": "CUSTOMER",
+                  "hostname": "www.google.com",
+                  "forwardHostHeader": "REQUEST_HOST_HEADER",
+                  "cacheKeyHostname": "ORIGIN_HOSTNAME",
+                  "compress": true,
+                  "enableTrueClientIp": true,
+                  "originCertificate": "",
+                  "verificationMode": "CUSTOM",
+                  "ports": "",
+                  "httpPort": 80,
+                  "httpsPort": 443,
+                  "trueClientIpHeader": "True-Client-IP",
+                  "trueClientIpClientSetting": false,
+                  "originSni": true,
+                  "customValidCnValues": [
+                    "{{Origin Hostname}}",
+                    "{{Forward Host Header}}"
+                  ],
+                  "originCertsToHonor": "STANDARD_CERTIFICATE_AUTHORITIES",
+                  "standardCertificateAuthorities": [
+                    "akamai-permissive"
+                  ]
+                }
+              },
+              {
+                "name": "cpCode",
+                "options": {
+                  "value": {
+                    "id": 1375759,
+                    "description": "mobiletimes32.iamacmp.com",
+                    "products": [
+                      "Fresca"
+                    ],
+                    "name": "mobiletimes32.iamacmp.com"
+                  }
+                }
+              }
+            ],
+            "criteria": [
+              {
+                "name": "hostname",
+                "options": {
+                  "matchOperator": "IS_ONE_OF",
+                  "values": [
+                    "mobiletimes32.iamacmp.com"
+                  ]
+                }
+              }
+            ],
+            "criteriaMustSatisfy": "all"
+          },
+          {
+            "name": "mobiletimes33.iamacmp.com",
+            "children": [],
+            "behaviors": [
+              {
+                "name": "origin",
+                "options": {
+                  "originType": "CUSTOMER",
+                  "hostname": "www.gmail.com",
+                  "forwardHostHeader": "REQUEST_HOST_HEADER",
+                  "cacheKeyHostname": "ORIGIN_HOSTNAME",
+                  "compress": true,
+                  "enableTrueClientIp": true,
+                  "originCertificate": "",
+                  "verificationMode": "CUSTOM",
+                  "ports": "",
+                  "httpPort": 80,
+                  "httpsPort": 443,
+                  "trueClientIpHeader": "True-Client-IP",
+                  "trueClientIpClientSetting": false,
+                  "originSni": true,
+                  "customValidCnValues": [
+                    "{{Origin Hostname}}",
+                    "{{Forward Host Header}}"
+                  ],
+                  "originCertsToHonor": "STANDARD_CERTIFICATE_AUTHORITIES",
+                  "standardCertificateAuthorities": [
+                    "akamai-permissive"
+                  ]
+                }
+              },
+              {
+                "name": "cpCode",
+                "options": {
+                  "value": {
+                    "id": 1375760,
+                    "description": "mobiletimes33.iamacmp.com",
+                    "products": [
+                      "Fresca"
+                    ],
+                    "name": "mobiletimes33.iamacmp.com"
+                  }
+                }
+              }
+            ],
+            "criteria": [
+              {
+                "name": "hostname",
+                "options": {
+                  "matchOperator": "IS_ONE_OF",
+                  "values": [
+                    "mobiletimes33.iamacmp.com"
+                  ]
+                }
+              }
+            ],
+            "criteriaMustSatisfy": "all"
+          },
+          {
+            "name": "mobiletimes34.iamacmp.com",
+            "children": [],
+            "behaviors": [
+              {
+                "name": "origin",
+                "options": {
+                  "originType": "CUSTOMER",
+                  "hostname": "www.google.com",
+                  "forwardHostHeader": "REQUEST_HOST_HEADER",
+                  "cacheKeyHostname": "ORIGIN_HOSTNAME",
+                  "compress": true,
+                  "enableTrueClientIp": true,
+                  "originCertificate": "",
+                  "verificationMode": "CUSTOM",
+                  "ports": "",
+                  "httpPort": 80,
+                  "httpsPort": 443,
+                  "trueClientIpHeader": "True-Client-IP",
+                  "trueClientIpClientSetting": false,
+                  "originSni": true,
+                  "customValidCnValues": [
+                    "{{Origin Hostname}}",
+                    "{{Forward Host Header}}"
+                  ],
+                  "originCertsToHonor": "STANDARD_CERTIFICATE_AUTHORITIES",
+                  "standardCertificateAuthorities": [
+                    "akamai-permissive"
+                  ]
+                }
+              },
+              {
+                "name": "cpCode",
+                "options": {
+                  "value": {
+                    "id": 1375764,
+                    "description": "mobiletimes34.iamacmp.com",
+                    "products": [
+                      "Fresca"
+                    ],
+                    "name": "mobiletimes34.iamacmp.com"
+                  }
+                }
+              }
+            ],
+            "criteria": [
+              {
+                "name": "hostname",
+                "options": {
+                  "matchOperator": "IS_ONE_OF",
+                  "values": [
+                    "mobiletimes34.iamacmp.com"
+                  ]
+                }
+              }
+            ],
+            "criteriaMustSatisfy": "all"
+          },
+          {
+            "name": "mobiletimes35.iamacmp.com",
+            "children": [],
+            "behaviors": [
+              {
+                "name": "origin",
+                "options": {
+                  "originType": "CUSTOMER",
+                  "hostname": "www.gmail.com",
+                  "forwardHostHeader": "REQUEST_HOST_HEADER",
+                  "cacheKeyHostname": "ORIGIN_HOSTNAME",
+                  "compress": true,
+                  "enableTrueClientIp": true,
+                  "originCertificate": "",
+                  "verificationMode": "CUSTOM",
+                  "ports": "",
+                  "httpPort": 80,
+                  "httpsPort": 443,
+                  "trueClientIpHeader": "True-Client-IP",
+                  "trueClientIpClientSetting": false,
+                  "originSni": true,
+                  "customValidCnValues": [
+                    "{{Origin Hostname}}",
+                    "{{Forward Host Header}}"
+                  ],
+                  "originCertsToHonor": "STANDARD_CERTIFICATE_AUTHORITIES",
+                  "standardCertificateAuthorities": [
+                    "akamai-permissive"
+                  ]
+                }
+              },
+              {
+                "name": "cpCode",
+                "options": {
+                  "value": {
+                    "id": 1375765,
+                    "description": "mobiletimes35.iamacmp.com",
+                    "products": [
+                      "Fresca"
+                    ],
+                    "name": "mobiletimes35.iamacmp.com"
+                  }
+                }
+              }
+            ],
+            "criteria": [
+              {
+                "name": "hostname",
+                "options": {
+                  "matchOperator": "IS_ONE_OF",
+                  "values": [
+                    "mobiletimes35.iamacmp.com"
+                  ]
+                }
+              }
+            ],
+            "criteriaMustSatisfy": "all"
+          },
+          {
+            "name": "economictimes1.iamacmp.com",
+            "children": [],
+            "behaviors": [
+              {
+                "name": "origin",
+                "options": {
+                  "originType": "CUSTOMER",
+                  "hostname": "www.gmail.com",
+                  "forwardHostHeader": "REQUEST_HOST_HEADER",
+                  "cacheKeyHostname": "ORIGIN_HOSTNAME",
+                  "compress": true,
+                  "enableTrueClientIp": true,
+                  "originCertificate": "",
+                  "verificationMode": "CUSTOM",
+                  "ports": "",
+                  "httpPort": 80,
+                  "httpsPort": 443,
+                  "trueClientIpHeader": "True-Client-IP",
+                  "trueClientIpClientSetting": false,
+                  "originSni": true,
+                  "customValidCnValues": [
+                    "{{Origin Hostname}}",
+                    "{{Forward Host Header}}"
+                  ],
+                  "originCertsToHonor": "STANDARD_CERTIFICATE_AUTHORITIES",
+                  "standardCertificateAuthorities": [
+                    "akamai-permissive"
+                  ]
+                }
+              },
+              {
+                "name": "cpCode",
+                "options": {
+                  "value": {
+                    "id": 1375912,
+                    "description": "economictimes1.iamacmp.com",
+                    "products": [
+                      "Fresca"
+                    ],
+                    "name": "economictimes1.iamacmp.com"
+                  }
+                }
+              }
+            ],
+            "criteria": [
+              {
+                "name": "hostname",
+                "options": {
+                  "matchOperator": "IS_ONE_OF",
+                  "values": [
+                    "economictimes1.iamacmp.com"
+                  ]
+                }
+              }
+            ],
+            "criteriaMustSatisfy": "all"
+          },
+          {
+            "name": "economictimes2.iamacmp.com",
+            "children": [],
+            "behaviors": [
+              {
+                "name": "origin",
+                "options": {
+                  "originType": "CUSTOMER",
+                  "hostname": "www.google.com",
+                  "forwardHostHeader": "REQUEST_HOST_HEADER",
+                  "cacheKeyHostname": "ORIGIN_HOSTNAME",
+                  "compress": true,
+                  "enableTrueClientIp": true,
+                  "originCertificate": "",
+                  "verificationMode": "CUSTOM",
+                  "ports": "",
+                  "httpPort": 80,
+                  "httpsPort": 443,
+                  "trueClientIpHeader": "True-Client-IP",
+                  "trueClientIpClientSetting": false,
+                  "originSni": true,
+                  "customValidCnValues": [
+                    "{{Origin Hostname}}",
+                    "{{Forward Host Header}}"
+                  ],
+                  "originCertsToHonor": "STANDARD_CERTIFICATE_AUTHORITIES",
+                  "standardCertificateAuthorities": [
+                    "akamai-permissive"
+                  ]
+                }
+              },
+              {
+                "name": "cpCode",
+                "options": {
+                  "value": {
+                    "id": 1375913,
+                    "description": "economictimes2.iamacmp.com",
+                    "products": [
+                      "Fresca"
+                    ],
+                    "name": "economictimes2.iamacmp.com"
+                  }
+                }
+              }
+            ],
+            "criteria": [
+              {
+                "name": "hostname",
+                "options": {
+                  "matchOperator": "IS_ONE_OF",
+                  "values": [
+                    "economictimes2.iamacmp.com"
+                  ]
+                }
+              }
+            ],
+            "criteriaMustSatisfy": "all"
+          },
+          {
+            "name": "economictimes3.iamacmp.com",
+            "children": [],
+            "behaviors": [
+              {
+                "name": "origin",
+                "options": {
+                  "originType": "CUSTOMER",
+                  "hostname": "www.suntv.com",
+                  "forwardHostHeader": "REQUEST_HOST_HEADER",
+                  "cacheKeyHostname": "ORIGIN_HOSTNAME",
+                  "compress": true,
+                  "enableTrueClientIp": true,
+                  "originCertificate": "",
+                  "verificationMode": "CUSTOM",
+                  "ports": "",
+                  "httpPort": 80,
+                  "httpsPort": 443,
+                  "trueClientIpHeader": "True-Client-IP",
+                  "trueClientIpClientSetting": false,
+                  "originSni": true,
+                  "customValidCnValues": [
+                    "{{Origin Hostname}}",
+                    "{{Forward Host Header}}"
+                  ],
+                  "originCertsToHonor": "STANDARD_CERTIFICATE_AUTHORITIES",
+                  "standardCertificateAuthorities": [
+                    "akamai-permissive"
+                  ]
+                }
+              },
+              {
+                "name": "cpCode",
+                "options": {
+                  "value": {
+                    "id": 1375914,
+                    "description": "economictimes3.iamacmp.com",
+                    "products": [
+                      "Fresca"
+                    ],
+                    "name": "economictimes3.iamacmp.com"
+                  }
+                }
+              }
+            ],
+            "criteria": [
+              {
+                "name": "hostname",
+                "options": {
+                  "matchOperator": "IS_ONE_OF",
+                  "values": [
+                    "economictimes3.iamacmp.com"
+                  ]
+                }
+              }
+            ],
+            "criteriaMustSatisfy": "all"
+          },
+          {
+            "name": "economictimes5.iamacmp.com",
+            "children": [],
+            "behaviors": [
+              {
+                "name": "origin",
+                "options": {
+                  "originType": "CUSTOMER",
+                  "hostname": "www.google.com",
+                  "forwardHostHeader": "REQUEST_HOST_HEADER",
+                  "cacheKeyHostname": "ORIGIN_HOSTNAME",
+                  "compress": true,
+                  "enableTrueClientIp": true,
+                  "originCertificate": "",
+                  "verificationMode": "CUSTOM",
+                  "ports": "",
+                  "httpPort": 80,
+                  "httpsPort": 443,
+                  "trueClientIpHeader": "True-Client-IP",
+                  "trueClientIpClientSetting": false,
+                  "originSni": true,
+                  "customValidCnValues": [
+                    "{{Origin Hostname}}",
+                    "{{Forward Host Header}}"
+                  ],
+                  "originCertsToHonor": "STANDARD_CERTIFICATE_AUTHORITIES",
+                  "standardCertificateAuthorities": [
+                    "akamai-permissive"
+                  ]
+                }
+              },
+              {
+                "name": "cpCode",
+                "options": {
+                  "value": {
+                    "id": 1376615,
+                    "description": "economictimes5.iamacmp.com",
+                    "products": [
+                      "Fresca"
+                    ],
+                    "name": "economictimes5.iamacmp.com"
+                  }
+                }
+              }
+            ],
+            "criteria": [
+              {
+                "name": "hostname",
+                "options": {
+                  "matchOperator": "IS_ONE_OF",
+                  "values": [
+                    "economictimes5.iamacmp.com"
+                  ]
+                }
+              }
+            ],
+            "criteriaMustSatisfy": "all"
+          },
+          {
+            "name": "economictimes6.iamacmp.com",
+            "children": [],
+            "behaviors": [
+              {
+                "name": "origin",
+                "options": {
+                  "originType": "CUSTOMER",
+                  "hostname": "www.ndtv.com",
+                  "forwardHostHeader": "REQUEST_HOST_HEADER",
+                  "cacheKeyHostname": "ORIGIN_HOSTNAME",
+                  "compress": true,
+                  "enableTrueClientIp": true,
+                  "originCertificate": "",
+                  "verificationMode": "CUSTOM",
+                  "ports": "",
+                  "httpPort": 80,
+                  "httpsPort": 443,
+                  "trueClientIpHeader": "True-Client-IP",
+                  "trueClientIpClientSetting": false,
+                  "originSni": true,
+                  "customValidCnValues": [
+                    "{{Origin Hostname}}",
+                    "{{Forward Host Header}}"
+                  ],
+                  "originCertsToHonor": "STANDARD_CERTIFICATE_AUTHORITIES",
+                  "standardCertificateAuthorities": [
+                    "akamai-permissive"
+                  ]
+                }
+              },
+              {
+                "name": "cpCode",
+                "options": {
+                  "value": {
+                    "id": 1376616,
+                    "description": "economictimes6.iamacmp.com",
+                    "products": [
+                      "Fresca"
+                    ],
+                    "name": "economictimes6.iamacmp.com"
+                  }
+                }
+              }
+            ],
+            "criteria": [
+              {
+                "name": "hostname",
+                "options": {
+                  "matchOperator": "IS_ONE_OF",
+                  "values": [
+                    "economictimes6.iamacmp.com"
+                  ]
+                }
+              }
+            ],
+            "criteriaMustSatisfy": "all"
+          }
+        ],
+        "behaviors": [],
+        "criteria": [],
+        "criteriaMustSatisfy": "all"
+      }
+    ],
+    "behaviors": [
+      {
+        "name": "origin",
+        "options": {
+          "cacheKeyHostname": "REQUEST_HOST_HEADER",
+          "compress": true,
+          "enableTrueClientIp": true,
+          "forwardHostHeader": "REQUEST_HOST_HEADER",
+          "httpPort": 80,
+          "httpsPort": 443,
+          "originCertificate": "",
+          "originSni": true,
+          "originType": "CUSTOMER",
+          "ports": "",
+          "trueClientIpClientSetting": false,
+          "trueClientIpHeader": "True-Client-IP",
+          "verificationMode": "CUSTOM",
+          "hostname": "{{user.PMUSER_ORIGIN}}",
+          "customValidCnValues": [
+            "{{Origin Hostname}}",
+            "{{Forward Host Header}}"
+          ],
+          "originCertsToHonor": "STANDARD_CERTIFICATE_AUTHORITIES",
+          "standardCertificateAuthorities": [
+            "akamai-permissive"
+          ]
+        }
+      }
+    ],
+    "options": {
+      "is_secure": false
+    },
+    "variables": [
+      {
+        "name": "PMUSER_ORIGIN",
+        "value": "",
+        "description": "",
+        "hidden": false,
+        "sensitive": false
+      }
+    ],
+    "comments": "The Default Rule template contains all the necessary and recommended behaviors. Rules are evaluated from top to bottom and the last matching rule wins."
   },
-  "orgId": null,
-  "adminContact": {
-    "firstName": "Achutha",
-    "lastName": "nanda",
-    "phone": "09986014033",
-    "email": "achuthadivine@gmail.com",
-    "addressLineOne": null,
-    "addressLineTwo": null,
-    "city": null,
-    "country": null,
-    "organizationName": null,
-    "postalCode": null,
-    "region": null,
-    "title": null
-  },
-  "techContact": {
-    "firstName": "achutha",
-    "lastName": "nanda",
-    "phone": "09986014033",
-    "email": "apadmana@akamai.com",
-    "addressLineOne": null,
-    "addressLineTwo": null,
-    "city": null,
-    "country": null,
-    "organizationName": null,
-    "postalCode": null,
-    "region": null,
-    "title": null
-  },
-  "thirdParty": null,
-  "enableMultiStackedCertificates": false,
-  "autoRenewalStartTime": "2022-11-14T18:28:27Z",
-  "pendingChanges": [],
-  "maxAllowedSanNames": 100,
-  "maxAllowedWildcardSanNames": 25
+  "ruleFormat": "latest"
 }
-2022-09-06T01:12:30.263929Z:Successfully added the SANs Cert ID 155858
-2022-09-06T01:12:32.347402Z:Waiting for the DNS Challenges to be Received..
-{
-  "results": []
-}
-2022-09-06T01:12:34.622393Z:Waiting for the DNS Challenges to be Received..
-{
-  "results": []
-}
-2022-09-06T01:12:36.777665Z:Waiting for the DNS Challenges to be Received..
-{
-  "results": []
-}
-2022-09-06T01:12:39.127435Z:Waiting for the DNS Challenges to be Received..
-{
-  "results": []
-}
-2022-09-06T01:12:41.384223Z:Waiting for the DNS Challenges to be Received..
-{
-  "results": []
-}
-2022-09-06T01:12:43.519532Z:Waiting for the DNS Challenges to be Received..
-{
-  "results": []
-}
-2022-09-06T01:12:45.528669Z:Waiting for the DNS Challenges to be Received..
-{
-  "results": []
-}
-2022-09-06T01:12:47.942444Z:Waiting for the DNS Challenges to be Received..
-{
-  "results": []
-}
-2022-09-06T01:12:50.089212Z:Waiting for the DNS Challenges to be Received..
-{
-  "results": []
-}
-2022-09-06T01:12:52.081115Z:Waiting for the DNS Challenges to be Received..
-{
-  "results": []
-}
-2022-09-06T01:12:54.286121Z:Waiting for the DNS Challenges to be Received..
-{
-  "results": []
-}
-2022-09-06T01:12:56.434289Z:Waiting for the DNS Challenges to be Received..
-{
-  "results": []
-}
-2022-09-06T01:12:58.372076Z:Waiting for the DNS Challenges to be Received..
-{
-  "results": []
-}
-2022-09-06T01:13:00.671482Z:Waiting for the DNS Challenges to be Received..
-{
-  "results": [
-    {
-      "domain": "mobiletimes19.iamacmp.com",
-      "domainHistory": [
-        {
-          "domain": "mobiletimes19.iamacmp.com",
-          "responseBody": null,
-          "fullPath": null,
-          "token": null,
-          "status": "Valid",
-          "error": null,
-          "validationStatus": "VALIDATED",
-          "requestTimestamp": "2022-09-05T19:43:01Z",
-          "validatedTimestamp": null,
-          "expires": "2022-10-05T19:27:42Z",
-          "redirectFullPath": null,
-          "validationRecords": [],
-          "challenges": [
-            {
-              "type": "dns-01",
-              "status": "valid",
-              "error": null,
-              "token": "zFQuznzsTA_QQtDy7U_HDKVwG4MZhkimeOGjyiKh0AI",
-              "responseBody": "WG3V4Dyzk0fEVu0QxmfLcim-by-erlSH3jKb-DgZLFw",
-              "fullPath": "_acme-challenge.mobiletimes19.iamacmp.com.",
-              "redirectFullPath": "",
-              "validationRecords": []
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "domain": "mobiletimes23.iamacmp.com",
-      "domainHistory": [
-        {
-          "domain": "mobiletimes23.iamacmp.com",
-          "responseBody": "xnXODucyjmO6Z1w1yPVF1yIPfx2q4o7UQ__T15QQ3ek.tL4C5fu32Q5A81pbFTAgUeNiv9rorD-rUQYb7kQJvHc",
-          "fullPath": "http://mobiletimes23.iamacmp.com/.well-known/acme-challenge/xnXODucyjmO6Z1w1yPVF1yIPfx2q4o7UQ__T15QQ3ek",
-          "token": "xnXODucyjmO6Z1w1yPVF1yIPfx2q4o7UQ__T15QQ3ek",
-          "status": "Awaiting user",
-          "error": null,
-          "validationStatus": "DATA_NOT_READY",
-          "requestTimestamp": "2022-09-05T19:43:01Z",
-          "validatedTimestamp": null,
-          "expires": "2022-09-12T19:43:00Z",
-          "redirectFullPath": "http://dcv.akamai.com/.well-known/acme-challenge/xnXODucyjmO6Z1w1yPVF1yIPfx2q4o7UQ__T15QQ3ek",
-          "validationRecords": [],
-          "challenges": [
-            {
-              "type": "http-01",
-              "status": "pending",
-              "error": null,
-              "token": "xnXODucyjmO6Z1w1yPVF1yIPfx2q4o7UQ__T15QQ3ek",
-              "responseBody": "xnXODucyjmO6Z1w1yPVF1yIPfx2q4o7UQ__T15QQ3ek.tL4C5fu32Q5A81pbFTAgUeNiv9rorD-rUQYb7kQJvHc",
-              "fullPath": "http://mobiletimes23.iamacmp.com/.well-known/acme-challenge/xnXODucyjmO6Z1w1yPVF1yIPfx2q4o7UQ__T15QQ3ek",
-              "redirectFullPath": "http://dcv.akamai.com/.well-known/acme-challenge/xnXODucyjmO6Z1w1yPVF1yIPfx2q4o7UQ__T15QQ3ek",
-              "validationRecords": []
-            },
-            {
-              "type": "dns-01",
-              "status": "pending",
-              "error": null,
-              "token": "xnXODucyjmO6Z1w1yPVF1yIPfx2q4o7UQ__T15QQ3ek",
-              "responseBody": "hxjha7SfYtjQ340KMOlhXRyWelkOZ85SA2HMWvOa-3Q",
-              "fullPath": "_acme-challenge.mobiletimes23.iamacmp.com.",
-              "redirectFullPath": "",
-              "validationRecords": []
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "domain": "common.iamacmp.com",
-      "domainHistory": [
-        {
-          "domain": "common.iamacmp.com",
-          "responseBody": null,
-          "fullPath": null,
-          "token": null,
-          "status": "Valid",
-          "error": null,
-          "validationStatus": "VALIDATED",
-          "requestTimestamp": "2022-09-05T19:43:01Z",
-          "validatedTimestamp": null,
-          "expires": "2022-09-23T13:44:33Z",
-          "redirectFullPath": null,
-          "validationRecords": [],
-          "challenges": [
-            {
-              "type": "dns-01",
-              "status": "valid",
-              "error": null,
-              "token": "_3YzW30L2dqAjrpuYtc1RNJ_LGIEngDihqn1tX7E8gY",
-              "responseBody": "w6p8MuNGtGQAWkEnLI5Ld-b5hRUqODY2C-a9hIlHJBo",
-              "fullPath": "_acme-challenge.common.iamacmp.com.",
-              "redirectFullPath": "",
-              "validationRecords": []
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "domain": "times3.iamacmp.com",
-      "domainHistory": [
-        {
-          "domain": "times3.iamacmp.com",
-          "responseBody": null,
-          "fullPath": null,
-          "token": null,
-          "status": "Valid",
-          "error": null,
-          "validationStatus": "VALIDATED",
-          "requestTimestamp": "2022-09-05T19:43:01Z",
-          "validatedTimestamp": null,
-          "expires": "2022-10-05T05:10:16Z",
-          "redirectFullPath": null,
-          "validationRecords": [],
-          "challenges": [
-            {
-              "type": "dns-01",
-              "status": "valid",
-              "error": null,
-              "token": "Inb7hDiFnqPcNeHc5jCm8oxEBkSwVUKlp1Y6lQ7Qw8A",
-              "responseBody": "7-1OG8GTnY6tD8CJCOLDTxylze_94letEifvakkY3Us",
-              "fullPath": "_acme-challenge.times3.iamacmp.com.",
-              "redirectFullPath": "",
-              "validationRecords": []
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "domain": "mobiletimes22.iamacmp.com",
-      "domainHistory": [
-        {
-          "domain": "mobiletimes22.iamacmp.com",
-          "responseBody": "dWVSGtVwVA1tlfOER4QkZ2BIvgUKHu5FDavH8pyPrKQ.tL4C5fu32Q5A81pbFTAgUeNiv9rorD-rUQYb7kQJvHc",
-          "fullPath": "http://mobiletimes22.iamacmp.com/.well-known/acme-challenge/dWVSGtVwVA1tlfOER4QkZ2BIvgUKHu5FDavH8pyPrKQ",
-          "token": "dWVSGtVwVA1tlfOER4QkZ2BIvgUKHu5FDavH8pyPrKQ",
-          "status": "Awaiting user",
-          "error": null,
-          "validationStatus": "DATA_NOT_READY",
-          "requestTimestamp": "2022-09-05T19:43:01Z",
-          "validatedTimestamp": null,
-          "expires": "2022-09-12T19:43:00Z",
-          "redirectFullPath": "http://dcv.akamai.com/.well-known/acme-challenge/dWVSGtVwVA1tlfOER4QkZ2BIvgUKHu5FDavH8pyPrKQ",
-          "validationRecords": [],
-          "challenges": [
-            {
-              "type": "http-01",
-              "status": "pending",
-              "error": null,
-              "token": "dWVSGtVwVA1tlfOER4QkZ2BIvgUKHu5FDavH8pyPrKQ",
-              "responseBody": "dWVSGtVwVA1tlfOER4QkZ2BIvgUKHu5FDavH8pyPrKQ.tL4C5fu32Q5A81pbFTAgUeNiv9rorD-rUQYb7kQJvHc",
-              "fullPath": "http://mobiletimes22.iamacmp.com/.well-known/acme-challenge/dWVSGtVwVA1tlfOER4QkZ2BIvgUKHu5FDavH8pyPrKQ",
-              "redirectFullPath": "http://dcv.akamai.com/.well-known/acme-challenge/dWVSGtVwVA1tlfOER4QkZ2BIvgUKHu5FDavH8pyPrKQ",
-              "validationRecords": []
-            },
-            {
-              "type": "dns-01",
-              "status": "pending",
-              "error": null,
-              "token": "dWVSGtVwVA1tlfOER4QkZ2BIvgUKHu5FDavH8pyPrKQ",
-              "responseBody": "f3A84eZ9PXpEmEMbx0tM48L9fPw0Mb_UGxUZoGwqNTg",
-              "fullPath": "_acme-challenge.mobiletimes22.iamacmp.com.",
-              "redirectFullPath": "",
-              "validationRecords": []
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "domain": "times12.iamacmp.com",
-      "domainHistory": [
-        {
-          "domain": "times12.iamacmp.com",
-          "responseBody": null,
-          "fullPath": null,
-          "token": null,
-          "status": "Valid",
-          "error": null,
-          "validationStatus": "VALIDATED",
-          "requestTimestamp": "2022-09-05T19:43:01Z",
-          "validatedTimestamp": null,
-          "expires": "2022-10-05T11:30:55Z",
-          "redirectFullPath": null,
-          "validationRecords": [],
-          "challenges": [
-            {
-              "type": "dns-01",
-              "status": "valid",
-              "error": null,
-              "token": "S2Z7bL8vE7MImWHrocxGKGQe1WDcc_nz-2Xpc01OoCk",
-              "responseBody": "lNhl4N4p41W6Gvy7AKTAJAMLy4SuqPLALZZ4BbCAD1c",
-              "fullPath": "_acme-challenge.times12.iamacmp.com.",
-              "redirectFullPath": "",
-              "validationRecords": []
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "domain": "times2.iamacmp.com",
-      "domainHistory": [
-        {
-          "domain": "times2.iamacmp.com",
-          "responseBody": null,
-          "fullPath": null,
-          "token": null,
-          "status": "Valid",
-          "error": null,
-          "validationStatus": "VALIDATED",
-          "requestTimestamp": "2022-09-05T19:43:01Z",
-          "validatedTimestamp": null,
-          "expires": "2022-10-05T05:10:16Z",
-          "redirectFullPath": null,
-          "validationRecords": [],
-          "challenges": [
-            {
-              "type": "dns-01",
-              "status": "valid",
-              "error": null,
-              "token": "FazJrtX7zxSFr1Eoc5g88hTmujVf3rSVUSxjZeXkUB8",
-              "responseBody": "RJ8fFBM1mW_fO93EDGN74bspbvpM4qWEcKKFr_k811o",
-              "fullPath": "_acme-challenge.times2.iamacmp.com.",
-              "redirectFullPath": "",
-              "validationRecords": []
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "domain": "times1.iamacmp.com",
-      "domainHistory": [
-        {
-          "domain": "times1.iamacmp.com",
-          "responseBody": null,
-          "fullPath": null,
-          "token": null,
-          "status": "Valid",
-          "error": null,
-          "validationStatus": "VALIDATED",
-          "requestTimestamp": "2022-09-05T19:43:01Z",
-          "validatedTimestamp": null,
-          "expires": "2022-10-04T18:13:24Z",
-          "redirectFullPath": null,
-          "validationRecords": [],
-          "challenges": [
-            {
-              "type": "dns-01",
-              "status": "valid",
-              "error": null,
-              "token": "jeASMv8YYKgvaukAxtjW--DtZou8YSXQ6QTTBUBpUhI",
-              "responseBody": "iIpgfgsaeSobGCNV8SYzl5Vw8rzzqF3v12nWUrJwdcc",
-              "fullPath": "_acme-challenge.times1.iamacmp.com.",
-              "redirectFullPath": "",
-              "validationRecords": []
-            }
-          ]
-        }
-      ]
-    }
-  ]
-}
-2022-09-06T01:13:01.886185Z:DNS Challenges Received for _acme-challenge.mobiletimes23.iamacmp.com.
-2022-09-06T01:13:01.886227Z:
-DNS Record:_acme-challenge.mobiletimes23.iamacmp.com.
-Token:hxjha7SfYtjQ340KMOlhXRyWelkOZ85SA2HMWvOa-3Q
-2022-09-06T01:13:01.886276Z:DNS Challenges Received for _acme-challenge.mobiletimes22.iamacmp.com.
-2022-09-06T01:13:01.886296Z:
-DNS Record:_acme-challenge.mobiletimes22.iamacmp.com.
-Token:f3A84eZ9PXpEmEMbx0tM48L9fPw0Mb_UGxUZoGwqNTg
-2022-09-06T01:13:02.863501Z:Created a TXT record for  Succesfully for _acme-challenge.mobiletimes23.iamacmp.com.
-2022-09-06T01:13:02.863587Z:The status of adding record _acme-challenge.mobiletimes23.iamacmp.com. to DNSZone is True
-2022-09-06T01:13:03.394366Z:Created a TXT record for  Succesfully for _acme-challenge.mobiletimes22.iamacmp.com.
-2022-09-06T01:13:03.394449Z:The status of adding record _acme-challenge.mobiletimes22.iamacmp.com. to DNSZone is True
-2022-09-06T01:13:10.793895Z:28
-2022-09-06T01:13:10.793977Z:mobiletimes22.iamacmp.com
-2022-09-06T01:13:10.794002Z:mobiletimes22.iamacmp.com.edgesuite.net
-2022-09-06T01:13:16.221471Z:Retrying...
-2022-09-06T01:13:26.871949Z:{'accountId': 'act_B-3-16OEUPX', 'contractId': 'ctr_3-16TWBVX', 'groupId': 'grp_173720', 'propertyId': 'prp_827793', 'propertyName': 'linode-ds-uat', 'propertyVersion': 28, 'etag': 'e7c070024db607e9d721e377772dbaf3b03480d8', 'hostnames': {'items': [{'cnameType': 'EDGE_HOSTNAME', 'edgeHostnameId': 'ehn_5174992', 'cnameFrom': 'linodeds-uat-failover.edgesuite.net', 'cnameTo': 'linodeds-uat-failover.edgesuite.net', 'certProvisioningType': 'CPS_MANAGED'}, {'cnameType': 'EDGE_HOSTNAME', 'edgeHostnameId': 'ehn_5174991', 'cnameFrom': 'linodeds-uat.edgesuite.net', 'cnameTo': 'linodeds-uat.edgesuite.net', 'certProvisioningType': 'CPS_MANAGED'}, {'cnameType': 'EDGE_HOSTNAME', 'edgeHostnameId': 'ehn_5182793', 'cnameFrom': 'mobiletimes22.iamacmp.com', 'cnameTo': 'mobiletimes22.iamacmp.com.edgesuite.net', 'certProvisioningType': 'CPS_MANAGED'}]}}
-2022-09-06T01:13:26.872079Z:Status of adding the hostname mobiletimes22.iamacmp.com to config linode-ds-uat is True
-2022-09-06T01:13:26.872114Z:mobiletimes23.iamacmp.com
-2022-09-06T01:13:26.872139Z:mobiletimes23.iamacmp.com.edgesuite.net
-2022-09-06T01:13:31.141475Z:Retrying...
-2022-09-06T01:13:38.936115Z:{'accountId': 'act_B-3-16OEUPX', 'contractId': 'ctr_3-16TWBVX', 'groupId': 'grp_173720', 'propertyId': 'prp_827793', 'propertyName': 'linode-ds-uat', 'propertyVersion': 28, 'etag': 'd1d712040f88347afc5ee43cae71c76f9a639407', 'hostnames': {'items': [{'cnameType': 'EDGE_HOSTNAME', 'edgeHostnameId': 'ehn_5174992', 'cnameFrom': 'linodeds-uat-failover.edgesuite.net', 'cnameTo': 'linodeds-uat-failover.edgesuite.net', 'certProvisioningType': 'CPS_MANAGED'}, {'cnameType': 'EDGE_HOSTNAME', 'edgeHostnameId': 'ehn_5174991', 'cnameFrom': 'linodeds-uat.edgesuite.net', 'cnameTo': 'linodeds-uat.edgesuite.net', 'certProvisioningType': 'CPS_MANAGED'}, {'cnameType': 'EDGE_HOSTNAME', 'edgeHostnameId': 'ehn_5182793', 'cnameFrom': 'mobiletimes22.iamacmp.com', 'cnameTo': 'mobiletimes22.iamacmp.com.edgesuite.net', 'certProvisioningType': 'CPS_MANAGED'}, {'cnameType': 'EDGE_HOSTNAME', 'edgeHostnameId': 'ehn_5182794', 'cnameFrom': 'mobiletimes23.iamacmp.com', 'cnameTo': 'mobiletimes23.iamacmp.com.edgesuite.net', 'certProvisioningType': 'CPS_MANAGED'}]}}
-2022-09-06T01:13:38.936267Z:Status of adding the hostname mobiletimes23.iamacmp.com to config linode-ds-uat is True
-2022-09-06T01:14:30.156345Z:Update Status :True
-2022-09-06T01:14:30.156437Z:Version Status:True
-2022-09-06T01:14:30.156469Z:Activation Status:True
-2022-09-06T01:14:30.156493Z:********************************************************************************
+2022-09-07T12:38:34.668784Z:Status of adding the Origin www.ndtv.com to hostname economictimes6.iamacmp.com is True
+2022-09-07T12:38:34.668990Z:['apadmana@akamai.com,achuthananda@gmail.com']
+2022-09-07T12:39:12.939607Z:Update Status :True
+2022-09-07T12:39:12.939719Z:Version Status:True
+2022-09-07T12:39:12.939792Z:Activation Status:True
+2022-09-07T12:39:12.939859Z:********************************************************************************

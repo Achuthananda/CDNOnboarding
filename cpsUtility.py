@@ -26,7 +26,7 @@ def getDVChallenges(akhttp,enrollmentID,accountSwitchKey=None):
     try:
         challengeReceived = False
         while challengeReceived == False:
-            time.sleep(1)
+            time.sleep(10)
             print_log("Waiting for the DNS Challenges to be Received..")
             print("Waiting for the DNS Challenges to be Received..",file=sys.stderr)
             dnsrecordsDict = {}

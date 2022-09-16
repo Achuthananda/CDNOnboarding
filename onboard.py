@@ -12,7 +12,7 @@ from cpCodeUtility import createCPCode
 from ehnUtility import createEdgeHostName
 from cpsUtility import addSANtoCert,getDVChallenges,updateGodaddyDomain
 from akamaihttp import AkamaiHTTPHandler
-from commonutilities import print_log,readCommonSettings
+from commonutilities import print_log,readCommonSettings,getEmailNotificationList
 from akamaiproperty import AkamaiProperty
 
 
@@ -72,7 +72,7 @@ def addOriginCPCodetoConfig(akConfig,newVersion,hostname,contentProviderCode,ori
     return udpateStatus
 
 
-def main(sheetName,startRow,endRow,accountSwitchKey=None):
+def main(sheetName,startRow,endRow,changeID,accountSwitchKey=None):
     startRow = int(startRow)
     endRow = int(endRow)
     if startRow <= 0 or endRow <=0 or startRow > endRow:
@@ -116,6 +116,7 @@ def main(sheetName,startRow,endRow,accountSwitchKey=None):
         udpateprogressbar()
         print_log('*'*80)
 
+    data = sheet_instance.get_all_records()
     progress_bar = tqdm(total=endRow-startRow+1)
     for i in range(startRow,endRow+1):
         if data[i]['CPCode'] == '':
@@ -129,6 +130,8 @@ def main(sheetName,startRow,endRow,accountSwitchKey=None):
         udpateprogressbar()
         print_log('*'*80)
 
+    data = sheet_instance.get_all_records()
+    print_log("Just before updating the certhostnamedetails")
     for i in range(startRow,endRow+1):
         print_log(data[i])
         #Populating the SAN Addition Dict
@@ -147,7 +150,8 @@ def main(sheetName,startRow,endRow,accountSwitchKey=None):
     print_log(hostnametoPropertyDict)
     print_log(certtoHostnameDict)
 
-    '''for enrollmentID in certtoHostnameDict:
+    data = sheet_instance.get_all_records()
+    for enrollmentID in certtoHostnameDict:
         addStatus = addSANtoCert(enrollmentID,certtoHostnameDict[enrollmentID],akhttp,accountSwitchKey)
         for i in range(startRow,endRow+1):
             if data[i]['Hostname'] in certtoHostnameDict[enrollmentID]:
@@ -159,7 +163,7 @@ def main(sheetName,startRow,endRow,accountSwitchKey=None):
         for record in dnsrecordsDict:
             udpaterecordstatus = updateGodaddyDomain(record,dnsrecordsDict[record])
             print_log("The status of adding record {} to DNSZone is {}".format(record,udpaterecordstatus))
-            print("The status of adding record {} to DNSZone is {}".format(record,udpaterecordstatus),file=sys.stderr)'''
+            print("The status of adding record {} to DNSZone is {}".format(record,udpaterecordstatus),file=sys.stderr)
 
     #Add the Hostnames to the Config:
     for config in hostnametoPropertyDict.keys():
@@ -169,30 +173,40 @@ def main(sheetName,startRow,endRow,accountSwitchKey=None):
 
         #Addition of HostName
         udpateStatus = True
+        hostnameIndicesforMarking = []
+
         for hostname in hostnametoPropertyDict[config]:
-            contentProviderCode = data[hostnametoRowId[hostname]]['Edgehostname']
-            edgeHostName = data[hostnametoRowId[hostname]]['CPCode']
+            contentProviderCode = data[hostnametoRowId[hostname]]['CPCode']
+            edgeHostName = data[hostnametoRowId[hostname]]['Edgehostname']
             originHostName = data[hostnametoRowId[hostname]]['OriginHostName']
 
+            hostnameIndicesforMarking.append(hostnametoRowId[hostname])
+
+            print()
             print_log(hostname)
+            print_log(edgeHostName)
             print_log(contentProviderCode)
-            print_log(originServer)
+            print_log(originHostName)
 
             udpateStatus = addHostNametoConfig(akConfig,newVersion,hostname,edgeHostName,config,udpateStatus)
             udpateStatus = addOriginCPCodetoConfig(akConfig,newVersion,hostname,contentProviderCode,originHostName,config,udpateStatus)
 
+        emailList = getEmailNotificationList()
+        print_log(emailList)
 
-        versionStatus = akConfig.addVersionNotes(newVersion,"Times 10: Add the Hostnames")
+        versionStatus = akConfig.addVersionNotes(newVersion,changeID)
         if udpateStatus == False:
             missedconfigs.append(config)
         activationStatus = False
         if udpateStatus and versionStatus:
-            activationStatus = akConfig.activateStaging(newVersion,"Times 10:Add the Hostnames",["apadmana@akamai.com"])
+            activationStatus = akConfig.activateStaging(newVersion,changeID,emailList)
         print_log("Update Status :{}".format(udpateStatus))
         print_log("Version Status:{}".format(versionStatus))
         print_log("Activation Status:{}".format(activationStatus))
         print_log('*'*80)
 
+        for index in hostnameIndicesforMarking:
+            sheet_instance.update_cell(index+2, 11,activationStatus) #Update the SAN Addition 
 
 
 if __name__ == "__main__":
@@ -202,6 +216,7 @@ if __name__ == "__main__":
     parser.add_argument('--start', required=True, help='Starting Row Number')
     parser.add_argument('--end', required=True, help='End Row')
     parser.add_argument('--accountSwitchKey', help='Account SwitchKey')
+    parser.add_argument('--ChangeID',required=True, help='ChangeID')
     parser.add_argument('--logfile', help='Log File Name')
 
     args = parser.parse_args()
@@ -214,9 +229,8 @@ if __name__ == "__main__":
         logfilepath = dirpath + "/" + args.logfile
 
     sys.stdout = open(logfilepath, 'w')
-    main(args.sheet,args.start,args.end,args.accountSwitchKey)
-
+    main(args.sheet,args.start,args.end,args.ChangeID,args.accountSwitchKey)
 
 '''
-python onboard.py --sheet 'First Batch' --start 2 --end 2 --accountSwitchKey B-3-16OEUPX --logfile file.txt
+python onboard.py --sheet 'First Batch' --start 6 --end 8 --accountSwitchKey B-3-16OEUPX --ChangeID 'TimesPOCDemo1: Third Batch Hostnames Addition' --logfile file.txt
 '''
