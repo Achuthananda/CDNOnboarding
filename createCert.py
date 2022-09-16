@@ -40,7 +40,7 @@ def createEnrollment(accountSwitchKey,contractId,fileName):
             print("Failed to create the CPS Enrollment")
             return 0
     except Exception as e:
-        print('{}:Error Creating the Enrollment {}'.format(e,rowData),file=sys.stderr)
+        print('{}:Error Creating the Enrollment'.format(e),file=sys.stderr)
         exit(1)
 
 

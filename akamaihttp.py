@@ -45,6 +45,7 @@ class EdgeGridHttpCaller():
         """ Executes a GET API call and returns the JSON output """
         path = endpoint
         endpoint_result = self.session.get(parse.urljoin(self.baseurl,path), headers=headers,params=params)
+        print(endpoint_result.content)
         if self.verbose: print (">>>\n" + json.dumps(endpoint_result.json(), indent=2) + "\n<<<\n")
         status = endpoint_result.status_code
         if self.verbose: print( "LOG: GET %s %s %s" % (endpoint,status,endpoint_result.headers["content-type"]))
@@ -104,12 +105,15 @@ class EdgeGridHttpCaller():
             headers = {'content-type': 'application/json'}
         path = endpoint
         fulpath = parse.urljoin(self.baseurl, path)
-        '''print(fulpath)
+        print(fulpath)
         print(params)
         print(headers)
-        print(body)'''
-        endpoint_result = self.session.post(fulpath, data=body, headers=headers, params=params)
-        #print(endpoint_result.content)
+        print(body)
+        if body != None:
+            endpoint_result = self.session.post(fulpath, data=body, headers=headers, params=params)
+        else:
+            endpoint_result = self.session.post(fulpath, headers=headers, params=params)
+        print(endpoint_result.content)
         status = endpoint_result.status_code
         #print("Post Status is:{}".format(status))
         if self.verbose:
@@ -184,7 +188,8 @@ class EdgeGridHttpCaller():
 
 
 def AkamaiHTTPHandler(edgercLocation,section=None):
-    section = 'default'
+    if section == None:
+        section = 'default'
     debug = False
     verbose = False
     edgerc = EdgeRc(edgercLocation)
