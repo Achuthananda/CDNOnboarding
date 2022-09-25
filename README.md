@@ -10,7 +10,29 @@ This repositry contains the code to bulk onboard any number of domains onto Akam
 - Activation of the Certificates,Delivery Configs, Appsec Configs.
 
 ### Workflow
-![Screenshot](images/workflow.png)
+![Screenshot](images/workflow1.jpg)
+
+### Create Certificate
+```
+$:python createCert.py --logfile cpslog --accountSwitchKey 1-6JHGX --contractId 1-1NC95D --file enrollment_data.json
+Successfully created the Enrollment and Enrollment Id is 158484
+Waiting for the DNS Challenges to be Received..
+Waiting for the DNS Challenges to be Received..
+Waiting for the DNS Challenges to be Received..
+DNS Record:_acme-challenge.jimmy.iamacmp.com.
+Token:WoqIsHe2XR_Sdx_OCosKc3nt2ONzKvsqobEAqOOVFvw
+********************************************************************************
+DNS Record:_acme-challenge.www.iamacmp.com.
+Token:0H-bD31Jf-3qSZrG5XghzwzSnQ7jNGYGA3TTNTtF2U4
+********************************************************************************
+{
+  "_acme-challenge.jimmy.iamacmp.com.": "WoqIsHe2XR_Sdx_OCosKc3nt2ONzKvsqobEAqOOVFvw",
+  "_acme-challenge.www.iamacmp.com.": "0H-bD31Jf-3qSZrG5XghzwzSnQ7jNGYGA3TTNTtF2U4"
+}
+The status of adding record _acme-challenge.jimmy.iamacmp.com. to DNSZone is True
+The status of adding record _acme-challenge.www.iamacmp.com. to DNSZone is True
+$:
+```
 
 
 ## Prerequisites
