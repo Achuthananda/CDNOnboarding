@@ -34,7 +34,7 @@ def getDVChallenges(akhttp,enrollmentID,accountSwitchKey=None):
             headers = {"Accept":"application/vnd.akamai.cps.dv-history.v1+json"}
             dvChallengesEP = '/cps/v2/enrollments/{}/dv-history'.format(enrollmentID)
             params = {}
-            if accountSwitchKey:
+            if accountSwitchKey != None:
                 params['accountSwitchKey'] = accountSwitchKey
 
             result = akhttp.getResult(dvChallengesEP,headers,params)
@@ -63,7 +63,7 @@ def geEnrollment(enrollmentId,akhttp,accountSwitchKey=None):
     try:
         cpsEP = '/cps/v2/enrollments/{}'.format(enrollmentId)
         params = {}
-        if accountSwitchKey:
+        if accountSwitchKey != None:
             params['accountSwitchKey'] = accountSwitchKey
 
         headers = {"Accept": "application/vnd.akamai.cps.enrollment.v11+json"}
@@ -86,7 +86,7 @@ def addSANtoCert(enrollmentID,sansList,akhttp,accountSwitchKey):
         certenrollmentbody = geEnrollment(enrollmentID,akhttp,accountSwitchKey)
 
         params = {}
-        if accountSwitchKey:
+        if accountSwitchKey != None:
             params['accountSwitchKey'] = accountSwitchKey
 
         for san in sansList:

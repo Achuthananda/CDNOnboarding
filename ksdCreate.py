@@ -6,28 +6,20 @@ import requests
 from akamai.edgegrid import EdgeGridAuth, EdgeRc
 from urllib.parse import urljoin
 import sys
+import random
+import string
+from commonutilities import print_log
 
 
 edgercLocation = '~/.edgerc'
 edgercLocation = os.path.expanduser(edgercLocation)
 akhttp = AkamaiHTTPHandler(edgercLocation,'appsec')
 
-def listConfigs(accountSwitchKey):
-    listep = '/appsec/v1/configs'
-    #headers = {}
-    params = {}
-    if accountSwitchKey:
-        params['accountSwitchKey'] = accountSwitchKey
-
-    result = akhttp.getResult(listep,headers=None,params=params)
-    if result[0] == 200:
-        print(json.dumps(result[1],indent=2))
-
-def createConfig(accountSwitchKey,configName,contractId,groupId):
+def createConfig(accountSwitchKey,configName,contractId,groupId,hostNameArray):
     try:
         createConfigEP = '/appsec/v1/configs'
         params = {}
-        if accountSwitchKey:
+        if accountSwitchKey != None:
             params['accountSwitchKey'] = accountSwitchKey
         
         
@@ -40,9 +32,7 @@ def createConfig(accountSwitchKey,configName,contractId,groupId):
             "description": "Test",
             "contractId": contractId,
             "groupId": groupId,
-            "hostnames": [
-                "dbarban.www.akamaiflowershop.com"
-            ]
+            "hostnames": hostNameArray
         }
         datajson = json.dumps(payload,indent=2)
 
@@ -53,8 +43,8 @@ def createConfig(accountSwitchKey,configName,contractId,groupId):
             print('Successfully created the App Sec Config and Config Id is {}'.format(configId))
             return configId
         else:
-            print(status)
-            print("Failed to create the App Sec Config")
+            print_log(status)
+            print_log("Failed to create the App Sec Config")
             return 0
     except Exception as e:
         print('{}:Error create the App Sec Config'.format(e),file=sys.stderr)
@@ -62,36 +52,11 @@ def createConfig(accountSwitchKey,configName,contractId,groupId):
 
     return configId
 
-def renameConfig(accountSwitchKey,configId,configName,description):
-    try:
-        renameEP = '/appsec/v1/configs/{configId}'.format(configId)
-        params = {}
-        if accountSwitchKey:
-            params['accountSwitchKey'] = accountSwitchKey
-        
-        rename_payload = {
-            "description": description,
-            "name": configName
-        }
-        headers = {}
-        datajson = json.dumps(rename_payload,indent=2)
-        status,createAppSecConfigJson = akhttp.putResult(createConfigEP,datajson,headers,params)
-        if status == 200:
-            print('Successfully renamed the App Sec Config to {} and Config Id is {}'.format(configName,configId))
-            return True
-        else:
-            print("Failed to rename the App Sec Config")
-            return False
-    except Exception as e:
-        print('{}:Error renaming the App Sec Config'.format(e),file=sys.stderr)
-        return False
-
-
 def createSecurityPolicy(accountSwitchKey,configId,version,securityPolicyName):
     try:
         createSPEP = '/appsec/v1/configs/{}/versions/{}/security-policies'.format(configId,version)
         params = {}
-        if accountSwitchKey:
+        if accountSwitchKey != None:
             params['accountSwitchKey'] = accountSwitchKey
         
         
@@ -99,9 +64,13 @@ def createSecurityPolicy(accountSwitchKey,configId,version,securityPolicyName):
             "accept": "application/json",
             "content-type": "application/json"
         }
+
+        letters = string.ascii_letters
+        policyPrefix = "".join(random.sample(letters,3))
+
         payload = {
             "policyName": securityPolicyName,
-            "policyPrefix": "bt17"
+            "policyPrefix": policyPrefix
         }
 
         datajson = json.dumps(payload,indent=2)
@@ -110,11 +79,11 @@ def createSecurityPolicy(accountSwitchKey,configId,version,securityPolicyName):
         if status == 200:
             #print(createEnrollmentJson)
             policyId = createAppSecPolicyJson['policyId']
-            print('Successfully created the App Sec Policy {} and  Id is {}'.format(securityPolicyName,policyId))
+            print_log('Successfully created the App Sec Policy {} and  Id is {}'.format(securityPolicyName,policyId))
             return policyId
         else:
-            print(status)
-            print("Failed to create the App Sec Policy")
+            print_log(status)
+            print_log("Failed to create the App Sec Policy")
             return 0
     except Exception as e:
         print('{}:Error create the App Sec Policy'.format(e),file=sys.stderr)
@@ -123,13 +92,14 @@ def createSecurityPolicy(accountSwitchKey,configId,version,securityPolicyName):
     return configId
 
 
-def createAppSecConfig(accountSwitchKey,name,contractId,groupId,securityPolicyName):
-    #Create a new Configuration
-    #Rename the Configuration
+def createAppSecConfig(accountSwitchKey,configName,contractId,groupId,securityPolicyName,hostNameArray):
     try:
-        configId = createConfig(accountSwitchKey,name,contractId,groupId)
-        createSecurityPolicy(accountSwitchKey,configId,1,securityPolicyName)
-
+        configId = createConfig(accountSwitchKey,configName,contractId,groupId,hostNameArray)
+        policyId = createSecurityPolicy(accountSwitchKey,configId,1,securityPolicyName)
+        if policyId != 0:
+            print_log("Config {} and Security Policy {} has been created".format(configName,securityPolicyName))
+        else:
+            print_log("Config {} and Security Policy {} creation Failed".format(configName,securityPolicyName))
 
     except Exception as e:
         print('{}:Error Creating the Enrollment'.format(e),file=sys.stderr)
@@ -139,18 +109,35 @@ def createAppSecConfig(accountSwitchKey,name,contractId,groupId,securityPolicyNa
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='Times CDN Onboarding Tool.')
     # Storage migration
-    parser.add_argument('--accountSwitchKey', help='Account SwitchKey')
-    parser.add_argument('--name', help='Name of the AppSec Config')
-    parser.add_argument('--contractId', help='ContractID')
-    parser.add_argument('--groupId', help='groupId')
-    parser.add_argument('--securityPolicyName', help='securityPolicyName')
-    #parser.add_argument('--file', help='File having the Cert Details')
+    parser.add_argument('--accountSwitchKey', default=None,help='Account SwitchKey')
+    parser.add_argument('--name', required=True,help='Name of the AppSec Config')
+    parser.add_argument('--contractId', required=True,help='ContractID')
+    parser.add_argument('--groupId', required=True,help='groupId')
+    parser.add_argument('--securityPolicyName', required=True,help='securityPolicyName')
+    parser.add_argument('--hostnames', required=True,help='Comma Separated Hostnames')
+    parser.add_argument('--logfile', help='Log File Name')
     
+
     args = parser.parse_args()
-    createAppSecConfig(args.accountSwitchKey,args.name,args.contractId,args.groupId,args.securityPolicyName)
+    hostNameArray = args.hostnames.split(',')
+
+    jobId = str(uuid.uuid1())
+    logfilepath = ''
+
+    curdir = os.getcwd()
+    dirpath = os.path.dirname(curdir + '/logs')
+    logfilepath = dirpath + "/"  + jobId+'.txt'
+
+    if args.logfile:
+        logfilepath = dirpath + "/" + args.logfile
+
+    sys.stdout = open(logfilepath, 'w')
+
+    createAppSecConfig(args.accountSwitchKey,args.name,args.contractId,args.groupId,args.securityPolicyName,hostNameArray)
+    
    
 '''
-python ksdCreate.py --accountSwitchKey 1-6JHGX --name TestAchuthApi21 --groupId 19293 --contractId 1-1NC95D --securityPolicyName FirstPolicy
+python ksdCreate.py --logfile ksdlog --accountSwitchKey 1-6JHGX --name TestAchuthApi21 --groupId 19293 --contractId 1-1NC95D --securityPolicyName FirstPolicy
 Akamai Professional Services
 '''
 

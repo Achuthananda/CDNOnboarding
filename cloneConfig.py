@@ -3,14 +3,8 @@ import os
 import argparse
 import json
 import requests
-from akamai.edgegrid import EdgeGridAuth, EdgeRc
-from urllib.parse import urljoin
+from commonutilities import print_log
 
-edgerc = EdgeRc('/Users/apadmana/.edgerc')
-section = 'papi'
-baseurl = 'https://%s' % edgerc.get(section, 'host')
-s = requests.Session()
-s.auth = EdgeGridAuth.from_edgerc(edgerc, section)
 
 edgercLocation = '~/.edgerc'
 edgercLocation = os.path.expanduser(edgercLocation)
@@ -20,7 +14,7 @@ akhttp = AkamaiHTTPHandler(edgercLocation,'papi')
 def createNewConfig(accountSwitchKey,propertyName,contractId,groupId):
     try:
         params = {}
-        if accountSwitchKey:
+        if accountSwitchKey != None:
             params["accountSwitchKey"] = accountSwitchKey
         params["contractId"] = contractId
         params["groupId"] = groupId
@@ -38,22 +32,22 @@ def createNewConfig(accountSwitchKey,propertyName,contractId,groupId):
 
         status,createConfigJson = akhttp.postResult(createConfigEndPoint,create_data,headers,params)
         if status == 201:
-            print(createConfigJson)
+            print_log(createConfigJson)
             newpropetyId = createConfigJson['propertyLink'].split('?')[0].split('/')[4].split('_')[1]
-            print('Successfully created the Config {}'.format(newpropetyId))
+            print_log('Successfully created the Config {}'.format(newpropetyId))
             return newpropetyId
         else:
-            print('Failed to create the Clone the config and status code is {}.'.format(status))
+            print_log('Failed to create the Clone the config and status code is {}.'.format(status))
             return 0
     except:
-        print('Failed to create the config and status code is {}.'.format(status))
+        print('Failed to create the config and status code is {}.'.format(status),file=sys.stderr)
         return 0
 
 
 def cloneProperty(accountSwitchKey,contractId,groupId,propertyId,version,newPropertyName):
     version = int(version)
     params = {}
-    if accountSwitchKey:
+    if accountSwitchKey != None:
         params["accountSwitchKey"] = accountSwitchKey
     params["contractId"] = contractId
     params["groupId"] = groupId
@@ -71,8 +65,8 @@ def cloneProperty(accountSwitchKey,contractId,groupId,propertyId,version,newProp
     }
 
     clone_data = json.dumps(clone_payload)
-    print(clone_data)
-    print(params)
+    print_log(clone_data)
+    print_log(params)
 
     cloneConfigEndPoint = '/papi/v1/properties/'
     headers = {
@@ -83,29 +77,41 @@ def cloneProperty(accountSwitchKey,contractId,groupId,propertyId,version,newProp
 
     status,createConfigJson = akhttp.postResult(cloneConfigEndPoint,clone_data,headers,params)
     if status == 201:
-        print(createConfigJson)
+        print_log(createConfigJson)
         newpropetyId = createConfigJson['propertyLink'].split('?')[0].split('/')[4].split('_')[1]
-        print('Successfully created the Config {}'.format(newpropetyId))
+        print_log('Successfully created the Config {}'.format(newpropetyId))
         return newpropetyId
     else:
-        print('Failed to create the Clone the config and status code is {}.'.format(status))
+        print('Failed to create the Clone the config and status code is {}.'.format(status),file=sys.stderr)
         return 0
 
 
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='Times CDN Onboarding Tool.')
-    # Storage migration
-    parser.add_argument('--accountSwitchKey', help='Account SwitchKey')
-    parser.add_argument('--contractId', help='ContractID')
-    parser.add_argument('--groupId', help='GroupId')
-    parser.add_argument('--propertyId', help='PropertyId')
-    parser.add_argument('--version', help='Version')
-    parser.add_argument('--newPropertyName', help='newPropertyName')
-    parser.add_argument('--clone', help='Clone')
 
-    
+    parser.add_argument('--accountSwitchKey', default=None,help='Account SwitchKey')    
+    parser.add_argument('--contractId', required=True,help='ContractID')
+    parser.add_argument('--groupId', required=True,help='groupId')
+    parser.add_argument('--propertyId', required=True,help='PropertyId')
+    parser.add_argument('--version', required=True,help='Version')
+    parser.add_argument('--newPropertyName',required=True, help='newPropertyName')
+    parser.add_argument('--clone', default=True,help='Clone')
+    parser.add_argument('--logfile', help='Log File Name')
+
     args = parser.parse_args()
+    jobId = str(uuid.uuid1())
+    logfilepath = ''
+
+    curdir = os.getcwd()
+    dirpath = os.path.dirname(curdir + '/logs')
+    logfilepath = dirpath + "/"  + jobId+'.txt'
+
+    if args.logfile:
+        logfilepath = dirpath + "/" + args.logfile
+
+    sys.stdout = open(logfilepath, 'w')
+
     if args.clone == True:
         cloneProperty(args.accountSwitchKey,args.contractId,args.groupId,args.propertyId,args.version,args.newPropertyName)
     else:

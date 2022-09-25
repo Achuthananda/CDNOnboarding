@@ -1,0 +1,194 @@
+https://akab-mtuntcyrueze3iy2-neyp4ci3wi6akzdp.luna.akamaiapis.net/cps/v2/enrollments
+{'accountSwitchKey': '1-6JHGX', 'contractId': '1-1NC95D', 'Contract': '1-1NC95D'}
+{'Content-Type': 'application/vnd.akamai.cps.enrollment.v10+json', 'Accept': 'application/vnd.akamai.cps.enrollment-status.v1+json'}
+{
+  "org": {
+    "name": "Times Internet Ltd",
+    "addressLineOne": "72 Dean Street",
+    "addressLineTwo": null,
+    "city": "Noida",
+    "region": "Uttar Pradesh",
+    "postalCode": "201301",
+    "country": "in",
+    "phone": "000-000-0000"
+  },
+  "adminContact": {
+    "firstName": "Mukesh",
+    "lastName": "Tyagi",
+    "phone": "+919871698948",
+    "email": "corp.domains@timesinternet.in",
+    "addressLineOne": null,
+    "addressLineTwo": null,
+    "city": null,
+    "country": null,
+    "organizationName": null,
+    "postalCode": null,
+    "region": null,
+    "title": null
+  },
+  "techContact": {
+    "firstName": "Achuthananda",
+    "lastName": "M P",
+    "phone": "(857) 500-5147",
+    "email": "apadmana@akamai.com",
+    "addressLineOne": null,
+    "addressLineTwo": null,
+    "city": null,
+    "country": null,
+    "organizationName": null,
+    "postalCode": null,
+    "region": null,
+    "title": null
+  },
+  "autoRenewalStartTime": null,
+  "certificateChainType": "default",
+  "changeManagement": true,
+  "csr": {
+    "c": "US",
+    "cn": "www.iamacmp.com",
+    "l": "Cambridge",
+    "o": "Akamai",
+    "ou": "WebEx",
+    "sans": [
+      "jimmy.iamacmp.com"
+    ],
+    "st": "MA"
+  },
+  "enableMultiStackedCertificates": false,
+  "location": null,
+  "maxAllowedSanNames": 100,
+  "maxAllowedWildcardSanNames": 100,
+  "networkConfiguration": {
+    "geography": "core",
+    "secureNetwork": "standard-tls",
+    "mustHaveCiphers": "ak-akamai-default",
+    "preferredCiphers": "ak-akamai-default",
+    "sniOnly": true,
+    "quicEnabled": false,
+    "dnsNameSettings": {
+      "cloneDnsNames": true,
+      "dnsNames": [
+        "mobile.iamacmp.com"
+      ]
+    },
+    "ocspStapling": "on",
+    "clientMutualAuthentication": null
+  },
+  "pendingChanges": null,
+  "ra": "lets-encrypt",
+  "signatureAlgorithm": "SHA-256",
+  "validationType": "dv",
+  "certificateType": "san"
+}
+b'{\n  "enrollment" : "/cps/v2/enrollments/158484",\n  "changes" : [ "/cps/v2/enrollments/158484/changes/2287679" ]\n}'
+2022-09-25T19:27:15.841265Z:Successfully created the Enrollment and Enrollment Id is 158484
+2022-09-25T19:27:25.843342Z:Waiting for the DNS Challenges to be Received..
+b'{\n  "results" : [ ]\n}'
+{
+  "results": []
+}
+2022-09-25T19:27:36.832721Z:Waiting for the DNS Challenges to be Received..
+b'{\n  "results" : [ ]\n}'
+{
+  "results": []
+}
+2022-09-25T19:27:47.766765Z:Waiting for the DNS Challenges to be Received..
+b'{\n  "results" : [ {\n    "domain" : "jimmy.iamacmp.com",\n    "domainHistory" : [ {\n      "domain" : "jimmy.iamacmp.com",\n      "responseBody" : "vN7Nh0OZ4ds2iCIHuAPO7T7cpgNb6q2PeWzVxLfQZhY.Lq3WI0uLtsfYfdMMhy-X5znkqmJ9QP8s5LJH_pKpBjY",\n      "fullPath" : "http://jimmy.iamacmp.com/.well-known/acme-challenge/vN7Nh0OZ4ds2iCIHuAPO7T7cpgNb6q2PeWzVxLfQZhY",\n      "token" : "vN7Nh0OZ4ds2iCIHuAPO7T7cpgNb6q2PeWzVxLfQZhY",\n      "status" : "Awaiting user",\n      "error" : "The domain jimmy.iamacmp.com is not ready for HTTP validation.",\n      "validationStatus" : "DATA_NOT_READY",\n      "requestTimestamp" : "2022-09-25T13:57:40Z",\n      "validatedTimestamp" : "2022-09-25T13:57:41Z",\n      "expires" : "2022-10-02T13:54:46Z",\n      "redirectFullPath" : "http://dcv.akamai.com/.well-known/acme-challenge/vN7Nh0OZ4ds2iCIHuAPO7T7cpgNb6q2PeWzVxLfQZhY",\n      "validationRecords" : [ ],\n      "challenges" : [ {\n        "type" : "http-01",\n        "status" : "pending",\n        "error" : null,\n        "token" : "vN7Nh0OZ4ds2iCIHuAPO7T7cpgNb6q2PeWzVxLfQZhY",\n        "responseBody" : "vN7Nh0OZ4ds2iCIHuAPO7T7cpgNb6q2PeWzVxLfQZhY.Lq3WI0uLtsfYfdMMhy-X5znkqmJ9QP8s5LJH_pKpBjY",\n        "fullPath" : "http://jimmy.iamacmp.com/.well-known/acme-challenge/vN7Nh0OZ4ds2iCIHuAPO7T7cpgNb6q2PeWzVxLfQZhY",\n        "redirectFullPath" : "http://dcv.akamai.com/.well-known/acme-challenge/vN7Nh0OZ4ds2iCIHuAPO7T7cpgNb6q2PeWzVxLfQZhY",\n        "validationRecords" : [ ]\n      }, {\n        "type" : "dns-01",\n        "status" : "pending",\n        "error" : null,\n        "token" : "vN7Nh0OZ4ds2iCIHuAPO7T7cpgNb6q2PeWzVxLfQZhY",\n        "responseBody" : "WoqIsHe2XR_Sdx_OCosKc3nt2ONzKvsqobEAqOOVFvw",\n        "fullPath" : "_acme-challenge.jimmy.iamacmp.com.",\n        "redirectFullPath" : "",\n        "validationRecords" : [ ]\n      } ]\n    } ]\n  }, {\n    "domain" : "www.iamacmp.com",\n    "domainHistory" : [ {\n      "domain" : "www.iamacmp.com",\n      "responseBody" : "M8UAb5fSV_L_A1RAx-aCPxAHQCaIusYgZM9_RSM42Fo.Lq3WI0uLtsfYfdMMhy-X5znkqmJ9QP8s5LJH_pKpBjY",\n      "fullPath" : "http://www.iamacmp.com/.well-known/acme-challenge/M8UAb5fSV_L_A1RAx-aCPxAHQCaIusYgZM9_RSM42Fo",\n      "token" : "M8UAb5fSV_L_A1RAx-aCPxAHQCaIusYgZM9_RSM42Fo",\n      "status" : "Awaiting user",\n      "error" : "The domain www.iamacmp.com is not ready for HTTP validation.",\n      "validationStatus" : "DATA_NOT_READY",\n      "requestTimestamp" : "2022-09-25T13:57:40Z",\n      "validatedTimestamp" : "2022-09-25T13:57:41Z",\n      "expires" : "2022-10-02T13:54:46Z",\n      "redirectFullPath" : "http://dcv.akamai.com/.well-known/acme-challenge/M8UAb5fSV_L_A1RAx-aCPxAHQCaIusYgZM9_RSM42Fo",\n      "validationRecords" : [ ],\n      "challenges" : [ {\n        "type" : "http-01",\n        "status" : "pending",\n        "error" : null,\n        "token" : "M8UAb5fSV_L_A1RAx-aCPxAHQCaIusYgZM9_RSM42Fo",\n        "responseBody" : "M8UAb5fSV_L_A1RAx-aCPxAHQCaIusYgZM9_RSM42Fo.Lq3WI0uLtsfYfdMMhy-X5znkqmJ9QP8s5LJH_pKpBjY",\n        "fullPath" : "http://www.iamacmp.com/.well-known/acme-challenge/M8UAb5fSV_L_A1RAx-aCPxAHQCaIusYgZM9_RSM42Fo",\n        "redirectFullPath" : "http://dcv.akamai.com/.well-known/acme-challenge/M8UAb5fSV_L_A1RAx-aCPxAHQCaIusYgZM9_RSM42Fo",\n        "validationRecords" : [ ]\n      }, {\n        "type" : "dns-01",\n        "status" : "pending",\n        "error" : null,\n        "token" : "M8UAb5fSV_L_A1RAx-aCPxAHQCaIusYgZM9_RSM42Fo",\n        "responseBody" : "0H-bD31Jf-3qSZrG5XghzwzSnQ7jNGYGA3TTNTtF2U4",\n        "fullPath" : "_acme-challenge.www.iamacmp.com.",\n        "redirectFullPath" : "",\n        "validationRecords" : [ ]\n      } ]\n    } ]\n  } ]\n}'
+{
+  "results": [
+    {
+      "domain": "jimmy.iamacmp.com",
+      "domainHistory": [
+        {
+          "domain": "jimmy.iamacmp.com",
+          "responseBody": "vN7Nh0OZ4ds2iCIHuAPO7T7cpgNb6q2PeWzVxLfQZhY.Lq3WI0uLtsfYfdMMhy-X5znkqmJ9QP8s5LJH_pKpBjY",
+          "fullPath": "http://jimmy.iamacmp.com/.well-known/acme-challenge/vN7Nh0OZ4ds2iCIHuAPO7T7cpgNb6q2PeWzVxLfQZhY",
+          "token": "vN7Nh0OZ4ds2iCIHuAPO7T7cpgNb6q2PeWzVxLfQZhY",
+          "status": "Awaiting user",
+          "error": "The domain jimmy.iamacmp.com is not ready for HTTP validation.",
+          "validationStatus": "DATA_NOT_READY",
+          "requestTimestamp": "2022-09-25T13:57:40Z",
+          "validatedTimestamp": "2022-09-25T13:57:41Z",
+          "expires": "2022-10-02T13:54:46Z",
+          "redirectFullPath": "http://dcv.akamai.com/.well-known/acme-challenge/vN7Nh0OZ4ds2iCIHuAPO7T7cpgNb6q2PeWzVxLfQZhY",
+          "validationRecords": [],
+          "challenges": [
+            {
+              "type": "http-01",
+              "status": "pending",
+              "error": null,
+              "token": "vN7Nh0OZ4ds2iCIHuAPO7T7cpgNb6q2PeWzVxLfQZhY",
+              "responseBody": "vN7Nh0OZ4ds2iCIHuAPO7T7cpgNb6q2PeWzVxLfQZhY.Lq3WI0uLtsfYfdMMhy-X5znkqmJ9QP8s5LJH_pKpBjY",
+              "fullPath": "http://jimmy.iamacmp.com/.well-known/acme-challenge/vN7Nh0OZ4ds2iCIHuAPO7T7cpgNb6q2PeWzVxLfQZhY",
+              "redirectFullPath": "http://dcv.akamai.com/.well-known/acme-challenge/vN7Nh0OZ4ds2iCIHuAPO7T7cpgNb6q2PeWzVxLfQZhY",
+              "validationRecords": []
+            },
+            {
+              "type": "dns-01",
+              "status": "pending",
+              "error": null,
+              "token": "vN7Nh0OZ4ds2iCIHuAPO7T7cpgNb6q2PeWzVxLfQZhY",
+              "responseBody": "WoqIsHe2XR_Sdx_OCosKc3nt2ONzKvsqobEAqOOVFvw",
+              "fullPath": "_acme-challenge.jimmy.iamacmp.com.",
+              "redirectFullPath": "",
+              "validationRecords": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "domain": "www.iamacmp.com",
+      "domainHistory": [
+        {
+          "domain": "www.iamacmp.com",
+          "responseBody": "M8UAb5fSV_L_A1RAx-aCPxAHQCaIusYgZM9_RSM42Fo.Lq3WI0uLtsfYfdMMhy-X5znkqmJ9QP8s5LJH_pKpBjY",
+          "fullPath": "http://www.iamacmp.com/.well-known/acme-challenge/M8UAb5fSV_L_A1RAx-aCPxAHQCaIusYgZM9_RSM42Fo",
+          "token": "M8UAb5fSV_L_A1RAx-aCPxAHQCaIusYgZM9_RSM42Fo",
+          "status": "Awaiting user",
+          "error": "The domain www.iamacmp.com is not ready for HTTP validation.",
+          "validationStatus": "DATA_NOT_READY",
+          "requestTimestamp": "2022-09-25T13:57:40Z",
+          "validatedTimestamp": "2022-09-25T13:57:41Z",
+          "expires": "2022-10-02T13:54:46Z",
+          "redirectFullPath": "http://dcv.akamai.com/.well-known/acme-challenge/M8UAb5fSV_L_A1RAx-aCPxAHQCaIusYgZM9_RSM42Fo",
+          "validationRecords": [],
+          "challenges": [
+            {
+              "type": "http-01",
+              "status": "pending",
+              "error": null,
+              "token": "M8UAb5fSV_L_A1RAx-aCPxAHQCaIusYgZM9_RSM42Fo",
+              "responseBody": "M8UAb5fSV_L_A1RAx-aCPxAHQCaIusYgZM9_RSM42Fo.Lq3WI0uLtsfYfdMMhy-X5znkqmJ9QP8s5LJH_pKpBjY",
+              "fullPath": "http://www.iamacmp.com/.well-known/acme-challenge/M8UAb5fSV_L_A1RAx-aCPxAHQCaIusYgZM9_RSM42Fo",
+              "redirectFullPath": "http://dcv.akamai.com/.well-known/acme-challenge/M8UAb5fSV_L_A1RAx-aCPxAHQCaIusYgZM9_RSM42Fo",
+              "validationRecords": []
+            },
+            {
+              "type": "dns-01",
+              "status": "pending",
+              "error": null,
+              "token": "M8UAb5fSV_L_A1RAx-aCPxAHQCaIusYgZM9_RSM42Fo",
+              "responseBody": "0H-bD31Jf-3qSZrG5XghzwzSnQ7jNGYGA3TTNTtF2U4",
+              "fullPath": "_acme-challenge.www.iamacmp.com.",
+              "redirectFullPath": "",
+              "validationRecords": []
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
+2022-09-25T19:27:48.919687Z:DNS Challenges Received for _acme-challenge.jimmy.iamacmp.com.
+2022-09-25T19:27:48.919777Z:
+DNS Record:_acme-challenge.jimmy.iamacmp.com.
+Token:WoqIsHe2XR_Sdx_OCosKc3nt2ONzKvsqobEAqOOVFvw
+2022-09-25T19:27:48.919836Z:DNS Challenges Received for _acme-challenge.www.iamacmp.com.
+2022-09-25T19:27:48.919862Z:
+DNS Record:_acme-challenge.www.iamacmp.com.
+Token:0H-bD31Jf-3qSZrG5XghzwzSnQ7jNGYGA3TTNTtF2U4
+2022-09-25T19:27:50.984576Z:Created a TXT record for  Succesfully for _acme-challenge.jimmy.iamacmp.com.
+2022-09-25T19:27:50.984653Z:The status of adding record _acme-challenge.jimmy.iamacmp.com. to DNSZone is True
+2022-09-25T19:27:51.581932Z:Created a TXT record for  Succesfully for _acme-challenge.www.iamacmp.com.
+2022-09-25T19:27:51.582009Z:The status of adding record _acme-challenge.www.iamacmp.com. to DNSZone is True

@@ -5,7 +5,7 @@ import sys
 def createEdgeHostName(rowData,akhttp,accountSwitchKey=None):
     try:
         params = {}
-        if accountSwitchKey:
+        if accountSwitchKey != None:
             params["accountSwitchKey"] = accountSwitchKey
         params["contractId"] = rowData['ContractId']
         params["groupId"] = rowData['GroupId']

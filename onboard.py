@@ -215,7 +215,7 @@ if __name__ == "__main__":
     parser.add_argument('--sheet', required=True, help='Sheet Name')
     parser.add_argument('--start', required=True, help='Starting Row Number')
     parser.add_argument('--end', required=True, help='End Row')
-    parser.add_argument('--accountSwitchKey', help='Account SwitchKey')
+    parser.add_argument('--accountSwitchKey', default=None,help='Account SwitchKey')
     parser.add_argument('--ChangeID',required=True, help='ChangeID')
     parser.add_argument('--logfile', help='Log File Name')
 
