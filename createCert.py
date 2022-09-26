@@ -122,7 +122,7 @@ if __name__ == "__main__":
     if args.logfile:
         logfilepath = dirpath + "/" + args.logfile
 
-    sys.stdout = open(logfilepath, 'w')
+    sys.stdout = open(logfilepath, 'w+')
 
     enrollmentId = createEnrollment(args.accountSwitchKey,args.contractId,args.file)
     if enrollmentId != 0:

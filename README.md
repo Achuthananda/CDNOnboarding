@@ -34,6 +34,23 @@ The status of adding record _acme-challenge.www.iamacmp.com. to DNSZone is True
 $:
 ```
 
+### Create a Config
+```
+$:python cloneConfig.py --clone False --logfile configlog --accountSwitchKey 1-6JHGX --contractId ctr_1-1NC95D --groupId grp_223702 --newPropertyName TimesTemplateOnboarding 
+Succesfully Created the config and property Id is 838634.
+$:
+```
+- Add a temporary hostname example.edgesuite.net
+- Add a temporary origin hostname and select Akamai managed Certificate Store
+- Add a CP Code
+- Add a blank rule called Static Origins in the config.
+- Make the necessary changes in the config to be used as a template.
+![Screenshot](images/config1.jpg)
+![Screenshot](images/config12.jpg)
+![Screenshot](images/config13.jpg)
+![Screenshot](images/config2.jpg)
+
+
 
 ## Prerequisites
 ### Configure the SMP Behavior in Delivery Config
