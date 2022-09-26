@@ -9,6 +9,19 @@ This repositry contains the code to bulk onboard any number of domains onto Akam
 - Update the Certificates,Delivery Configs, Appsec Configs.
 - Activation of the Certificates,Delivery Configs, Appsec Configs.
 
+
+### Credentials
+In order to use this configuration, you need to:
+* Set up your credential files as described in [here](https://techdocs.akamai.com/developer/docs/set-up-authentication-credentials)
+* When working through this process you need to give grants for the property manager API,CPS API,Edgehostnames API,Application Security API (if you will want to move properties).  
+
+
+### Install pip packages needed
+```
+$ pip install -r requirements.txt
+```
+
+
 ### Workflow
 ![Screenshot](images/workflow1.jpg)
 
@@ -45,10 +58,15 @@ $:
 - Add a CP Code
 - Add a blank rule called Static Origins in the config.
 - Make the necessary changes in the config to be used as a template.
+<br /> 
 ![Screenshot](images/config1.jpg)
+<br /> 
 ![Screenshot](images/config12.jpg)
+<br /> 
 ![Screenshot](images/config13.jpg)
+<br /> 
 ![Screenshot](images/config2.jpg)
+<br /> 
 
 
 ### Clone the Config
@@ -57,7 +75,9 @@ $:$:python cloneConfig.py --clone True --logfile cloneconfiglog --accountSwitchK
 Succesfully Cloned the config and property Id is 838659.
 $:
 ```
+<br /> 
 ![Screenshot](images/clone1.jpg)
+<br /> 
 ![Screenshot](images/clone2.jpg)
 
 
@@ -67,7 +87,9 @@ $:python ksdCreate.py --logfile ksdlog --accountSwitchKey 1-6JHGX --name TimesAp
 Succesfully Created the App Sec Config and the config Id is 86532 and Policy Id is OhH_186650
 $:
 ```
+<br /> 
 - Make the necessary changes in the config to be used as a template.
+<br /> 
 ![Screenshot](images/secconfig1.jpg)
 
 
