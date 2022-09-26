@@ -8,6 +8,7 @@ from urllib.parse import urljoin
 import sys
 import random
 import string
+import uuid
 from commonutilities import print_log
 
 
@@ -95,11 +96,16 @@ def createSecurityPolicy(accountSwitchKey,configId,version,securityPolicyName):
 def createAppSecConfig(accountSwitchKey,configName,contractId,groupId,securityPolicyName,hostNameArray):
     try:
         configId = createConfig(accountSwitchKey,configName,contractId,groupId,hostNameArray)
-        policyId = createSecurityPolicy(accountSwitchKey,configId,1,securityPolicyName)
-        if policyId != 0:
-            print_log("Config {} and Security Policy {} has been created".format(configName,securityPolicyName))
+        if configId != 0 :
+            policyId = createSecurityPolicy(accountSwitchKey,configId,1,securityPolicyName)
+            if policyId != 0:
+                print_log("Config {} and Security Policy {} has been created".format(configName,securityPolicyName))
+            else:
+                print_log("Config {} and Security Policy {} creation Failed".format(configName,securityPolicyName))
         else:
-            print_log("Config {} and Security Policy {} creation Failed".format(configName,securityPolicyName))
+            print_log("Security Config {} Creation Failed".format(configName))
+
+        return configId,policyId
 
     except Exception as e:
         print('{}:Error Creating the Enrollment'.format(e),file=sys.stderr)
@@ -119,8 +125,6 @@ if __name__ == "__main__":
     
 
     args = parser.parse_args()
-    hostNameArray = args.hostnames.split(',')
-
     jobId = str(uuid.uuid1())
     logfilepath = ''
 
@@ -129,15 +133,19 @@ if __name__ == "__main__":
     logfilepath = dirpath + "/"  + jobId+'.txt'
 
     if args.logfile:
-        logfilepath = dirpath + "/" + args.logfile
+        logfilepath = dirpath + "/logs/" + args.logfile
 
-    sys.stdout = open(logfilepath, 'w')
+    sys.stdout = open(logfilepath, 'w+')
 
-    createAppSecConfig(args.accountSwitchKey,args.name,args.contractId,args.groupId,args.securityPolicyName,hostNameArray)
-    
+    hostNameArray = args.hostnames.split(',')
+    configId,policyId = createAppSecConfig(args.accountSwitchKey,args.name,args.contractId,args.groupId,args.securityPolicyName,hostNameArray)
+    if configId != 0:
+        print('Succesfully Created the App Sec Config and the config Id is {} and Policy Id is {}'.format(configId,policyId),file=sys.stderr)
+    else:
+        print('Failed to Created the App Sec Config',file=sys.stderr)
    
 '''
-python ksdCreate.py --logfile ksdlog --accountSwitchKey 1-6JHGX --name TestAchuthApi21 --groupId 19293 --contractId 1-1NC95D --securityPolicyName FirstPolicy
+python ksdCreate.py --logfile ksdlog --accountSwitchKey 1-6JHGX --name TimesAppSecConfig --groupId 223702 --contractId 1-1NC95D --securityPolicyName Policy1 --hostnames 'example.edgesuite.net'
 Akamai Professional Services
 '''
 

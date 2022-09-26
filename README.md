@@ -51,6 +51,25 @@ $:
 ![Screenshot](images/config2.jpg)
 
 
+### Clone the Config
+```
+$:$:python cloneConfig.py --clone True --logfile cloneconfiglog --accountSwitchKey 1-6JHGX --contractId ctr_1-1NC95D --groupId grp_223702 --propertyId prp_838634 --version 1 --newPropertyName TimesCloneConfig
+Succesfully Cloned the config and property Id is 838659.
+$:
+```
+![Screenshot](images/clone1.jpg)
+![Screenshot](images/clone2.jpg)
+
+
+### Create the Security Config
+```
+$:python ksdCreate.py --logfile ksdlog --accountSwitchKey 1-6JHGX --name TimesAppSecConfig --groupId 223702 --contractId 1-1NC95D --securityPolicyName Policy1 --hostnames 'example.edgesuite.net'
+Succesfully Created the App Sec Config and the config Id is 86532 and Policy Id is OhH_186650
+$:
+```
+- Make the necessary changes in the config to be used as a template.
+![Screenshot](images/secconfig1.jpg)
+
 
 ## Prerequisites
 ### Configure the SMP Behavior in Delivery Config

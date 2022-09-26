@@ -226,7 +226,7 @@ def cloneProperty(accountSwitchKey,contractId,groupId,propertyId,version,newProp
     clone_payload = {
         "cloneFrom": {
             #"cloneFromVersionEtag": "27b4ec45918df9a918764c944043765576f7c9a1",
-            "copyHostnames": False,
+            "copyHostnames": True,
             "propertyId": propertyId,
             "version": version
         },
@@ -249,10 +249,10 @@ def cloneProperty(accountSwitchKey,contractId,groupId,propertyId,version,newProp
     if status == 201:
         print_log(createConfigJson)
         newpropetyId = createConfigJson['propertyLink'].split('?')[0].split('/')[4].split('_')[1]
-        print_log('Successfully created the Config {}'.format(newpropetyId))
+        print_log('Successfully Cloned the Config {}'.format(newpropetyId))
         return newpropetyId
     else:
-        print('Failed to create the Clone the config and status code is {}.'.format(status),file=sys.stderr)
+        print('Failed to  Clone the config and status code is {}.'.format(status),file=sys.stderr)
         return 0
 
 
@@ -270,6 +270,7 @@ if __name__ == "__main__":
     #parser.add_argument('--certEnrollmentId', required=True,help='Certificate Enrollment Id')
     parser.add_argument('--logfile', help='Log File Name')
 
+
     args = parser.parse_args()
     jobId = str(uuid.uuid1())
     logfilepath = ''
@@ -283,9 +284,14 @@ if __name__ == "__main__":
 
     sys.stdout = open(logfilepath, 'w+')
 
-    if args.clone == True:
-        cloneProperty(args.accountSwitchKey,args.contractId,args.groupId,args.propertyId,args.version,args.newPropertyName)
+
+    if args.clone == 'True':
+        print_log('Cloning the config')
+        propertyId = cloneProperty(args.accountSwitchKey,args.contractId,args.groupId,args.propertyId,args.version,args.newPropertyName)
+        if propertyId != 0:
+            print('Succesfully Cloned the config and property Id is {}.'.format(propertyId),file=sys.stderr)
     else:
+        print_log("Creating the config")
         propertyId = createNewConfig(args.accountSwitchKey,args.newPropertyName,args.contractId,args.groupId)
         if propertyId != 0:
             print('Succesfully Created the config and property Id is {}.'.format(propertyId),file=sys.stderr)
@@ -294,18 +300,18 @@ if __name__ == "__main__":
                 print_log("Succesfully Activated the Cofig to Staging Network\n")
             else:
                 print_log("Failed to Activate the Cofig to Staging Network\n")'''
-
     
 
 '''
 
-python cloneConfig.py --clone False --logfile configlog --accountSwitchKey 1-6JHGX --contractId ctr_1-1NC95D --groupId grp_223702 --newPropertyName salamanca9 --certEnrollmentId 158484
+python cloneConfig.py --clone False --logfile configlog --accountSwitchKey 1-6JHGX --contractId ctr_1-1NC95D --groupId grp_223702 --newPropertyName TimesTemplate
+python cloneConfig.py --clone True --logfile cloneconfiglog --accountSwitchKey 1-6JHGX --contractId ctr_1-1NC95D --groupId grp_223702 --propertyId prp_838658 --version 1 --newPropertyName TimesCloneConfig
+
 Akamai Professional Services
 
 
 python cloneproperty.py --clone False --accountSwitchKey B-3-16OEUPX  --contractId ctr_3-16TWBVX --groupId grp_173720 --newPropertyName "salamanca"
 
-python cloneproperty.py --clone True --accountSwitchKey B-3-16OEUPX  --contractId ctr_3-16TWBVX --groupId grp_173720 --propertyId prp_828730 --version 1 --newPropertyName "testnewproperty_acmp1234"
 
 '''
 

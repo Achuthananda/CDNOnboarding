@@ -1,7 +1,8 @@
+2022-09-26T09:04:11.901996Z:Creating the config
 https://akab-mtuntcyrueze3iy2-neyp4ci3wi6akzdp.luna.akamaiapis.net/papi/v1/properties/
 {'accountSwitchKey': '1-6JHGX', 'contractId': 'ctr_1-1NC95D', 'groupId': 'grp_223702'}
 {'accept': 'application/json', 'PAPI-Use-Prefixes': 'true', 'content-type': 'application/json'}
-{"productId": "prd_Fresca", "propertyName": "TimesTemplateOnboarding"}
-b'{\n  "propertyLink" : "/papi/v1/properties/prp_838634?accountSwitchKey=1-6JHGX&contractId=ctr_1-1NC95D&groupId=grp_223702"\n}'
-2022-09-26T07:33:48.533225Z:{'propertyLink': '/papi/v1/properties/prp_838634?accountSwitchKey=1-6JHGX&contractId=ctr_1-1NC95D&groupId=grp_223702'}
-2022-09-26T07:33:48.533383Z:Successfully created the Config 838634
+{"productId": "prd_Fresca", "propertyName": "TimesTemplate"}
+b'{\n  "propertyLink" : "/papi/v1/properties/prp_838658?accountSwitchKey=1-6JHGX&contractId=ctr_1-1NC95D&groupId=grp_223702"\n}'
+2022-09-26T09:04:23.994517Z:{'propertyLink': '/papi/v1/properties/prp_838658?accountSwitchKey=1-6JHGX&contractId=ctr_1-1NC95D&groupId=grp_223702'}
+2022-09-26T09:04:23.994590Z:Successfully created the Config 838658
