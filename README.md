@@ -57,16 +57,13 @@ $:
 - Add a temporary origin hostname and select Akamai managed Certificate Store
 - Add a CP Code
 - Add a blank rule called Static Origins in the config.
-- Make the necessary changes in the config to be used as a template.
-<br /> 
-![Screenshot](images/config1.jpg)
-<br /> 
-![Screenshot](images/config12.jpg)
-<br /> 
-![Screenshot](images/config13.jpg)
-<br /> 
-![Screenshot](images/config2.jpg)
-<br /> 
+- Make the necessary changes in the config to be used as a template. \
+\
+![Screenshot](images/config1.jpg) \
+![Screenshot](images/config12.jpg) \
+![Screenshot](images/config13.jpg) \ 
+![Screenshot](images/config2.jpg) \
+
 
 
 ### Clone the Config
@@ -74,11 +71,10 @@ $:
 $:$:python cloneConfig.py --clone True --logfile cloneconfiglog --accountSwitchKey 1-6JHGX --contractId ctr_1-1NC95D --groupId grp_223702 --propertyId prp_838634 --version 1 --newPropertyName TimesCloneConfig
 Succesfully Cloned the config and property Id is 838659.
 $:
-```
-<br /> 
-![Screenshot](images/clone1.jpg)
-<br /> 
-![Screenshot](images/clone2.jpg)
+``` 
+\
+![Screenshot](images/clone1.jpg) \
+![Screenshot](images/clone2.jpg) \
 
 
 ### Create the Security Config
@@ -87,10 +83,9 @@ $:python ksdCreate.py --logfile ksdlog --accountSwitchKey 1-6JHGX --name TimesAp
 Succesfully Created the App Sec Config and the config Id is 86532 and Policy Id is OhH_186650
 $:
 ```
-<br /> 
-- Make the necessary changes in the config to be used as a template.
-<br /> 
-![Screenshot](images/secconfig1.jpg)
+\
+- Make the necessary changes in the config to be used as a template. \
+![Screenshot](images/secconfig1.jpg) \
 
 
 ## Prerequisites
