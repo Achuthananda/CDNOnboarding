@@ -9,19 +9,22 @@ This repositry contains the code to bulk onboard any number of domains onto Akam
 - Update the Certificates,Delivery Configs, Appsec Configs.
 - Activation of the Certificates,Delivery Configs, Appsec Configs.
 
+### Environment Setup
+![Screenshot](images/envwokrrkflow.jpg)
 
-### Credentials
+
+### Credentials Setup
 In order to use this configuration, you need to:
 * Set up your credential files as described in [here](https://techdocs.akamai.com/developer/docs/set-up-authentication-credentials)
 * When working through this process you need to give grants for the property manager API,CPS API,Edgehostnames API,Application Security API (if you will want to move properties).  
 * Setup Google Sheet API as describer in [here](https://www.evernote.com/shard/s222/sh/42e72b36-12c4-a0f4-0a3d-a225fa9157d7/5392dce76d0eae0b6fd7dcbf9aa22ca3)
+* Rename templateconfig.ini to config.ini and udpate the credentials.
 
 
 ### Install pip packages needed
 ```
 $ pip install -r requirements.txt
 ```
-
 
 ### Workflow
 ![Screenshot](images/workflow1.jpg)
