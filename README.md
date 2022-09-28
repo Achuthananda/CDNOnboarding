@@ -89,6 +89,8 @@ $:
 - Make the necessary changes in the config to be used as a template. \
 ![Screenshot](images/secconfig1.jpg) \
 
+### Onboarding Workflow
+![Screenshot](images/onboardingworkflow.jpg)
 
 ### Onboarding onto Existing Configs
 ```
