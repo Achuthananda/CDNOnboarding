@@ -15,15 +15,18 @@ from akamaihttp import AkamaiHTTPHandler
 from commonutilities import print_log,readCommonSettings,getEmailNotificationList
 from akamaiproperty import AkamaiProperty
 from ksdUtility import addHostnametoSecConfig,createNewSecConfigVersion,activateStagingAppSecConfig
+import configparser
 
-
-edgercLocation = '~/.edgerc'
+settingsconfig = configparser.ConfigParser()
+settingsconfig.read('config.ini')
+edgercLocation = settingsconfig['Edgerc']['location']
 edgercLocation = os.path.expanduser(edgercLocation)
-akhttp = AkamaiHTTPHandler(edgercLocation,'appsec')
+akhttp = AkamaiHTTPHandler(edgercLocation,settingsconfig['Edgerc']['section'])
 
 
 jobId = str(uuid.uuid1())
 logfilepath = ''
+
 
 
 scope = ["https://spreadsheets.google.com/feeds", 
@@ -33,9 +36,10 @@ scope = ["https://spreadsheets.google.com/feeds",
  
  
 # Assign credentials ann path of style sheet
-creds = ServiceAccountCredentials.from_json_keyfile_name("/Users/apadmana/Achuth/code_base/AkamaiInteralGit/CustomerCode/India/Times/GsheetKeys/creds.json", scope)
+creds = ServiceAccountCredentials.from_json_keyfile_name(settingsconfig['Sheet']['creds_location'], scope)
 client = gspread.authorize(creds)
-sheet = client.open("Times Onboarding")
+
+sheet = client.open(settingsconfig['Sheet']['Name'])
 
 
 def addHostNametoConfig(akConfig,newVersion,hostname,edgeHostName,config,udpateStatus):
@@ -109,7 +113,7 @@ def main(sheetName,startRow,endRow,changeID,accountSwitchKey=None):
     progress_bar = tqdm(total=endRow-startRow+1)
     for i in range(startRow,endRow+1):
         if data[i]['Edgehostname'] == '':
-            edgeHostName = createEdgeHostName(data[i],akhttp,accountSwitchKey)
+            edgeHostName = createEdgeHostName(data[i]['ContractId'],data[i]['GroupId'],data[i]['Hostname'],data[i]['CertEnrollmentId'],akhttp,accountSwitchKey)
             if edgeHostName != '':
                 sheet_instance.update_cell(i+2, 11,edgeHostName) #Update the CP Code 
         else:
@@ -122,7 +126,7 @@ def main(sheetName,startRow,endRow,changeID,accountSwitchKey=None):
     progress_bar = tqdm(total=endRow-startRow+1)
     for i in range(startRow,endRow+1):
         if data[i]['CPCode'] == '':
-            cpCode = createCPCode(data[i],akhttp,accountSwitchKey)
+            cpCode = createCPCode(data[i]['ContractId'],data[i]['GroupId'],data[i]['Hostname'],akhttp,accountSwitchKey)
             if cpCode != 0:
                 sheet_instance.update_cell(i+2, 10,cpCode) #Update the CP Code 
         else:

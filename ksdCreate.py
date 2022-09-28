@@ -11,10 +11,13 @@ import string
 import uuid
 from commonutilities import print_log
 
+import configparser
 
-edgercLocation = '~/.edgerc'
+settingsconfig = configparser.ConfigParser()
+settingsconfig.read('config.ini')
+edgercLocation = settingsconfig['Edgerc']['location']
 edgercLocation = os.path.expanduser(edgercLocation)
-akhttp = AkamaiHTTPHandler(edgercLocation,'appsec')
+akhttp = AkamaiHTTPHandler(edgercLocation,settingsconfig['Edgerc']['section'])
 
 def createConfig(accountSwitchKey,configName,contractId,groupId,hostNameArray):
     try:

@@ -4,10 +4,15 @@ import sys
 from godaddypy import Client, Account
 import time
 
+import configparser
+
+settingsconfig = configparser.ConfigParser()
+settingsconfig.read('config.ini')
+akhttp = AkamaiHTTPHandler(edgercLocation,settingsconfig['Edgerc']['section'])
 
 
 def updateGodaddyDomain(record,value):
-    acct = Account(api_key='fYg34SGLy3kW_SJ27b4RYXKbAWRPA5ht4na',api_secret='RfKhXguQjptQd6fzkWVXpW')
+    acct = Account(api_key=settingsconfig['Godaddy']['api_key'],api_secret=settingsconfig['Godaddy']['api_secret'])
     godaddyclient = Client(acct)
     recordArrTemp = record.split('.')
     if recordArrTemp[-1] == '':
