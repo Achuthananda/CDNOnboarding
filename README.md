@@ -57,12 +57,12 @@ $:
 - Add a temporary origin hostname and select Akamai managed Certificate Store
 - Add a CP Code
 - Add a blank rule called Static Origins in the config.
-- Make the necessary changes in the config to be used as a template. \
-\
-![Screenshot](images/config1.jpg) \
-![Screenshot](images/config12.jpg) \
-![Screenshot](images/config13.jpg) \ 
-![Screenshot](images/config2.jpg) \
+- Make the necessary changes in the config to be used as a template. 
+
+![Screenshot](images/config1.jpg) 
+![Screenshot](images/config12.jpg) 
+![Screenshot](images/config13.jpg)  
+![Screenshot](images/config2.jpg) 
 
 
 

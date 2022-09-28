@@ -14,11 +14,12 @@ from cpsUtility import addSANtoCert,getDVChallenges,updateGodaddyDomain
 from akamaihttp import AkamaiHTTPHandler
 from commonutilities import print_log,readCommonSettings,getEmailNotificationList
 from akamaiproperty import AkamaiProperty
+from ksdUtility import addHostnametoSecConfig,createNewSecConfigVersion,activateStagingAppSecConfig
 
 
 edgercLocation = '~/.edgerc'
 edgercLocation = os.path.expanduser(edgercLocation)
-akhttp = AkamaiHTTPHandler(edgercLocation,'default')
+akhttp = AkamaiHTTPHandler(edgercLocation,'appsec')
 
 
 jobId = str(uuid.uuid1())
@@ -99,6 +100,7 @@ def main(sheetName,startRow,endRow,changeID,accountSwitchKey=None):
     certtoHostnameDict = {}
     hostnametoPropertyDict = {}
     hostnametoRowId = {}
+    hostnametoSecurityConfig = {}
     missedconfigs = []
 
     for i in range(startRow,endRow+1):
@@ -109,7 +111,7 @@ def main(sheetName,startRow,endRow,changeID,accountSwitchKey=None):
         if data[i]['Edgehostname'] == '':
             edgeHostName = createEdgeHostName(data[i],akhttp,accountSwitchKey)
             if edgeHostName != '':
-                sheet_instance.update_cell(i+2, 9,edgeHostName) #Update the CP Code 
+                sheet_instance.update_cell(i+2, 11,edgeHostName) #Update the CP Code 
         else:
             print_log("EHN already present in the sheet !So skipping creating the EHN")
             print("EHN already present in the sheet !So skipping creating the EHN",file=sys.stderr)
@@ -122,7 +124,7 @@ def main(sheetName,startRow,endRow,changeID,accountSwitchKey=None):
         if data[i]['CPCode'] == '':
             cpCode = createCPCode(data[i],akhttp,accountSwitchKey)
             if cpCode != 0:
-                sheet_instance.update_cell(i+2, 8,cpCode) #Update the CP Code 
+                sheet_instance.update_cell(i+2, 10,cpCode) #Update the CP Code 
         else:
             print_log("CPCode already present in the sheet !So skipping creating the CP Code")
             print("CPCode already present in the sheet !So skipping creating the CP Code",file=sys.stderr)
@@ -142,20 +144,30 @@ def main(sheetName,startRow,endRow,changeID,accountSwitchKey=None):
                 certtoHostnameDict[data[i]['CertEnrollmentId']].append(data[i]['Hostname'])
 
         #Populating the ConfigtoHostnameDict
-        if data[i]['Config'] not in hostnametoPropertyDict:
-            hostnametoPropertyDict[data[i]['Config']] = [data[i]['Hostname']]
-        else:
-            hostnametoPropertyDict[data[i]['Config']].append(data[i]['Hostname'])
+        if data[i]['Staging Activation'] != 'TRUE':
+            if data[i]['Config'] not in hostnametoPropertyDict:
+                hostnametoPropertyDict[data[i]['Config']] = [data[i]['Hostname']]
+            else:
+                hostnametoPropertyDict[data[i]['Config']].append(data[i]['Hostname'])
+
+        #Populating the SAN Addition Dict
+        if data[i]['SecurityConfigAddition'] == '':
+            if data[i]['Security Config'] not in hostnametoSecurityConfig:
+                hostnametoSecurityConfig[data[i]['Security Config']] = [data[i]['Hostname']]
+            else:
+                hostnametoSecurityConfig[data[i]['Security Config']].append(data[i]['Hostname'])
+        
     
     print_log(hostnametoPropertyDict)
     print_log(certtoHostnameDict)
+    print_log(hostnametoSecurityConfig)
 
     data = sheet_instance.get_all_records()
     for enrollmentID in certtoHostnameDict:
         addStatus = addSANtoCert(enrollmentID,certtoHostnameDict[enrollmentID],akhttp,accountSwitchKey)
         for i in range(startRow,endRow+1):
             if data[i]['Hostname'] in certtoHostnameDict[enrollmentID]:
-                sheet_instance.update_cell(i+2, 10,addStatus) #Update the SAN Addition 
+                sheet_instance.update_cell(i+2, 12,addStatus) #Update the SAN Addition 
 
     for enrollmentID in certtoHostnameDict:
         dnsrecordsDict = getDVChallenges(akhttp,enrollmentID,accountSwitchKey)
@@ -166,6 +178,7 @@ def main(sheetName,startRow,endRow,changeID,accountSwitchKey=None):
             print("The status of adding record {} to DNSZone is {}".format(record,udpaterecordstatus),file=sys.stderr)
 
     #Add the Hostnames to the Config:
+
     for config in hostnametoPropertyDict.keys():
         akConfig = AkamaiProperty(edgercLocation,config,accountSwitchKey)
         newVersion = akConfig.createVersion(akConfig.getVersionofConfig())
@@ -206,7 +219,19 @@ def main(sheetName,startRow,endRow,changeID,accountSwitchKey=None):
         print_log('*'*80)
 
         for index in hostnameIndicesforMarking:
-            sheet_instance.update_cell(index+2, 11,activationStatus) #Update the SAN Addition 
+            sheet_instance.update_cell(index+2, 13,activationStatus) #Update the SAN Addition
+
+
+    #Update all the Hostnames to the Security Config        
+    for securityConfigId in hostnametoSecurityConfig:
+        version = createNewSecConfigVersion(securityConfigId,akhttp,accountSwitchKey)
+        addSecConfigStatus = addHostnametoSecConfig(securityConfigId,version,hostnametoSecurityConfig[securityConfigId],akhttp,accountSwitchKey)
+        if addSecConfigStatus == True:
+            stagingActivateStatus = activateStagingAppSecConfig(securityConfigId,version,akhttp,accountSwitchKey)
+            finalsecStatus = addSecConfigStatus & stagingActivateStatus
+            for i in range(startRow,endRow+1):
+                if data[i]['Hostname'] in hostnametoSecurityConfig[securityConfigId]:
+                    sheet_instance.update_cell(i+2, 14,finalsecStatus) #Update the Hostname Addition to Security Config
 
 
 if __name__ == "__main__":
@@ -221,16 +246,18 @@ if __name__ == "__main__":
 
     args = parser.parse_args()
 
+
     curdir = os.getcwd()
     dirpath = os.path.dirname(curdir + '/logs')
     logfilepath = dirpath + "/"  + jobId+'.txt'
-    
-    if args.logfile:
-        logfilepath = dirpath + "/" + args.logfile
 
-    sys.stdout = open(logfilepath, 'w')
+    if args.logfile:
+        logfilepath = dirpath + "/logs/" + args.logfile
+
+    sys.stdout = open(logfilepath, 'w+')
+
     main(args.sheet,args.start,args.end,args.ChangeID,args.accountSwitchKey)
 
 '''
-python onboard.py --sheet 'First Batch' --start 6 --end 8 --accountSwitchKey B-3-16OEUPX --ChangeID 'TimesPOCDemo1: Third Batch Hostnames Addition' --logfile file.txt
+python onboard.py --sheet 'First Batch' --start 2 --end 2 --accountSwitchKey 1-6JHGX --ChangeID 'TimesPOCDemo1: Third Batch Hostnames Addition' --logfile onboard.txt
 '''
