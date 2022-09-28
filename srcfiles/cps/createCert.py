@@ -1,4 +1,4 @@
-from akamaihttp import AkamaiHTTPHandler
+from ..common.akamaihttp import AkamaiHTTPHandler
 import os
 import argparse
 import json
@@ -7,7 +7,7 @@ from godaddypy import Client, Account
 import time
 import uuid
 import sys
-from commonutilities import print_log
+from ..common.commonutilities import print_log
 
 import configparser
 

@@ -1,4 +1,4 @@
-from commonutilities import print_log,getProductId
+from ..common.commonutilities import print_log,getProductId
 import json
 import sys
 

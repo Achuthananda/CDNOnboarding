@@ -1,4 +1,4 @@
-from commonutilities import print_log,getProductId,getehndomainSuffix,getIpVersion,getNetwork
+from ..common.commonutilities import print_log,getProductId,getehndomainSuffix,getIpVersion,getNetwork
 import json
 import sys
 

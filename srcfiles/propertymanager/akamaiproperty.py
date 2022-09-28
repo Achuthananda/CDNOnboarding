@@ -21,7 +21,7 @@ import logging
 import json
 import time
 from akamai.edgegrid import EdgeGridAuth, EdgeRc
-from http_calls import EdgeGridHttpCaller
+from ..common.http_calls import EdgeGridHttpCaller
 if sys.version_info[0] >= 3:
     # python3
     from urllib import parse

@@ -1,4 +1,4 @@
-from commonutilities import print_log
+from ..common.commonutilities import print_log
 import json
 import sys
 from godaddypy import Client, Account
@@ -8,7 +8,6 @@ import configparser
 
 settingsconfig = configparser.ConfigParser()
 settingsconfig.read('config.ini')
-akhttp = AkamaiHTTPHandler(edgercLocation,settingsconfig['Edgerc']['section'])
 
 
 def updateGodaddyDomain(record,value):

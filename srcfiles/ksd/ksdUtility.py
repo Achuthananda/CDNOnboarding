@@ -1,4 +1,4 @@
-from commonutilities import print_log,getEmailNotificationList
+from ..common.commonutilities import print_log,getEmailNotificationList
 import json
 import sys
 import time
@@ -160,6 +160,7 @@ def activateStagingAppSecConfig(securityConfigId,version,akhttp,accountSwitchKey
 def addHostnametoSecConfig(securityConfigId,version,hostNamesArray,akhttp,accountSwitchKey):
     try:
         addHostNameEP = '/appsec/v1/configs/{}/versions/{}/selected-hostnames'.format(securityConfigId,version)
+        print_log(addHostNameEP)
         params = {}
         if accountSwitchKey != None:
             params['accountSwitchKey'] = accountSwitchKey
@@ -181,6 +182,7 @@ def addHostnametoSecConfig(securityConfigId,version,hostNamesArray,akhttp,accoun
         }
 
         datajson = json.dumps(payload,indent=2)
+        print(datajson)
 
         status,addHostnamesJson = akhttp.putResult(addHostNameEP,datajson,headers,params)
         if status == 200:

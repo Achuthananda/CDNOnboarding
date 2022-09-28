@@ -1,9 +1,9 @@
-from akamaihttp import AkamaiHTTPHandler
+from ..common.akamaihttp import AkamaiHTTPHandler
 import os
 import argparse
 import json
 import requests
-from commonutilities import print_log,getProductId,getEmailNotificationList
+from ../common/commonutilities import print_log,getProductId,getEmailNotificationList
 import uuid
 import sys
 from akamaiproperty import AkamaiProperty

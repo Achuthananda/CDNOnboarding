@@ -8,13 +8,13 @@ import time
 import uuid
 from tqdm import tqdm
 import sys,os
-from cpCodeUtility import createCPCode
-from ehnUtility import createEdgeHostName
-from cpsUtility import addSANtoCert,getDVChallenges,updateGodaddyDomain
-from akamaihttp import AkamaiHTTPHandler
-from commonutilities import print_log,readCommonSettings,getEmailNotificationList
-from akamaiproperty import AkamaiProperty
-from ksdUtility import addHostnametoSecConfig,createNewSecConfigVersion,activateStagingAppSecConfig
+from srcfiles.cpcode.cpCodeUtility import createCPCode
+from srcfiles.ehn.ehnUtility import createEdgeHostName
+from srcfiles.cps.cpsUtility import addSANtoCert,getDVChallenges,updateGodaddyDomain
+from srcfiles.common.akamaihttp import AkamaiHTTPHandler
+from srcfiles.common.commonutilities import print_log,readCommonSettings,getEmailNotificationList
+from srcfiles.propertymanager.akamaiproperty import AkamaiProperty
+from srcfiles.ksd.ksdUtility import addHostnametoSecConfig,createNewSecConfigVersion,activateStagingAppSecConfig
 import configparser
 
 settingsconfig = configparser.ConfigParser()
@@ -50,7 +50,7 @@ def addHostNametoConfig(akConfig,newVersion,hostname,edgeHostName,config,udpateS
 
 def addOriginCPCodetoConfig(akConfig,newVersion,hostname,contentProviderCode,originHostName,config,udpateStatus):
     origin_data = ''
-    with open('origin.json') as json_file:
+    with open('srcfiles/propertymanager/origin.json') as json_file:
         origin_data = json.load(json_file)
     
     new_origin_data = {}
@@ -77,7 +77,7 @@ def addOriginCPCodetoConfig(akConfig,newVersion,hostname,contentProviderCode,ori
     return udpateStatus
 
 
-def main(sheetName,startRow,endRow,changeID,accountSwitchKey=None):
+def main(sheetName,startRow,endRow,changeID,addHostnameAppSec,accountSwitchKey=None):
     startRow = int(startRow)
     endRow = int(endRow)
     if startRow <= 0 or endRow <=0 or startRow > endRow:
@@ -227,15 +227,22 @@ def main(sheetName,startRow,endRow,changeID,accountSwitchKey=None):
 
 
     #Update all the Hostnames to the Security Config        
-    for securityConfigId in hostnametoSecurityConfig:
-        version = createNewSecConfigVersion(securityConfigId,akhttp,accountSwitchKey)
-        addSecConfigStatus = addHostnametoSecConfig(securityConfigId,version,hostnametoSecurityConfig[securityConfigId],akhttp,accountSwitchKey)
-        if addSecConfigStatus == True:
-            stagingActivateStatus = activateStagingAppSecConfig(securityConfigId,version,akhttp,accountSwitchKey)
-            finalsecStatus = addSecConfigStatus & stagingActivateStatus
-            for i in range(startRow,endRow+1):
-                if data[i]['Hostname'] in hostnametoSecurityConfig[securityConfigId]:
-                    sheet_instance.update_cell(i+2, 14,finalsecStatus) #Update the Hostname Addition to Security Config
+    if addHostnameAppSec == 'True':
+        for securityConfigId in hostnametoSecurityConfig:
+            version = createNewSecConfigVersion(securityConfigId,akhttp,accountSwitchKey)
+            addSecConfigStatus = addHostnametoSecConfig(securityConfigId,version,hostnametoSecurityConfig[securityConfigId],akhttp,accountSwitchKey)
+            if addSecConfigStatus == True:
+                '''stagingActivateStatus = activateStagingAppSecConfig(securityConfigId,version,akhttp,accountSwitchKey)
+                finalsecStatus = addSecConfigStatus & stagingActivateStatus'''
+                for i in range(startRow,endRow+1):
+                    if data[i]['Hostname'] in hostnametoSecurityConfig[securityConfigId]:
+                        sheet_instance.update_cell(i+2, 14,finalsecStatus) #Update the Hostname Addition to Security Config
+            else:
+                for i in range(startRow,endRow+1):
+                    if data[i]['Hostname'] in hostnametoSecurityConfig[securityConfigId]:
+                        sheet_instance.update_cell(i+2, 14,addSecConfigStatus) #Update the Hostname Addition to Security Config
+
+
 
 
 if __name__ == "__main__":
@@ -247,6 +254,7 @@ if __name__ == "__main__":
     parser.add_argument('--accountSwitchKey', default=None,help='Account SwitchKey')
     parser.add_argument('--ChangeID',required=True, help='ChangeID')
     parser.add_argument('--logfile', help='Log File Name')
+    parser.add_argument('--addHostnameAppSec',default='False',help='Log File Name')
 
     args = parser.parse_args()
 
@@ -260,8 +268,10 @@ if __name__ == "__main__":
 
     sys.stdout = open(logfilepath, 'w+')
 
-    main(args.sheet,args.start,args.end,args.ChangeID,args.accountSwitchKey)
+    main(args.sheet,args.start,args.end,args.ChangeID,args.addHostnameAppSec,args.accountSwitchKey)
 
 '''
-python onboard.py --sheet 'First Batch' --start 2 --end 2 --accountSwitchKey 1-6JHGX --ChangeID 'TimesPOCDemo1: Third Batch Hostnames Addition' --logfile onboard.txt
+python onboard.py --sheet 'First Batch' --start 3 --end 3 --accountSwitchKey 1-6JHGX --ChangeID 'TimesPOCDemo1: Third Batch Hostnames Addition' --logfile onboard.txt --addHostnameAppSec False
+python onboard.py --sheet 'First Batch' --start 3 --end 3 --accountSwitchKey 1-6JHGX --ChangeID 'TimesPOCDemo1: Third Batch Hostnames Addition' --logfile onboard.txt --addHostnameAppSec True
+
 '''

@@ -28,7 +28,7 @@ else:
     import urlparse as parse
 
 logger = logging.getLogger(__name__)
-from commonutilities import print_log
+from .commonutilities import print_log
 
 class EdgeGridHttpCaller():
     def __init__(self, session, debug, verbose, baseurl):
