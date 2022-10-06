@@ -1,0 +1,148 @@
+https://akab-mtuntcyrueze3iy2-neyp4ci3wi6akzdp.luna.akamaiapis.net/cps/v2/enrollments
+{'accountSwitchKey': '1-6JHGX', 'contractId': '1-1NC95D', 'Contract': '1-1NC95D'}
+{'Content-Type': 'application/vnd.akamai.cps.enrollment.v10+json', 'Accept': 'application/vnd.akamai.cps.enrollment-status.v1+json'}
+{
+  "org": {
+    "name": "Times Internet Ltd",
+    "addressLineOne": "72 Dean Street",
+    "addressLineTwo": null,
+    "city": "Noida",
+    "region": "Uttar Pradesh",
+    "postalCode": "201301",
+    "country": "in",
+    "phone": "000-000-0000"
+  },
+  "adminContact": {
+    "firstName": "Mukesh",
+    "lastName": "Tyagi",
+    "phone": "+919871698948",
+    "email": "corp.domains@timesinternet.in",
+    "addressLineOne": null,
+    "addressLineTwo": null,
+    "city": null,
+    "country": null,
+    "organizationName": null,
+    "postalCode": null,
+    "region": null,
+    "title": null
+  },
+  "techContact": {
+    "firstName": "Achuthananda",
+    "lastName": "M P",
+    "phone": "(857) 500-5147",
+    "email": "apadmana@akamai.com",
+    "addressLineOne": null,
+    "addressLineTwo": null,
+    "city": null,
+    "country": null,
+    "organizationName": null,
+    "postalCode": null,
+    "region": null,
+    "title": null
+  },
+  "autoRenewalStartTime": null,
+  "certificateChainType": "default",
+  "changeManagement": true,
+  "csr": {
+    "c": "US",
+    "cn": "varys.iamacmp.com",
+    "l": "Cambridge",
+    "o": "Akamai",
+    "ou": "WebEx",
+    "sans": [
+      "varys.iamacmp.com"
+    ],
+    "st": "MA"
+  },
+  "enableMultiStackedCertificates": false,
+  "location": null,
+  "maxAllowedSanNames": 100,
+  "maxAllowedWildcardSanNames": 100,
+  "networkConfiguration": {
+    "geography": "core",
+    "secureNetwork": "standard-tls",
+    "mustHaveCiphers": "ak-akamai-default",
+    "preferredCiphers": "ak-akamai-default",
+    "sniOnly": true,
+    "quicEnabled": false,
+    "dnsNameSettings": {
+      "cloneDnsNames": true,
+      "dnsNames": [
+        "varys.iamacmp.com"
+      ]
+    },
+    "ocspStapling": "on",
+    "clientMutualAuthentication": null
+  },
+  "pendingChanges": null,
+  "ra": "lets-encrypt",
+  "signatureAlgorithm": "SHA-256",
+  "validationType": "dv",
+  "certificateType": "san"
+}
+b'{\n  "enrollment" : "/cps/v2/enrollments/159511",\n  "changes" : [ "/cps/v2/enrollments/159511/changes/2306382" ]\n}'
+2022-10-06T23:01:38.280347Z:Successfully created the Enrollment and Enrollment Id is 159511
+2022-10-06T23:01:48.281754Z:Waiting for the DNS Challenges to be Received..
+{
+  "results": []
+}
+2022-10-06T23:01:59.342215Z:Waiting for the DNS Challenges to be Received..
+{
+  "results": []
+}
+2022-10-06T23:02:10.390948Z:Waiting for the DNS Challenges to be Received..
+{
+  "results": []
+}
+2022-10-06T23:02:21.561471Z:Waiting for the DNS Challenges to be Received..
+{
+  "results": [
+    {
+      "domain": "varys.iamacmp.com",
+      "domainHistory": [
+        {
+          "domain": "varys.iamacmp.com",
+          "responseBody": "fFmAK_uUaxisqa-Pn6IFg5Mc0oE9hOPngCO8LCnGg0o.Lq3WI0uLtsfYfdMMhy-X5znkqmJ9QP8s5LJH_pKpBjY",
+          "fullPath": "http://varys.iamacmp.com/.well-known/acme-challenge/fFmAK_uUaxisqa-Pn6IFg5Mc0oE9hOPngCO8LCnGg0o",
+          "token": "fFmAK_uUaxisqa-Pn6IFg5Mc0oE9hOPngCO8LCnGg0o",
+          "status": "Awaiting user",
+          "error": "The domain varys.iamacmp.com is not ready for HTTP validation.",
+          "validationStatus": "DATA_NOT_READY",
+          "requestTimestamp": "2022-10-06T17:32:17Z",
+          "validatedTimestamp": "2022-10-06T17:32:18Z",
+          "expires": "2022-10-13T17:32:17Z",
+          "redirectFullPath": "http://dcv.akamai.com/.well-known/acme-challenge/fFmAK_uUaxisqa-Pn6IFg5Mc0oE9hOPngCO8LCnGg0o",
+          "validationRecords": [],
+          "challenges": [
+            {
+              "type": "http-01",
+              "status": "pending",
+              "error": null,
+              "token": "fFmAK_uUaxisqa-Pn6IFg5Mc0oE9hOPngCO8LCnGg0o",
+              "responseBody": "fFmAK_uUaxisqa-Pn6IFg5Mc0oE9hOPngCO8LCnGg0o.Lq3WI0uLtsfYfdMMhy-X5znkqmJ9QP8s5LJH_pKpBjY",
+              "fullPath": "http://varys.iamacmp.com/.well-known/acme-challenge/fFmAK_uUaxisqa-Pn6IFg5Mc0oE9hOPngCO8LCnGg0o",
+              "redirectFullPath": "http://dcv.akamai.com/.well-known/acme-challenge/fFmAK_uUaxisqa-Pn6IFg5Mc0oE9hOPngCO8LCnGg0o",
+              "validationRecords": []
+            },
+            {
+              "type": "dns-01",
+              "status": "pending",
+              "error": null,
+              "token": "fFmAK_uUaxisqa-Pn6IFg5Mc0oE9hOPngCO8LCnGg0o",
+              "responseBody": "88PNHM5W8o8Wsa35i_ym9ipPxdVy870YEOJe2HjL9YI",
+              "fullPath": "_acme-challenge.varys.iamacmp.com.",
+              "redirectFullPath": "",
+              "validationRecords": []
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
+2022-10-06T23:02:22.432504Z:DNS Challenges Received for _acme-challenge.varys.iamacmp.com.
+2022-10-06T23:02:22.432627Z:
+DNS Record:_acme-challenge.varys.iamacmp.com.
+Token:88PNHM5W8o8Wsa35i_ym9ipPxdVy870YEOJe2HjL9YI
+2022-10-06T23:02:23.428094Z:Created a TXT record for  Succesfully for _acme-challenge.varys.iamacmp.com.
+2022-10-06T23:02:23.428157Z:The status of adding record _acme-challenge.varys.iamacmp.com. to DNSZone is True

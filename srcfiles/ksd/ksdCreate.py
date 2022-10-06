@@ -148,7 +148,7 @@ if __name__ == "__main__":
         print('Failed to Created the App Sec Config',file=sys.stderr)
    
 '''
-python ksdCreate.py --logfile ksdlog --accountSwitchKey 1-6JHGX --name TimesAppSecConfig --groupId 223702 --contractId 1-1NC95D --securityPolicyName Policy1 --hostnames 'example.edgesuite.net'
+python -m srcfiles.ksd.ksdCreate --logfile ksdlog --accountSwitchKey 1-6JHGX --name GotSecConfig --groupId 223702 --contractId 1-1NC95D --securityPolicyName Policy1 --hostnames 'varys.iamacmp.com'
 Akamai Professional Services
 '''
 

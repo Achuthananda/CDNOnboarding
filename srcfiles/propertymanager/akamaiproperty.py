@@ -22,6 +22,7 @@ import json
 import time
 from akamai.edgegrid import EdgeGridAuth, EdgeRc
 from ..common.http_calls import EdgeGridHttpCaller
+from ..common.commonutilities import print_log
 if sys.version_info[0] >= 3:
     # python3
     from urllib import parse
@@ -167,6 +168,7 @@ class AkamaiProperty():
             params["accountSwitchKey"] = self.accountSwitchKey
 
         status,updateRuleTree = self._prdHttpCaller.putResult(updateRuleTreeEndPoint,jsondata,params)
+        print_log(updateRuleTree)
         if status == 200:
             return True
         else:
@@ -469,18 +471,18 @@ class AkamaiProperty():
         getHostnameJson = self._prdHttpCaller.getResult(getHostNameEndPoint,params)
         property_hostnames = getHostnameJson["hostnames"]["items"]
 
-        print("here1")
+        print_log("here1")
         for item in property_hostnames:
             if item['cnameFrom'] == 'example.edgesuite.net':
                 property_hostnames.remove(item)
 
-        print("here2")
+        print_log("here2")
 
         for item in property_hostnames:
             if 'edgeHostnameId' in item:
                 del item['edgeHostnameId']
 
-        print("here3")
+        print_log("here3")
         item = {}
         item["cnameType"] = "EDGE_HOSTNAME"
         item["cnameFrom"] = hostname

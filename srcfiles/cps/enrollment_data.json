@@ -42,12 +42,12 @@
     "changeManagement": true,
     "csr": {
         "c": "US",
-        "cn": "www.iamacmp.com",
+        "cn": "varys.iamacmp.com",
         "l": "Cambridge",
         "o": "Akamai",
         "ou": "WebEx",
         "sans": [
-            "jimmy.iamacmp.com"
+            "varys.iamacmp.com"
         ],
         "st": "MA"
     },
@@ -65,7 +65,7 @@
         "dnsNameSettings": {
           "cloneDnsNames": true,
           "dnsNames": [
-            "mobile.iamacmp.com"
+            "varys.iamacmp.com"
           ]
         },
         "ocspStapling": "on",

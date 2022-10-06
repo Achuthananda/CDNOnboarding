@@ -31,16 +31,19 @@ $ pip install -r requirements.txt
 
 ### Create Certificate
 ```
-$:python createCert.py --logfile cpslog --accountSwitchKey 1-6JHGX --contractId 1-1NC95D --file enrollment_data.json
-Successfully created the Enrollment and Enrollment Id is 158484
+$:python -m srcfiles.cps.createCert --logfile logs/cpslog --accountSwitchKey 1-6JHGX --contractId 1-1NC95D --file srcfiles/cps/enrollment_data.json
+Successfully created the Enrollment and Enrollment Id is 159491
 Waiting for the DNS Challenges to be Received..
 Waiting for the DNS Challenges to be Received..
 Waiting for the DNS Challenges to be Received..
-DNS Record:_acme-challenge.jimmy.iamacmp.com.
-Token:WoqIsHe2XR_Sdx_OCosKc3nt2ONzKvsqobEAqOOVFvw
+Waiting for the DNS Challenges to be Received..
+DNS Record:_acme-challenge.robertbaratheon.iamacmp.com.
+Token:jSgajEsL2frSK9QOt7v7dOZOIITQ0L5lx1Xh6qKkhrM
 ********************************************************************************
-DNS Record:_acme-challenge.www.iamacmp.com.
-Token:0H-bD31Jf-3qSZrG5XghzwzSnQ7jNGYGA3TTNTtF2U4
+{
+  "_acme-challenge.robertbaratheon.iamacmp.com.": "jSgajEsL2frSK9QOt7v7dOZOIITQ0L5lx1Xh6qKkhrM"
+}
+The status of adding record _acme-challenge.robertbaratheon.iamacmp.com. to DNSZone is True
 ********************************************************************************
 {
   "_acme-challenge.jimmy.iamacmp.com.": "WoqIsHe2XR_Sdx_OCosKc3nt2ONzKvsqobEAqOOVFvw",
@@ -53,7 +56,7 @@ $:
 
 ### Create a Config
 ```
-$:python cloneConfig.py --clone False --logfile configlog --accountSwitchKey 1-6JHGX --contractId ctr_1-1NC95D --groupId grp_223702 --newPropertyName TimesTemplateOnboarding 
+$:python -m srcfiles.propertymanager.cloneConfig.py --clone False --logfile configlog --accountSwitchKey 1-6JHGX --contractId ctr_1-1NC95D --groupId grp_223702 --newPropertyName GotTemplate 
 Succesfully Created the config and property Id is 838634.
 $:
 ```

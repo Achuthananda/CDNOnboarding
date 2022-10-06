@@ -1,8 +1,19 @@
 from ..common.commonutilities import print_log,getProductId
+from ..common.akamaihttp import AkamaiHTTPHandler
 import json
 import sys
 
-def createCPCode(contractId,groupId,hostName,akhttp,accountSwitchKey=None):
+import configparser
+import os
+
+settingsconfig = configparser.ConfigParser()
+settingsconfig.read('config.ini')
+edgercLocation = settingsconfig['Edgerc']['location']
+edgercLocation = os.path.expanduser(edgercLocation)
+akhttp = AkamaiHTTPHandler(edgercLocation,settingsconfig['Edgerc']['section'])
+
+
+def createCPCode(contractId,groupId,hostName,accountSwitchKey=None):
     try:
         params = {}
         if accountSwitchKey != None:
@@ -12,7 +23,7 @@ def createCPCode(contractId,groupId,hostName,akhttp,accountSwitchKey=None):
 
 
         create_cpcode = {
-            "productId": getProductId(),
+            "productId": settingsconfig['Common']['product_id'],
             "cpcodeName": hostName
         }
 
