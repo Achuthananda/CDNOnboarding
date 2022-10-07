@@ -31,27 +31,25 @@ $ pip install -r requirements.txt
 
 ### Create Certificate
 ```
-$:python -m srcfiles.cps.createCert --logfile logs/cpslog --accountSwitchKey 1-6JHGX --contractId 1-1NC95D --file srcfiles/cps/enrollment_data.json
-Successfully created the Enrollment and Enrollment Id is 159491
+$python -m srcfiles.cps.createCert --logfile logs/cpslog --accountSwitchKey 1-6JHGX --contractId 1-1NC95D --file srcfiles/cps/enrollment_data.json
+Successfully created the Enrollment and Enrollment Id is 159548
 Waiting for the DNS Challenges to be Received..
 Waiting for the DNS Challenges to be Received..
 Waiting for the DNS Challenges to be Received..
 Waiting for the DNS Challenges to be Received..
-DNS Record:_acme-challenge.robertbaratheon.iamacmp.com.
-Token:jSgajEsL2frSK9QOt7v7dOZOIITQ0L5lx1Xh6qKkhrM
+Waiting for the DNS Challenges to be Received..
+Waiting for the DNS Challenges to be Received..
+Waiting for the DNS Challenges to be Received..
+Waiting for the DNS Challenges to be Received..
+Waiting for the DNS Challenges to be Received..
+DNS Record:_acme-challenge.joffreybaratheon.iamacmp.com.
+Token:VZ6BHNpOVzRYHacQxt69eK4w_9oyZfqX-4BbV8Kl8IA
 ********************************************************************************
 {
-  "_acme-challenge.robertbaratheon.iamacmp.com.": "jSgajEsL2frSK9QOt7v7dOZOIITQ0L5lx1Xh6qKkhrM"
+  "_acme-challenge.joffreybaratheon.iamacmp.com.": "VZ6BHNpOVzRYHacQxt69eK4w_9oyZfqX-4BbV8Kl8IA"
 }
-The status of adding record _acme-challenge.robertbaratheon.iamacmp.com. to DNSZone is True
-********************************************************************************
-{
-  "_acme-challenge.jimmy.iamacmp.com.": "WoqIsHe2XR_Sdx_OCosKc3nt2ONzKvsqobEAqOOVFvw",
-  "_acme-challenge.www.iamacmp.com.": "0H-bD31Jf-3qSZrG5XghzwzSnQ7jNGYGA3TTNTtF2U4"
-}
-The status of adding record _acme-challenge.jimmy.iamacmp.com. to DNSZone is True
-The status of adding record _acme-challenge.www.iamacmp.com. to DNSZone is True
-$:
+The status of adding record _acme-challenge.joffreybaratheon.iamacmp.com. to DNSZone is True
+
 ```
 
 ### Create a Config
@@ -74,7 +72,7 @@ $:
 
 ### Clone the Config
 ```
-$:$:python cloneConfig.py --clone True --logfile cloneconfiglog --accountSwitchKey 1-6JHGX --contractId ctr_1-1NC95D --groupId grp_223702 --propertyId prp_838634 --version 1 --newPropertyName TimesCloneConfig
+$:python -m srcfiles.propertymanager.cloneConfig --clone True --logfile configlog --accountSwitchKey 1-6JHGX --contractId ctr_1-1NC95D --groupId grp_223702 --propertyId prp_838658 --version 1 --newPropertyName ToiDemo --hostName 'joffreybaratheon.iamacmp.com' --certEnrollmentId 159548 --originHostname timesofindia.indiatimes.com
 Succesfully Cloned the config and property Id is 838659.
 $:
 ``` 
@@ -84,8 +82,8 @@ $:
 
 ### Create the Security Config
 ```
-$:python ksdCreate.py --logfile ksdlog --accountSwitchKey 1-6JHGX --name TimesAppSecConfig --groupId 223702 --contractId 1-1NC95D --securityPolicyName Policy1 --hostnames 'example.edgesuite.net'
-Succesfully Created the App Sec Config and the config Id is 86532 and Policy Id is OhH_186650
+$:python -m srcfiles.ksd.ksdCreate --logfile ksdlog --accountSwitchKey 1-6JHGX --groupId 223702 --contractId 1-1NC95D --securityPolicyName Policy1 --hostnames 'joffreybaratheon.iamacmp.com' --name ToiDemo
+Succesfully Created the App Sec Config and the config Id is 87054 and Policy Id is fhd_188004
 $:
 ```
 \
