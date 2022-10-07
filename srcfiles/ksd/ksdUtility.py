@@ -83,9 +83,9 @@ def getAppSecConfiglatestVersion(securityConfigId,accountSwitchKey):
 
 def createNewSecConfigVersion(securityConfigId,accountSwitchKey):
     try:
-        stagingVersion = getAppSecConfigStagingVersion(securityConfigId,akhttp,accountSwitchKey)
-        productionVersion = getAppSecConfigProductionVersion(securityConfigId,akhttp,accountSwitchKey)
-        latestVersion = getAppSecConfiglatestVersion(securityConfigId,akhttp,accountSwitchKey)
+        stagingVersion = getAppSecConfigStagingVersion(securityConfigId,accountSwitchKey)
+        productionVersion = getAppSecConfigProductionVersion(securityConfigId,accountSwitchKey)
+        latestVersion = getAppSecConfiglatestVersion(securityConfigId,accountSwitchKey)
         version = latestVersion
         if productionVersion > 0:
             version = productionVersion
@@ -114,11 +114,11 @@ def createNewSecConfigVersion(securityConfigId,accountSwitchKey):
         status,cloneConfigJson = akhttp.postResult(cloneversionEP,datajson,headers,params)
         if status == 201:
             newVersion = cloneConfigJson['version']
-            print_log('Successfully created the new version of the App Sec Policy {}'.format(securityConfigId))
+            print_log('Successfully created the new version of the App Sec Config {}'.format(securityConfigId),consolePrint=True)
             return newVersion
         else:
             print_log(status)
-            print_log("Failed to create the new version of the App Sec Policy")
+            print_log("Failed to create the new version of the App Sec Config",consolePrint=True)
             return 0
     except Exception as e:
         print('{}:Error create the new version of the App Sec Policy'.format(e),file=sys.stderr)
@@ -135,7 +135,7 @@ def activateStagingAppSecConfig(securityConfigId,version,accountSwitchKey):
             "accept": "application/json",
             "content-type": "application/json"
         }
-        
+
         payload = {
             "activationConfigs": [
                 {
@@ -153,16 +153,15 @@ def activateStagingAppSecConfig(securityConfigId,version,accountSwitchKey):
 
         status,activationJson = akhttp.postResult(activateEP,datajson,headers,params)
         if status in [202,200]:
-            print_log('Successfully activated to staging')
+            print_log('Successfully activated AppSec Config to staging',consolePrint=True)
             return True
         else:
             print_log(status)
-            print_log("Failed to activate App Sec Policy")
+            print_log("Failed to activate AppSec Config to staging",consolePrint=True)
             return False
     except Exception as e:
         print('{}:Error activating the config'.format(e),file=sys.stderr)
         return False
-
 
 
 def addHostnametoSecConfig(securityConfigId,version,hostNamesArray,accountSwitchKey):
@@ -194,11 +193,11 @@ def addHostnametoSecConfig(securityConfigId,version,hostNamesArray,accountSwitch
 
         status,addHostnamesJson = akhttp.putResult(addHostNameEP,datajson,headers,params)
         if status == 200:
-            print_log('Successfully Added the HostNames')
+            print_log('Successfully Added the HostNames to the security config',consolePrint=True)
             return True
         else:
             print_log(status)
-            print_log("Failed to add the Hostnames")
+            print_log("Failed to add the Hostnames to the security config",consolePrint=True)
             return False
     except Exception as e:
         print('{}:Error adding the Hostnames to Security Policy'.format(e),file=sys.stderr)

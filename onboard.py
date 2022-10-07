@@ -22,6 +22,9 @@ settingsconfig.read('config.ini')
 edgercLocation = settingsconfig['Edgerc']['location']
 edgercLocation = os.path.expanduser(edgercLocation)
 akhttp = AkamaiHTTPHandler(edgercLocation,settingsconfig['Edgerc']['section'])
+emailList = settingsconfig['Common']['emailnotification']
+emailArray = emailList.split(',')
+
 
 
 jobId = str(uuid.uuid1())
@@ -44,7 +47,7 @@ sheet = client.open(settingsconfig['Sheet']['Name'])
 
 def addHostNametoConfig(akConfig,newVersion,hostname,edgeHostName,config,udpateStatus):
     addhostnameStatus = akConfig.addHostname(newVersion,hostname,edgeHostName)
-    print_log("Status of adding the hostname {} to config {} is {}".format(hostname,config,addhostnameStatus))
+    print_log("Status of adding the hostname {} to config {} is {}".format(hostname,config,addhostnameStatus),consolePrint=True)
     udpateStatus = udpateStatus and addhostnameStatus
     return udpateStatus
 
@@ -72,7 +75,7 @@ def addOriginCPCodetoConfig(akConfig,newVersion,hostname,contentProviderCode,ori
     print_log(propruleInfo_json)
     
     addOriginstatus = akConfig.updateRuleTree(newVersion,propruleInfo_json)
-    print_log("Status of adding the Origin {} to hostname {} is {}".format(originHostName,hostname,addOriginstatus))
+    print_log("Status of adding the Origin {} to hostname {} is {}".format(originHostName,hostname,addOriginstatus),consolePrint=True)
     udpateStatus = udpateStatus and addOriginstatus
     return udpateStatus
 
@@ -113,7 +116,7 @@ def main(sheetName,startRow,endRow,changeID,addHostnameAppSec,accountSwitchKey=N
     progress_bar = tqdm(total=endRow-startRow+1)
     for i in range(startRow,endRow+1):
         if data[i]['Edgehostname'] == '':
-            edgeHostName = createEdgeHostName(data[i]['ContractId'],data[i]['GroupId'],data[i]['Hostname'],data[i]['CertEnrollmentId'],akhttp,accountSwitchKey)
+            edgeHostName = createEdgeHostName(data[i]['ContractId'],data[i]['GroupId'],data[i]['Hostname'],data[i]['CertEnrollmentId'],accountSwitchKey)
             if edgeHostName != '':
                 sheet_instance.update_cell(i+2, 11,edgeHostName) #Update the CP Code 
         else:
@@ -126,7 +129,7 @@ def main(sheetName,startRow,endRow,changeID,addHostnameAppSec,accountSwitchKey=N
     progress_bar = tqdm(total=endRow-startRow+1)
     for i in range(startRow,endRow+1):
         if data[i]['CPCode'] == '':
-            cpCode = createCPCode(data[i]['ContractId'],data[i]['GroupId'],data[i]['Hostname'],akhttp,accountSwitchKey)
+            cpCode = createCPCode(data[i]['ContractId'],data[i]['GroupId'],data[i]['Hostname'],accountSwitchKey)
             if cpCode != 0:
                 sheet_instance.update_cell(i+2, 10,cpCode) #Update the CP Code 
         else:
@@ -168,13 +171,13 @@ def main(sheetName,startRow,endRow,changeID,addHostnameAppSec,accountSwitchKey=N
 
     data = sheet_instance.get_all_records()
     for enrollmentID in certtoHostnameDict:
-        addStatus = addSANtoCert(enrollmentID,certtoHostnameDict[enrollmentID],akhttp,accountSwitchKey)
+        addStatus = addSANtoCert(enrollmentID,certtoHostnameDict[enrollmentID],accountSwitchKey)
         for i in range(startRow,endRow+1):
             if data[i]['Hostname'] in certtoHostnameDict[enrollmentID]:
                 sheet_instance.update_cell(i+2, 12,addStatus) #Update the SAN Addition 
 
     for enrollmentID in certtoHostnameDict:
-        dnsrecordsDict = getDVChallenges(akhttp,enrollmentID,accountSwitchKey)
+        dnsrecordsDict = getDVChallenges(enrollmentID,accountSwitchKey)
         print(json.dumps(dnsrecordsDict,indent=2),file=sys.stderr)
         for record in dnsrecordsDict:
             udpaterecordstatus = updateGodaddyDomain(record,dnsrecordsDict[record])
@@ -208,8 +211,7 @@ def main(sheetName,startRow,endRow,changeID,addHostnameAppSec,accountSwitchKey=N
             udpateStatus = addHostNametoConfig(akConfig,newVersion,hostname,edgeHostName,config,udpateStatus)
             udpateStatus = addOriginCPCodetoConfig(akConfig,newVersion,hostname,contentProviderCode,originHostName,config,udpateStatus)
 
-        emailList = getEmailNotificationList()
-        print_log(emailList)
+        emailList = emailArray
 
         versionStatus = akConfig.addVersionNotes(newVersion,changeID)
         if udpateStatus == False:
@@ -217,9 +219,9 @@ def main(sheetName,startRow,endRow,changeID,addHostnameAppSec,accountSwitchKey=N
         activationStatus = False
         if udpateStatus and versionStatus:
             activationStatus = akConfig.activateStaging(newVersion,changeID,emailList)
-        print_log("Update Status :{}".format(udpateStatus))
-        print_log("Version Status:{}".format(versionStatus))
-        print_log("Activation Status:{}".format(activationStatus))
+        print_log("Update Status :{}".format(udpateStatus),consolePrint=True)
+        print_log("Version Status:{}".format(versionStatus),consolePrint=True)
+        print_log("Activation Status:{}".format(activationStatus),consolePrint=True)
         print_log('*'*80)
 
         for index in hostnameIndicesforMarking:
@@ -229,11 +231,11 @@ def main(sheetName,startRow,endRow,changeID,addHostnameAppSec,accountSwitchKey=N
     #Update all the Hostnames to the Security Config        
     if addHostnameAppSec == 'True':
         for securityConfigId in hostnametoSecurityConfig:
-            version = createNewSecConfigVersion(securityConfigId,akhttp,accountSwitchKey)
-            addSecConfigStatus = addHostnametoSecConfig(securityConfigId,version,hostnametoSecurityConfig[securityConfigId],akhttp,accountSwitchKey)
+            version = createNewSecConfigVersion(securityConfigId,accountSwitchKey)
+            addSecConfigStatus = addHostnametoSecConfig(securityConfigId,version,hostnametoSecurityConfig[securityConfigId],accountSwitchKey)
             if addSecConfigStatus == True:
-                '''stagingActivateStatus = activateStagingAppSecConfig(securityConfigId,version,akhttp,accountSwitchKey)
-                finalsecStatus = addSecConfigStatus & stagingActivateStatus'''
+                stagingActivateStatus = activateStagingAppSecConfig(securityConfigId,version,accountSwitchKey)
+                finalsecStatus = addSecConfigStatus & stagingActivateStatus
                 for i in range(startRow,endRow+1):
                     if data[i]['Hostname'] in hostnametoSecurityConfig[securityConfigId]:
                         sheet_instance.update_cell(i+2, 14,finalsecStatus) #Update the Hostname Addition to Security Config
@@ -271,7 +273,7 @@ if __name__ == "__main__":
     main(args.sheet,args.start,args.end,args.ChangeID,args.addHostnameAppSec,args.accountSwitchKey)
 
 '''
-python onboard.py --sheet 'First Batch' --start 3 --end 3 --accountSwitchKey 1-6JHGX --ChangeID 'TimesPOCDemo1: Third Batch Hostnames Addition' --logfile onboard.txt --addHostnameAppSec False
+python onboard.py --sheet 'First Batch' --start 2 --end 2 --accountSwitchKey 1-6JHGX --ChangeID 'TimesPOCDemo2: Third Batch Hostnames Addition' --logfile onboard.txt --addHostnameAppSec False
 python onboard.py --sheet 'First Batch' --start 3 --end 3 --accountSwitchKey 1-6JHGX --ChangeID 'TimesPOCDemo1: Third Batch Hostnames Addition' --logfile onboard.txt --addHostnameAppSec True
 
 '''

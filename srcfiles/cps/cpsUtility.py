@@ -1,13 +1,20 @@
 from ..common.commonutilities import print_log
+from ..common.akamaihttp import AkamaiHTTPHandler
 import json
 import sys
 from godaddypy import Client, Account
 import time
 
 import configparser
+import os
 
 settingsconfig = configparser.ConfigParser()
 settingsconfig.read('config.ini')
+edgercLocation = settingsconfig['Edgerc']['location']
+edgercLocation = os.path.expanduser(edgercLocation)
+akhttp = AkamaiHTTPHandler(edgercLocation,settingsconfig['Edgerc']['section'])
+emailList = settingsconfig['Common']['emailnotification']
+emailArray = emailList.split(',')
 
 
 def updateGodaddyDomain(record,value):
@@ -27,7 +34,7 @@ def updateGodaddyDomain(record,value):
         return False
 
 
-def getDVChallenges(akhttp,enrollmentID,accountSwitchKey=None):
+def getDVChallenges(enrollmentID,accountSwitchKey=None):
     try:
         challengeReceived = False
         while challengeReceived == False:
@@ -63,7 +70,7 @@ def getDVChallenges(akhttp,enrollmentID,accountSwitchKey=None):
         print_log(e)
 
 
-def geEnrollment(enrollmentId,akhttp,accountSwitchKey=None):
+def geEnrollment(enrollmentId,accountSwitchKey=None):
     try:
         cpsEP = '/cps/v2/enrollments/{}'.format(enrollmentId)
         params = {}
@@ -84,10 +91,10 @@ def geEnrollment(enrollmentId,akhttp,accountSwitchKey=None):
         print(e)
         exit(4)
 
-def addSANtoCert(enrollmentID,sansList,akhttp,accountSwitchKey):
+def addSANtoCert(enrollmentID,sansList,accountSwitchKey):
     try:
         print_log("Adding the SAN to the cert!")
-        certenrollmentbody = geEnrollment(enrollmentID,akhttp,accountSwitchKey)
+        certenrollmentbody = geEnrollment(enrollmentID,accountSwitchKey)
 
         params = {}
         if accountSwitchKey != None:
