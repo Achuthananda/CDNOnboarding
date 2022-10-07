@@ -51,7 +51,9 @@ def getEmailNotificationList():
     global emailNotification
     return emailNotification
 
-def print_log(args):
+def print_log(args,consolePrint=False):
     now = str(datetime.datetime.now().isoformat()) + 'Z'
     print(now, end = ':')
     print(args, flush=True)
+    if consolePrint == True:
+        print(args,file=sys.stderr)

@@ -1,10 +1,21 @@
 from ..common.commonutilities import print_log,getEmailNotificationList
+from ..common.akamaihttp import AkamaiHTTPHandler
 import json
 import sys
 import time
 
+import configparser
+import os
 
-def getAppSecConfigStagingVersion(securityConfigId,akhttp,accountSwitchKey):
+settingsconfig = configparser.ConfigParser()
+settingsconfig.read('config.ini')
+edgercLocation = settingsconfig['Edgerc']['location']
+edgercLocation = os.path.expanduser(edgercLocation)
+akhttp = AkamaiHTTPHandler(edgercLocation,settingsconfig['Edgerc']['section'])
+emailList = settingsconfig['Common']['emailnotification']
+emailArray = emailList.split(',')
+
+def getAppSecConfigStagingVersion(securityConfigId,accountSwitchKey):
     try:
         getVersionEP = "/appsec/v1/configs/{}/versions?page=1&pageSize=25&detail=true".format(securityConfigId)
         params = {}
@@ -26,7 +37,7 @@ def getAppSecConfigStagingVersion(securityConfigId,akhttp,accountSwitchKey):
         return 0
         
 
-def getAppSecConfigProductionVersion(securityConfigId,akhttp,accountSwitchKey):
+def getAppSecConfigProductionVersion(securityConfigId,accountSwitchKey):
     try:
         getVersionEP = "/appsec/v1/configs/{}/versions?page=1&pageSize=25&detail=false".format(securityConfigId)
         params = {}
@@ -48,7 +59,7 @@ def getAppSecConfigProductionVersion(securityConfigId,akhttp,accountSwitchKey):
         return 0
 
 
-def getAppSecConfiglatestVersion(securityConfigId,akhttp,accountSwitchKey):
+def getAppSecConfiglatestVersion(securityConfigId,accountSwitchKey):
     try:
         getVersionEP = "/appsec/v1/configs/{}/versions?page=1&pageSize=25&detail=false".format(securityConfigId)
         params = {}
@@ -70,7 +81,7 @@ def getAppSecConfiglatestVersion(securityConfigId,akhttp,accountSwitchKey):
         return 0
 
 
-def createNewSecConfigVersion(securityConfigId,akhttp,accountSwitchKey):
+def createNewSecConfigVersion(securityConfigId,accountSwitchKey):
     try:
         stagingVersion = getAppSecConfigStagingVersion(securityConfigId,akhttp,accountSwitchKey)
         productionVersion = getAppSecConfigProductionVersion(securityConfigId,akhttp,accountSwitchKey)
@@ -113,7 +124,7 @@ def createNewSecConfigVersion(securityConfigId,akhttp,accountSwitchKey):
         print('{}:Error create the new version of the App Sec Policy'.format(e),file=sys.stderr)
         return 0
 
-def activateStagingAppSecConfig(securityConfigId,version,akhttp,accountSwitchKey):
+def activateStagingAppSecConfig(securityConfigId,version,accountSwitchKey):
     try:
         activateEP = '/appsec/v1/activations'
         params = {}
@@ -124,10 +135,7 @@ def activateStagingAppSecConfig(securityConfigId,version,akhttp,accountSwitchKey
             "accept": "application/json",
             "content-type": "application/json"
         }
-
-        emailList = getEmailNotificationList()
-        emailArray = emailList[0].split(',')
-
+        
         payload = {
             "activationConfigs": [
                 {
@@ -157,7 +165,7 @@ def activateStagingAppSecConfig(securityConfigId,version,akhttp,accountSwitchKey
 
 
 
-def addHostnametoSecConfig(securityConfigId,version,hostNamesArray,akhttp,accountSwitchKey):
+def addHostnametoSecConfig(securityConfigId,version,hostNamesArray,accountSwitchKey):
     try:
         addHostNameEP = '/appsec/v1/configs/{}/versions/{}/selected-hostnames'.format(securityConfigId,version)
         print_log(addHostNameEP)
@@ -197,7 +205,7 @@ def addHostnametoSecConfig(securityConfigId,version,hostNamesArray,akhttp,accoun
         return False
 
 
-def createSecurityPolicy(akhttp,accountSwitchKey,configId,version,securityPolicyName):
+def createSecurityPolicy(accountSwitchKey,configId,version,securityPolicyName):
     try:
         createSPEP = '/appsec/v1/configs/{}/versions/{}/security-policies'.format(configId,version)
         params = {}
@@ -235,3 +243,44 @@ def createSecurityPolicy(akhttp,accountSwitchKey,configId,version,securityPolicy
         return 0
 
     return configId
+
+
+def createMatchTarget(accountSwitchKey,configId,version,securityPolicyId,filePathArray,hostNameArray,matchTargettype="website",isNegativePathMatch=False,isNegativeFileExtensionMatch=False):
+    try:
+        matchTargetEP = '/appsec/v1/configs/{}/versions/{}/match-targets'.format(configId,version)
+
+        params = {}
+        if accountSwitchKey:
+            params['accountSwitchKey'] = accountSwitchKey
+        
+        
+        headers = {
+            "accept": "application/json",
+            "content-type": "application/json"
+        }
+
+        payload = {
+            "defaultFile": "NO_MATCH",
+            "filePaths":filePathArray,
+            "hostnames": hostNameArray,
+            "securityPolicy": {
+                "policyId": securityPolicyId
+            },
+            "isNegativeFileExtensionMatch": isNegativeFileExtensionMatch,
+            "isNegativePathMatch": isNegativePathMatch,
+            "type": matchTargettype
+        }
+
+        datajson = json.dumps(payload,indent=2)
+
+        status,creatematchTargetJson = akhttp.postResult(matchTargetEP,datajson,headers,params)
+        if status == 201:
+            print_log('Successfully Added the Match Targets')
+            return True
+        else:
+            print_log(status)
+            print_log('Failed to Add the Match Targets')
+            return False
+    except Exception as e:
+        print('{}:Error adding the Match Targets'.format(e),file=sys.stderr)
+        return False

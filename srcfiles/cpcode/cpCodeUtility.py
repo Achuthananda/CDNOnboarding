@@ -40,10 +40,10 @@ def createCPCode(contractId,groupId,hostName,accountSwitchKey=None):
         if status == 201:
             print_log(createCPCodeJson)
             cpCode = createCPCodeJson['cpcodeLink'].split('?')[0].split('/')[4].split('_')[1]
-            print_log('Successfully created the CP Code {} for {}'.format(cpCode,hostName))
+            print_log('Successfully created the CP Code {} for {}'.format(cpCode,hostName),consolePrint=True)
             return cpCode
         else:
-            print_log('Failed to create the CP Code for {} and status code is {}.'.format(hostName,status))
+            print_log('Failed to create the CP Code for {} and status code is {}.'.format(hostName,status),consolePrint=True)
             return 0
     except Exception as e:
         print('{}:Error Creating the CP Code for {}'.format(e,hostName),file=sys.stderr)

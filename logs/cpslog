@@ -45,12 +45,12 @@ https://akab-mtuntcyrueze3iy2-neyp4ci3wi6akzdp.luna.akamaiapis.net/cps/v2/enroll
   "changeManagement": true,
   "csr": {
     "c": "US",
-    "cn": "varys.iamacmp.com",
+    "cn": "joffreybaratheon.iamacmp.com",
     "l": "Cambridge",
     "o": "Akamai",
     "ou": "WebEx",
     "sans": [
-      "varys.iamacmp.com"
+      "joffreybaratheon.iamacmp.com"
     ],
     "st": "MA"
   },
@@ -68,7 +68,7 @@ https://akab-mtuntcyrueze3iy2-neyp4ci3wi6akzdp.luna.akamaiapis.net/cps/v2/enroll
     "dnsNameSettings": {
       "cloneDnsNames": true,
       "dnsNames": [
-        "varys.iamacmp.com"
+        "joffreybaratheon.iamacmp.com"
       ]
     },
     "ocspStapling": "on",
@@ -80,57 +80,77 @@ https://akab-mtuntcyrueze3iy2-neyp4ci3wi6akzdp.luna.akamaiapis.net/cps/v2/enroll
   "validationType": "dv",
   "certificateType": "san"
 }
-b'{\n  "enrollment" : "/cps/v2/enrollments/159511",\n  "changes" : [ "/cps/v2/enrollments/159511/changes/2306382" ]\n}'
-2022-10-06T23:01:38.280347Z:Successfully created the Enrollment and Enrollment Id is 159511
-2022-10-06T23:01:48.281754Z:Waiting for the DNS Challenges to be Received..
+b'{\n  "enrollment" : "/cps/v2/enrollments/159548",\n  "changes" : [ "/cps/v2/enrollments/159548/changes/2306904" ]\n}'
+2022-10-07T08:02:23.636563Z:Successfully created the Enrollment and Enrollment Id is 159548
+2022-10-07T08:02:33.640602Z:Waiting for the DNS Challenges to be Received..
 {
   "results": []
 }
-2022-10-06T23:01:59.342215Z:Waiting for the DNS Challenges to be Received..
+2022-10-07T08:02:45.005198Z:Waiting for the DNS Challenges to be Received..
 {
   "results": []
 }
-2022-10-06T23:02:10.390948Z:Waiting for the DNS Challenges to be Received..
+2022-10-07T08:02:56.061560Z:Waiting for the DNS Challenges to be Received..
 {
   "results": []
 }
-2022-10-06T23:02:21.561471Z:Waiting for the DNS Challenges to be Received..
+2022-10-07T08:03:07.025074Z:Waiting for the DNS Challenges to be Received..
+{
+  "results": []
+}
+2022-10-07T08:03:18.185385Z:Waiting for the DNS Challenges to be Received..
+{
+  "results": []
+}
+2022-10-07T08:03:29.097862Z:Waiting for the DNS Challenges to be Received..
+{
+  "results": []
+}
+2022-10-07T08:03:40.099179Z:Waiting for the DNS Challenges to be Received..
+{
+  "results": []
+}
+2022-10-07T08:03:50.850454Z:Waiting for the DNS Challenges to be Received..
+{
+  "results": []
+}
+2022-10-07T08:04:01.689893Z:Waiting for the DNS Challenges to be Received..
 {
   "results": [
     {
-      "domain": "varys.iamacmp.com",
+      "domain": "joffreybaratheon.iamacmp.com",
       "domainHistory": [
         {
-          "domain": "varys.iamacmp.com",
-          "responseBody": "fFmAK_uUaxisqa-Pn6IFg5Mc0oE9hOPngCO8LCnGg0o.Lq3WI0uLtsfYfdMMhy-X5znkqmJ9QP8s5LJH_pKpBjY",
-          "fullPath": "http://varys.iamacmp.com/.well-known/acme-challenge/fFmAK_uUaxisqa-Pn6IFg5Mc0oE9hOPngCO8LCnGg0o",
-          "token": "fFmAK_uUaxisqa-Pn6IFg5Mc0oE9hOPngCO8LCnGg0o",
+          "domain": "joffreybaratheon.iamacmp.com",
+          "responseBody": "FHNsAZzEBIZ3VKT09bzy_hw0xOLze7LdmrjZLolrL3s.Lq3WI0uLtsfYfdMMhy-X5znkqmJ9QP8s5LJH_pKpBjY",
+          "fullPath": "http://joffreybaratheon.iamacmp.com/.well-known/acme-challenge/FHNsAZzEBIZ3VKT09bzy_hw0xOLze7LdmrjZLolrL3s",
+          "token": "FHNsAZzEBIZ3VKT09bzy_hw0xOLze7LdmrjZLolrL3s",
           "status": "Awaiting user",
-          "error": "The domain varys.iamacmp.com is not ready for HTTP validation.",
+          "error": "The domain joffreybaratheon.iamacmp.com is not ready for HTTP validation.",
           "validationStatus": "DATA_NOT_READY",
-          "requestTimestamp": "2022-10-06T17:32:17Z",
-          "validatedTimestamp": "2022-10-06T17:32:18Z",
-          "expires": "2022-10-13T17:32:17Z",
-          "redirectFullPath": "http://dcv.akamai.com/.well-known/acme-challenge/fFmAK_uUaxisqa-Pn6IFg5Mc0oE9hOPngCO8LCnGg0o",
+          "requestTimestamp": "2022-10-07T02:33:54Z",
+          "validatedTimestamp": "2022-10-07T02:33:55Z",
+          "expires": "2022-10-14T02:33:54Z",
+          "redirectFullPath": "http://dcv.akamai.com/.well-known/acme-challenge/FHNsAZzEBIZ3VKT09bzy_hw0xOLze7LdmrjZLolrL3s",
           "validationRecords": [],
           "challenges": [
             {
               "type": "http-01",
               "status": "pending",
               "error": null,
-              "token": "fFmAK_uUaxisqa-Pn6IFg5Mc0oE9hOPngCO8LCnGg0o",
-              "responseBody": "fFmAK_uUaxisqa-Pn6IFg5Mc0oE9hOPngCO8LCnGg0o.Lq3WI0uLtsfYfdMMhy-X5znkqmJ9QP8s5LJH_pKpBjY",
-              "fullPath": "http://varys.iamacmp.com/.well-known/acme-challenge/fFmAK_uUaxisqa-Pn6IFg5Mc0oE9hOPngCO8LCnGg0o",
-              "redirectFullPath": "http://dcv.akamai.com/.well-known/acme-challenge/fFmAK_uUaxisqa-Pn6IFg5Mc0oE9hOPngCO8LCnGg0o",
+              "token": "FHNsAZzEBIZ3VKT09bzy_hw0xOLze7LdmrjZLolrL3s",
+              "responseBody": "FHNsAZzEBIZ3VKT09bzy_hw0xOLze7LdmrjZLolrL3s.Lq3WI0uLtsfYfdMMhy-X5znkqmJ9QP8s5LJH_pKpBjY",
+              "fullPath": "http://joffreybaratheon.iamacmp.com/.well-known/acme-challenge/FHNsAZzEBIZ3VKT09bzy_hw0xOLze7LdmrjZLolrL3s",
+              "redirectFullPath": "http://dcv.akamai.com/.well-known/acme-challenge/FHNsAZzEBIZ3VKT09bzy_hw0xOLze7LdmrjZLolrL3s",
               "validationRecords": []
             },
             {
               "type": "dns-01",
               "status": "pending",
               "error": null,
-              "token": "fFmAK_uUaxisqa-Pn6IFg5Mc0oE9hOPngCO8LCnGg0o",
-              "responseBody": "88PNHM5W8o8Wsa35i_ym9ipPxdVy870YEOJe2HjL9YI",
-              "fullPath": "_acme-challenge.varys.iamacmp.com.",
+              "token": "FHNsAZzEBIZ3VKT09bzy_hw0xOLze7LdmrjZLolrL3s",
+              "responseBody": "VZ6BHNpOVzRYHacQxt69eK4w_9oyZfqX-4BbV8Kl8IA",
+              "fullPath": "_acme-challenge.joffreybaratheon.iamacmp.com.",
               "redirectFullPath": "",
               "validationRecords": []
             }
@@ -140,9 +160,9 @@ b'{\n  "enrollment" : "/cps/v2/enrollments/159511",\n  "changes" : [ "/cps/v2/en
     }
   ]
 }
-2022-10-06T23:02:22.432504Z:DNS Challenges Received for _acme-challenge.varys.iamacmp.com.
-2022-10-06T23:02:22.432627Z:
-DNS Record:_acme-challenge.varys.iamacmp.com.
-Token:88PNHM5W8o8Wsa35i_ym9ipPxdVy870YEOJe2HjL9YI
-2022-10-06T23:02:23.428094Z:Created a TXT record for  Succesfully for _acme-challenge.varys.iamacmp.com.
-2022-10-06T23:02:23.428157Z:The status of adding record _acme-challenge.varys.iamacmp.com. to DNSZone is True
+2022-10-07T08:04:02.700822Z:DNS Challenges Received for _acme-challenge.joffreybaratheon.iamacmp.com.
+2022-10-07T08:04:02.700973Z:
+DNS Record:_acme-challenge.joffreybaratheon.iamacmp.com.
+Token:VZ6BHNpOVzRYHacQxt69eK4w_9oyZfqX-4BbV8Kl8IA
+2022-10-07T08:04:05.018371Z:Created a TXT record for  Succesfully for _acme-challenge.joffreybaratheon.iamacmp.com.
+2022-10-07T08:04:05.018446Z:The status of adding record _acme-challenge.joffreybaratheon.iamacmp.com. to DNSZone is True

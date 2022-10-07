@@ -2,23 +2,66 @@ https://akab-mtuntcyrueze3iy2-neyp4ci3wi6akzdp.luna.akamaiapis.net/appsec/v1/con
 {'accountSwitchKey': '1-6JHGX'}
 {'accept': 'application/json', 'content-type': 'application/json'}
 {
-  "name": "GotSecConfig",
+  "name": "ToiDemo",
   "description": "Test",
   "contractId": "1-1NC95D",
   "groupId": "223702",
   "hostnames": [
-    "varys.iamacmp.com"
+    "joffreybaratheon.iamacmp.com"
   ]
 }
-b'{\n  "configId" : 87042,\n  "description" : "Test",\n  "name" : "GotSecConfig",\n  "version" : 1\n}'
-Successfully created the App Sec Config and Config Id is 87042
-https://akab-mtuntcyrueze3iy2-neyp4ci3wi6akzdp.luna.akamaiapis.net/appsec/v1/configs/87042/versions/1/security-policies
+b'{\n  "configId" : 87054,\n  "description" : "Test",\n  "name" : "ToiDemo",\n  "version" : 1\n}'
+Successfully created the App Sec Config and Config Id is 87054
+https://akab-mtuntcyrueze3iy2-neyp4ci3wi6akzdp.luna.akamaiapis.net/appsec/v1/configs/87054/versions/1/security-policies
 {'accountSwitchKey': '1-6JHGX'}
 {'accept': 'application/json', 'content-type': 'application/json'}
 {
   "policyName": "Policy1",
-  "policyPrefix": "Egd"
+  "policyPrefix": "fhd"
 }
-b'{\n  "configId" : 87042,\n  "policyId" : "Egd_187967",\n  "policyName" : "Policy1",\n  "policySecurityControls" : {\n    "applyApiConstraints" : true,\n    "applyApplicationLayerControls" : true,\n    "applyBotmanControls" : true,\n    "applyMalwareControls" : true,\n    "applyNetworkLayerControls" : true,\n    "applyRateControls" : true,\n    "applyReputationControls" : true,\n    "applySlowPostControls" : true\n  },\n  "version" : 1\n}'
-2022-10-06T23:09:02.911235Z:Successfully created the App Sec Policy Policy1 and  Id is Egd_187967
-2022-10-06T23:09:02.911388Z:Config GotSecConfig and Security Policy Policy1 has been created
+b'{\n  "configId" : 87054,\n  "policyId" : "fhd_188004",\n  "policyName" : "Policy1",\n  "policySecurityControls" : {\n    "applyApiConstraints" : true,\n    "applyApplicationLayerControls" : true,\n    "applyBotmanControls" : true,\n    "applyMalwareControls" : true,\n    "applyNetworkLayerControls" : true,\n    "applyRateControls" : true,\n    "applyReputationControls" : true,\n    "applySlowPostControls" : true\n  },\n  "version" : 1\n}'
+2022-10-07T08:18:33.313162Z:Successfully created the App Sec Policy Policy1 and  Id is fhd_188004
+2022-10-07T08:18:33.313323Z:Config ToiDemo and Security Policy Policy1 has been created
+https://akab-mtuntcyrueze3iy2-neyp4ci3wi6akzdp.luna.akamaiapis.net/appsec/v1/configs/87054/versions/1/match-targets
+{'accountSwitchKey': '1-6JHGX'}
+{'accept': 'application/json', 'content-type': 'application/json'}
+{
+  "defaultFile": "NO_MATCH",
+  "filePaths": [
+    "/*"
+  ],
+  "hostnames": [
+    "joffreybaratheon.iamacmp.com"
+  ],
+  "securityPolicy": {
+    "policyId": "fhd_188004"
+  },
+  "isNegativeFileExtensionMatch": false,
+  "isNegativePathMatch": false,
+  "type": "website"
+}
+b'{\n  "type" : "website",\n  "configId" : 87054,\n  "configVersion" : 1,\n  "defaultFile" : "NO_MATCH",\n  "effectiveSecurityControls" : {\n    "applyApplicationLayerControls" : true,\n    "applyBotmanControls" : true,\n    "applyNetworkLayerControls" : true,\n    "applyRateControls" : true,\n    "applyReputationControls" : true,\n    "applySlowPostControls" : true\n  },\n  "filePaths" : [ "/*" ],\n  "hostnames" : [ "joffreybaratheon.iamacmp.com" ],\n  "isNegativeFileExtensionMatch" : false,\n  "isNegativePathMatch" : false,\n  "securityPolicy" : {\n    "policyId" : "fhd_188004"\n  },\n  "sequence" : 1,\n  "targetId" : 5271136\n}'
+2022-10-07T08:18:34.541021Z:Successfully Added the Match Targets
+2022-10-07T08:18:34.541069Z:Succesfully added the Match Targets for the Security Config ToiDemo
+https://akab-mtuntcyrueze3iy2-neyp4ci3wi6akzdp.luna.akamaiapis.net/appsec/v1/activations
+{'accountSwitchKey': '1-6JHGX'}
+{'accept': 'application/json', 'content-type': 'application/json'}
+{
+  "activationConfigs": [
+    {
+      "configId": 87054,
+      "configVersion": 1
+    }
+  ],
+  "notificationEmails": [
+    "apadmana@akamai.com",
+    "achuthananda@gmail.com"
+  ],
+  "network": "STAGING",
+  "note": "Activatiion",
+  "action": "ACTIVATE"
+}
+b'{"action":"ACTIVATE","activationConfigs":[{"configId":87054,"configName":"ToiDemo","configVersion":1}],"activationId":1038910,"createDate":"2022-10-07T02:50:11Z","createdBy":"apadmana","network":"STAGING","status":"RECEIVED"}'
+2022-10-07T08:20:11.824552Z:Successfully activated to staging
+2022-10-07T08:20:11.824706Z:Staging Activation Started for the Security Config ToiDemo
+2022-10-07T08:20:11.824742Z:Succesfully Created the App Sec Config and the config Id is 87054 and Policy Id is fhd_188004

@@ -182,15 +182,15 @@ if __name__ == "__main__":
                     activationStatus = False
                     if versionStatus:
                         activationStatus = akConfig.activateStaging(1,"Adding {}".format(args.hostName),emailArray)
-                    print_log("Update Status :{}".format(originAddition))
-                    print_log("Version Status:{}".format(versionStatus))
-                    print_log("Activation Status:{}".format(activationStatus))
+                    print_log("Update Status :{}".format(originAddition),consolePrint=True)
+                    print_log("Version Update Status:{}".format(versionStatus),consolePrint=True)
+                    print_log("Activation Status:{}".format(activationStatus),consolePrint=True)
                     print_log('*'*80)
 
                     if activationStatus == True:
-                        print_log("Succesfully Started Activation the Config to Staging Network\n")
+                        print_log("Succesfully Started Activation the Config to Staging Network\n",consolePrint=True)
                     else:
-                        print_log("Failed to Activate the Config to Staging Network\n")
+                        print_log("Failed to Activate the Config to Staging Network\n",consolePrint=True)
 
     else:
         print_log("Creating the config")

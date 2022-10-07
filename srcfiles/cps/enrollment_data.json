@@ -42,12 +42,12 @@
     "changeManagement": true,
     "csr": {
         "c": "US",
-        "cn": "varys.iamacmp.com",
+        "cn": "joffreybaratheon.iamacmp.com",
         "l": "Cambridge",
         "o": "Akamai",
         "ou": "WebEx",
         "sans": [
-            "varys.iamacmp.com"
+            "joffreybaratheon.iamacmp.com"
         ],
         "st": "MA"
     },
@@ -65,7 +65,7 @@
         "dnsNameSettings": {
           "cloneDnsNames": true,
           "dnsNames": [
-            "varys.iamacmp.com"
+            "joffreybaratheon.iamacmp.com"
           ]
         },
         "ocspStapling": "on",

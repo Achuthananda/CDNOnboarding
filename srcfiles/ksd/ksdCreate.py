@@ -10,6 +10,7 @@ import random
 import string
 import uuid
 from ..common.commonutilities import print_log
+from .ksdUtility import activateStagingAppSecConfig,createMatchTarget
 
 import configparser
 
@@ -54,7 +55,6 @@ def createConfig(accountSwitchKey,configName,contractId,groupId,hostNameArray):
         print('{}:Error create the App Sec Config'.format(e),file=sys.stderr)
         return 0
 
-    return configId
 
 def createSecurityPolicy(accountSwitchKey,configId,version,securityPolicyName):
     try:
@@ -98,11 +98,22 @@ def createSecurityPolicy(accountSwitchKey,configId,version,securityPolicyName):
 
 def createAppSecConfig(accountSwitchKey,configName,contractId,groupId,securityPolicyName,hostNameArray):
     try:
+        policyId = 0
         configId = createConfig(accountSwitchKey,configName,contractId,groupId,hostNameArray)
         if configId != 0 :
             policyId = createSecurityPolicy(accountSwitchKey,configId,1,securityPolicyName)
             if policyId != 0:
                 print_log("Config {} and Security Policy {} has been created".format(configName,securityPolicyName))
+                matchTargetStatus = createMatchTarget(accountSwitchKey,configId,1,policyId,['/*'],hostNameArray)
+                if matchTargetStatus:
+                    print_log("Succesfully added the Match Targets for the Security Config {}".format(configName))
+                    activationStatus = activateStagingAppSecConfig(configId,1,accountSwitchKey)
+                    if activationStatus:
+                        print_log("Staging Activation Started for the Security Config {}".format(configName))
+                    else:
+                        print_log("Staging Activation Failed for the Security Config {}".format(configName))
+                else:
+                    print_log("Failed to add the Match Targets for the Security Config {}".format(configName))
             else:
                 print_log("Config {} and Security Policy {} creation Failed".format(configName,securityPolicyName))
         else:
@@ -127,6 +138,7 @@ if __name__ == "__main__":
     parser.add_argument('--logfile', help='Log File Name')
     
 
+    
     args = parser.parse_args()
     jobId = str(uuid.uuid1())
     logfilepath = ''
@@ -143,12 +155,12 @@ if __name__ == "__main__":
     hostNameArray = args.hostnames.split(',')
     configId,policyId = createAppSecConfig(args.accountSwitchKey,args.name,args.contractId,args.groupId,args.securityPolicyName,hostNameArray)
     if configId != 0:
-        print('Succesfully Created the App Sec Config and the config Id is {} and Policy Id is {}'.format(configId,policyId),file=sys.stderr)
+        print_log('Succesfully Created the App Sec Config and the config Id is {} and Policy Id is {}'.format(configId,policyId),consolePrint=True)
     else:
-        print('Failed to Created the App Sec Config',file=sys.stderr)
+        print_log('Failed to Created the App Sec Config',consolePrint=True)
    
 '''
-python -m srcfiles.ksd.ksdCreate --logfile ksdlog --accountSwitchKey 1-6JHGX --name GotSecConfig --groupId 223702 --contractId 1-1NC95D --securityPolicyName Policy1 --hostnames 'varys.iamacmp.com'
+python -m srcfiles.ksd.ksdCreate --logfile ksdlog --accountSwitchKey 1-6JHGX --groupId 223702 --contractId 1-1NC95D --securityPolicyName Policy1 --hostnames 'joffreybaratheon.iamacmp.com' --name TimesInternal
 Akamai Professional Services
 '''
 
